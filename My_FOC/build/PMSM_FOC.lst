@@ -1,0 +1,1945 @@
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"PMSM_FOC.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	__aeabi_f2d
+  18              		.global	__aeabi_dmul
+  19              		.global	__aeabi_dadd
+  20              		.global	__aeabi_d2f
+  21              		.section	.text.Park_transit,"ax",%progbits
+  22              		.align	1
+  23              		.global	Park_transit
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	Park_transit:
+  29              	.LVL0:
+  30              	.LFB65:
+  31              		.file 1 "E:/study/New_Study/My_FOC/FOC/PMSM_FOC.c"
+   1:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** #include "PMSM_FOC.h"
+   2:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+   3:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** uint32_t MyADC_Value[2];
+   4:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+   5:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
+   6:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** Park变换，输入电角度、Ualpha和Ubeta，经过Park变换得到Uq、Ud
+   7:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
+   8:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Park_transit(struct DQ_Aix* Volt_QD,struct AlphaBeta_Aix* Volt_AB)       
+   9:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** { 
+  32              		.loc 1 9 1 view -0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 16
+  35              		@ frame_needed = 0, uses_anonymous_args = 0
+  36              		.loc 1 9 1 is_stmt 0 view .LVU1
+  37 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  38              	.LCFI0:
+  39              		.cfi_def_cfa_offset 36
+  40              		.cfi_offset 4, -36
+  41              		.cfi_offset 5, -32
+  42              		.cfi_offset 6, -28
+  43              		.cfi_offset 7, -24
+  44              		.cfi_offset 8, -20
+  45              		.cfi_offset 9, -16
+  46              		.cfi_offset 10, -12
+  47              		.cfi_offset 11, -8
+  48              		.cfi_offset 14, -4
+  49 0004 85B0     		sub	sp, sp, #20
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 2
+
+
+  50              	.LCFI1:
+  51              		.cfi_def_cfa_offset 56
+  52 0006 0546     		mov	r5, r0
+  53 0008 0C46     		mov	r4, r1
+  10:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     // float angle_el = Get_Current_Angle() * POLE_PAIR_NUM;       /* 根据极对数计算电角�
+  11:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+  12:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     Volt_QD->V_q = -Volt_AB->V_Alpha*sin(Volt_QD->theta) + Volt_AB->V_Beta*cos(Volt_QD->theta);    
+  54              		.loc 1 12 5 is_stmt 1 view .LVU2
+  55              		.loc 1 12 28 is_stmt 0 view .LVU3
+  56 000a 0868     		ldr	r0, [r1]	@ float
+  57              	.LVL1:
+  58              		.loc 1 12 20 view .LVU4
+  59 000c 00F10040 		add	r0, r0, #-2147483648
+  60 0010 FFF7FEFF 		bl	__aeabi_f2d
+  61              	.LVL2:
+  62              		.loc 1 12 20 view .LVU5
+  63 0014 8046     		mov	r8, r0
+  64 0016 8946     		mov	r9, r1
+  65              		.loc 1 12 38 view .LVU6
+  66 0018 A868     		ldr	r0, [r5, #8]	@ float
+  67 001a FFF7FEFF 		bl	__aeabi_f2d
+  68              	.LVL3:
+  69 001e 8246     		mov	r10, r0
+  70 0020 8B46     		mov	fp, r1
+  71 0022 FFF7FEFF 		bl	sin
+  72              	.LVL4:
+  73 0026 0646     		mov	r6, r0
+  74 0028 0F46     		mov	r7, r1
+  75              		.loc 1 12 37 view .LVU7
+  76 002a 0246     		mov	r2, r0
+  77 002c 0B46     		mov	r3, r1
+  78 002e 4046     		mov	r0, r8
+  79 0030 4946     		mov	r1, r9
+  80 0032 FFF7FEFF 		bl	__aeabi_dmul
+  81              	.LVL5:
+  82 0036 CDE90201 		strd	r0, [sp, #8]
+  83              		.loc 1 12 67 view .LVU8
+  84 003a 6068     		ldr	r0, [r4, #4]	@ float
+  85 003c FFF7FEFF 		bl	__aeabi_f2d
+  86              	.LVL6:
+  87 0040 CDE90001 		strd	r0, [sp]
+  88              		.loc 1 12 76 view .LVU9
+  89 0044 5046     		mov	r0, r10
+  90 0046 5946     		mov	r1, fp
+  91 0048 FFF7FEFF 		bl	cos
+  92              	.LVL7:
+  93 004c 8046     		mov	r8, r0
+  94 004e 8946     		mov	r9, r1
+  95              		.loc 1 12 75 view .LVU10
+  96 0050 0246     		mov	r2, r0
+  97 0052 0B46     		mov	r3, r1
+  98 0054 DDE90001 		ldrd	r0, [sp]
+  99 0058 FFF7FEFF 		bl	__aeabi_dmul
+ 100              	.LVL8:
+ 101 005c 0246     		mov	r2, r0
+ 102 005e 0B46     		mov	r3, r1
+ 103              		.loc 1 12 58 view .LVU11
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 3
+
+
+ 104 0060 DDE90201 		ldrd	r0, [sp, #8]
+ 105 0064 FFF7FEFF 		bl	__aeabi_dadd
+ 106              	.LVL9:
+ 107 0068 FFF7FEFF 		bl	__aeabi_d2f
+ 108              	.LVL10:
+ 109              		.loc 1 12 18 view .LVU12
+ 110 006c 6860     		str	r0, [r5, #4]	@ float
+  13:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     Volt_QD->V_d = Volt_AB->V_Alpha*cos(Volt_QD->theta) + Volt_AB->V_Beta*sin(Volt_QD->theta);
+ 111              		.loc 1 13 5 is_stmt 1 view .LVU13
+ 112              		.loc 1 13 27 is_stmt 0 view .LVU14
+ 113 006e 2068     		ldr	r0, [r4]	@ float
+ 114 0070 FFF7FEFF 		bl	__aeabi_f2d
+ 115              	.LVL11:
+ 116 0074 0246     		mov	r2, r0
+ 117 0076 0B46     		mov	r3, r1
+ 118              		.loc 1 13 36 view .LVU15
+ 119 0078 4046     		mov	r0, r8
+ 120 007a 4946     		mov	r1, r9
+ 121 007c FFF7FEFF 		bl	__aeabi_dmul
+ 122              	.LVL12:
+ 123 0080 8046     		mov	r8, r0
+ 124 0082 8946     		mov	r9, r1
+ 125              		.loc 1 13 66 view .LVU16
+ 126 0084 6068     		ldr	r0, [r4, #4]	@ float
+ 127 0086 FFF7FEFF 		bl	__aeabi_f2d
+ 128              	.LVL13:
+ 129 008a 0246     		mov	r2, r0
+ 130 008c 0B46     		mov	r3, r1
+ 131              		.loc 1 13 74 view .LVU17
+ 132 008e 3046     		mov	r0, r6
+ 133 0090 3946     		mov	r1, r7
+ 134 0092 FFF7FEFF 		bl	__aeabi_dmul
+ 135              	.LVL14:
+ 136 0096 0246     		mov	r2, r0
+ 137 0098 0B46     		mov	r3, r1
+ 138              		.loc 1 13 57 view .LVU18
+ 139 009a 4046     		mov	r0, r8
+ 140 009c 4946     		mov	r1, r9
+ 141 009e FFF7FEFF 		bl	__aeabi_dadd
+ 142              	.LVL15:
+ 143 00a2 FFF7FEFF 		bl	__aeabi_d2f
+ 144              	.LVL16:
+ 145              		.loc 1 13 18 view .LVU19
+ 146 00a6 2860     		str	r0, [r5]	@ float
+  14:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 147              		.loc 1 14 1 view .LVU20
+ 148 00a8 05B0     		add	sp, sp, #20
+ 149              	.LCFI2:
+ 150              		.cfi_def_cfa_offset 36
+ 151              		@ sp needed
+ 152 00aa BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 153              		.loc 1 14 1 view .LVU21
+ 154              		.cfi_endproc
+ 155              	.LFE65:
+ 157              		.global	__aeabi_dsub
+ 158              		.section	.text.Rev_Park,"ax",%progbits
+ 159              		.align	1
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 4
+
+
+ 160              		.global	Rev_Park
+ 161              		.syntax unified
+ 162              		.thumb
+ 163              		.thumb_func
+ 165              	Rev_Park:
+ 166              	.LVL17:
+ 167              	.LFB66:
+  15:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+  16:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
+  17:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 反park变换，输入Uq、Ud得到Ualpha、Ubeta
+  18:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
+  19:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Rev_Park(struct DQ_Aix* Volt_QD,struct AlphaBeta_Aix* Volt_AB)
+  20:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 168              		.loc 1 20 1 is_stmt 1 view -0
+ 169              		.cfi_startproc
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172              		.loc 1 20 1 is_stmt 0 view .LVU23
+ 173 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 174              	.LCFI3:
+ 175              		.cfi_def_cfa_offset 40
+ 176              		.cfi_offset 3, -40
+ 177              		.cfi_offset 4, -36
+ 178              		.cfi_offset 5, -32
+ 179              		.cfi_offset 6, -28
+ 180              		.cfi_offset 7, -24
+ 181              		.cfi_offset 8, -20
+ 182              		.cfi_offset 9, -16
+ 183              		.cfi_offset 10, -12
+ 184              		.cfi_offset 11, -8
+ 185              		.cfi_offset 14, -4
+ 186 0004 0446     		mov	r4, r0
+ 187 0006 0D46     		mov	r5, r1
+  21:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	// Volt_QD->theta = Get_Current_Angle() * POLE_PAIR_NUM;       /* 根据极对数计算电角度 *
+  22:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+  23:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     Volt_AB->V_Alpha = Volt_QD->V_d*cos(Volt_QD->theta) - Volt_QD->V_q*sin(Volt_QD->theta);
+ 188              		.loc 1 23 5 is_stmt 1 view .LVU24
+ 189              		.loc 1 23 31 is_stmt 0 view .LVU25
+ 190 0008 0068     		ldr	r0, [r0]	@ float
+ 191              	.LVL18:
+ 192              		.loc 1 23 31 view .LVU26
+ 193 000a FFF7FEFF 		bl	__aeabi_f2d
+ 194              	.LVL19:
+ 195              		.loc 1 23 31 view .LVU27
+ 196 000e 0646     		mov	r6, r0
+ 197 0010 0F46     		mov	r7, r1
+ 198              		.loc 1 23 37 view .LVU28
+ 199 0012 A068     		ldr	r0, [r4, #8]	@ float
+ 200 0014 FFF7FEFF 		bl	__aeabi_f2d
+ 201              	.LVL20:
+ 202 0018 8046     		mov	r8, r0
+ 203 001a 8946     		mov	r9, r1
+ 204 001c FFF7FEFF 		bl	cos
+ 205              	.LVL21:
+ 206 0020 0246     		mov	r2, r0
+ 207 0022 0B46     		mov	r3, r1
+ 208              		.loc 1 23 36 view .LVU29
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 5
+
+
+ 209 0024 3046     		mov	r0, r6
+ 210 0026 3946     		mov	r1, r7
+ 211 0028 FFF7FEFF 		bl	__aeabi_dmul
+ 212              	.LVL22:
+ 213 002c 8246     		mov	r10, r0
+ 214 002e 8B46     		mov	fp, r1
+ 215              		.loc 1 23 66 view .LVU30
+ 216 0030 6068     		ldr	r0, [r4, #4]	@ float
+ 217 0032 FFF7FEFF 		bl	__aeabi_f2d
+ 218              	.LVL23:
+ 219 0036 0646     		mov	r6, r0
+ 220 0038 0F46     		mov	r7, r1
+ 221              		.loc 1 23 72 view .LVU31
+ 222 003a 4046     		mov	r0, r8
+ 223 003c 4946     		mov	r1, r9
+ 224 003e FFF7FEFF 		bl	sin
+ 225              	.LVL24:
+ 226 0042 0246     		mov	r2, r0
+ 227 0044 0B46     		mov	r3, r1
+ 228              		.loc 1 23 71 view .LVU32
+ 229 0046 3046     		mov	r0, r6
+ 230 0048 3946     		mov	r1, r7
+ 231 004a FFF7FEFF 		bl	__aeabi_dmul
+ 232              	.LVL25:
+ 233 004e 0246     		mov	r2, r0
+ 234 0050 0B46     		mov	r3, r1
+ 235              		.loc 1 23 57 view .LVU33
+ 236 0052 5046     		mov	r0, r10
+ 237 0054 5946     		mov	r1, fp
+ 238 0056 FFF7FEFF 		bl	__aeabi_dsub
+ 239              	.LVL26:
+ 240 005a FFF7FEFF 		bl	__aeabi_d2f
+ 241              	.LVL27:
+ 242              		.loc 1 23 22 view .LVU34
+ 243 005e 2860     		str	r0, [r5]	@ float
+  24:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     Volt_AB->V_Beta = Volt_QD->V_d*sin(Volt_QD->theta) + Volt_QD->V_q*cos(Volt_QD->theta);	
+ 244              		.loc 1 24 5 is_stmt 1 view .LVU35
+ 245              		.loc 1 24 30 is_stmt 0 view .LVU36
+ 246 0060 2068     		ldr	r0, [r4]	@ float
+ 247 0062 FFF7FEFF 		bl	__aeabi_f2d
+ 248              	.LVL28:
+ 249 0066 0646     		mov	r6, r0
+ 250 0068 0F46     		mov	r7, r1
+ 251              		.loc 1 24 36 view .LVU37
+ 252 006a A068     		ldr	r0, [r4, #8]	@ float
+ 253 006c FFF7FEFF 		bl	__aeabi_f2d
+ 254              	.LVL29:
+ 255 0070 8046     		mov	r8, r0
+ 256 0072 8946     		mov	r9, r1
+ 257 0074 FFF7FEFF 		bl	sin
+ 258              	.LVL30:
+ 259 0078 0246     		mov	r2, r0
+ 260 007a 0B46     		mov	r3, r1
+ 261              		.loc 1 24 35 view .LVU38
+ 262 007c 3046     		mov	r0, r6
+ 263 007e 3946     		mov	r1, r7
+ 264 0080 FFF7FEFF 		bl	__aeabi_dmul
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 6
+
+
+ 265              	.LVL31:
+ 266 0084 8246     		mov	r10, r0
+ 267 0086 8B46     		mov	fp, r1
+ 268              		.loc 1 24 65 view .LVU39
+ 269 0088 6068     		ldr	r0, [r4, #4]	@ float
+ 270 008a FFF7FEFF 		bl	__aeabi_f2d
+ 271              	.LVL32:
+ 272 008e 0646     		mov	r6, r0
+ 273 0090 0F46     		mov	r7, r1
+ 274              		.loc 1 24 71 view .LVU40
+ 275 0092 4046     		mov	r0, r8
+ 276 0094 4946     		mov	r1, r9
+ 277 0096 FFF7FEFF 		bl	cos
+ 278              	.LVL33:
+ 279 009a 0246     		mov	r2, r0
+ 280 009c 0B46     		mov	r3, r1
+ 281              		.loc 1 24 70 view .LVU41
+ 282 009e 3046     		mov	r0, r6
+ 283 00a0 3946     		mov	r1, r7
+ 284 00a2 FFF7FEFF 		bl	__aeabi_dmul
+ 285              	.LVL34:
+ 286 00a6 0246     		mov	r2, r0
+ 287 00a8 0B46     		mov	r3, r1
+ 288              		.loc 1 24 56 view .LVU42
+ 289 00aa 5046     		mov	r0, r10
+ 290 00ac 5946     		mov	r1, fp
+ 291 00ae FFF7FEFF 		bl	__aeabi_dadd
+ 292              	.LVL35:
+ 293 00b2 FFF7FEFF 		bl	__aeabi_d2f
+ 294              	.LVL36:
+ 295              		.loc 1 24 21 view .LVU43
+ 296 00b6 6860     		str	r0, [r5, #4]	@ float
+  25:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+  26:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 297              		.loc 1 26 1 view .LVU44
+ 298 00b8 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 299              		.loc 1 26 1 view .LVU45
+ 300              		.cfi_endproc
+ 301              	.LFE66:
+ 303              		.global	__aeabi_fmul
+ 304              		.global	__aeabi_fsub
+ 305              		.global	__aeabi_fadd
+ 306              		.section	.text.clark_transit,"ax",%progbits
+ 307              		.align	1
+ 308              		.global	clark_transit
+ 309              		.syntax unified
+ 310              		.thumb
+ 311              		.thumb_func
+ 313              	clark_transit:
+ 314              	.LVL37:
+ 315              	.LFB67:
+  27:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+  28:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
+  29:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** clark变换，输入Ua、Ub、Uc得到Ualpha、Ubeta
+  30:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
+  31:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void clark_transit(struct Three_Phase* Volt,struct AlphaBeta_Aix* Volt_AB) 
+  32:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 7
+
+
+ 316              		.loc 1 32 1 is_stmt 1 view -0
+ 317              		.cfi_startproc
+ 318              		@ args = 0, pretend = 0, frame = 0
+ 319              		@ frame_needed = 0, uses_anonymous_args = 0
+ 320              		.loc 1 32 1 is_stmt 0 view .LVU47
+ 321 0000 70B5     		push	{r4, r5, r6, lr}
+ 322              	.LCFI4:
+ 323              		.cfi_def_cfa_offset 16
+ 324              		.cfi_offset 4, -16
+ 325              		.cfi_offset 5, -12
+ 326              		.cfi_offset 6, -8
+ 327              		.cfi_offset 14, -4
+ 328 0002 0446     		mov	r4, r0
+ 329 0004 0D46     		mov	r5, r1
+  33:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+  34:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     Volt_AB->V_Alpha = DIV_2_3*(Volt->Ua - DIV_1_2*Volt->Ub - DIV_1_2*Volt->Uc);   /* 做等幅值�
+ 330              		.loc 1 34 5 is_stmt 1 view .LVU48
+ 331              		.loc 1 34 37 is_stmt 0 view .LVU49
+ 332 0006 0668     		ldr	r6, [r0]	@ float
+ 333              		.loc 1 34 51 view .LVU50
+ 334 0008 4FF07C51 		mov	r1, #1056964608
+ 335              	.LVL38:
+ 336              		.loc 1 34 51 view .LVU51
+ 337 000c 4068     		ldr	r0, [r0, #4]	@ float
+ 338              	.LVL39:
+ 339              		.loc 1 34 51 view .LVU52
+ 340 000e FFF7FEFF 		bl	__aeabi_fmul
+ 341              	.LVL40:
+ 342 0012 0146     		mov	r1, r0
+ 343              		.loc 1 34 42 view .LVU53
+ 344 0014 3046     		mov	r0, r6
+ 345 0016 FFF7FEFF 		bl	__aeabi_fsub
+ 346              	.LVL41:
+ 347 001a 0646     		mov	r6, r0
+ 348              		.loc 1 34 70 view .LVU54
+ 349 001c 4FF07C51 		mov	r1, #1056964608
+ 350 0020 A068     		ldr	r0, [r4, #8]	@ float
+ 351 0022 FFF7FEFF 		bl	__aeabi_fmul
+ 352              	.LVL42:
+ 353 0026 0146     		mov	r1, r0
+ 354              		.loc 1 34 61 view .LVU55
+ 355 0028 3046     		mov	r0, r6
+ 356 002a FFF7FEFF 		bl	__aeabi_fsub
+ 357              	.LVL43:
+ 358              		.loc 1 34 31 view .LVU56
+ 359 002e 0B49     		ldr	r1, .L7
+ 360 0030 FFF7FEFF 		bl	__aeabi_fmul
+ 361              	.LVL44:
+ 362              		.loc 1 34 22 view .LVU57
+ 363 0034 2860     		str	r0, [r5]	@ float
+  35:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     Volt_AB->V_Beta = DIV_2_3*(Sqrt_3_div_2*Volt->Ub + Sqrt_3_div_2*Volt->Uc);
+ 364              		.loc 1 35 5 is_stmt 1 view .LVU58
+ 365              		.loc 1 35 44 is_stmt 0 view .LVU59
+ 366 0036 0A49     		ldr	r1, .L7+4
+ 367 0038 6068     		ldr	r0, [r4, #4]	@ float
+ 368 003a FFF7FEFF 		bl	__aeabi_fmul
+ 369              	.LVL45:
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 8
+
+
+ 370 003e 0646     		mov	r6, r0
+ 371              		.loc 1 35 68 view .LVU60
+ 372 0040 0749     		ldr	r1, .L7+4
+ 373 0042 A068     		ldr	r0, [r4, #8]	@ float
+ 374 0044 FFF7FEFF 		bl	__aeabi_fmul
+ 375              	.LVL46:
+ 376 0048 0146     		mov	r1, r0
+ 377              		.loc 1 35 54 view .LVU61
+ 378 004a 3046     		mov	r0, r6
+ 379 004c FFF7FEFF 		bl	__aeabi_fadd
+ 380              	.LVL47:
+ 381              		.loc 1 35 30 view .LVU62
+ 382 0050 0249     		ldr	r1, .L7
+ 383 0052 FFF7FEFF 		bl	__aeabi_fmul
+ 384              	.LVL48:
+ 385              		.loc 1 35 21 view .LVU63
+ 386 0056 6860     		str	r0, [r5, #4]	@ float
+  36:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+  37:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 387              		.loc 1 37 1 view .LVU64
+ 388 0058 70BD     		pop	{r4, r5, r6, pc}
+ 389              	.LVL49:
+ 390              	.L8:
+ 391              		.loc 1 37 1 view .LVU65
+ 392 005a 00BF     		.align	2
+ 393              	.L7:
+ 394 005c 3BAA2A3F 		.word	1059760699
+ 395 0060 7DB35D3F 		.word	1063105405
+ 396              		.cfi_endproc
+ 397              	.LFE67:
+ 399              		.section	.text.Rev_clark,"ax",%progbits
+ 400              		.align	1
+ 401              		.global	Rev_clark
+ 402              		.syntax unified
+ 403              		.thumb
+ 404              		.thumb_func
+ 406              	Rev_clark:
+ 407              	.LVL50:
+ 408              	.LFB68:
+  38:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+  39:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
+  40:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 反clark变换，输入Ualpha、Ubeta得到Ua、Ub、Uc
+  41:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
+  42:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Rev_clark(struct Three_Phase* Volt,struct AlphaBeta_Aix* Volt_AB) 
+  43:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 409              		.loc 1 43 1 is_stmt 1 view -0
+ 410              		.cfi_startproc
+ 411              		@ args = 0, pretend = 0, frame = 0
+ 412              		@ frame_needed = 0, uses_anonymous_args = 0
+ 413              		.loc 1 43 1 is_stmt 0 view .LVU67
+ 414 0000 70B5     		push	{r4, r5, r6, lr}
+ 415              	.LCFI5:
+ 416              		.cfi_def_cfa_offset 16
+ 417              		.cfi_offset 4, -16
+ 418              		.cfi_offset 5, -12
+ 419              		.cfi_offset 6, -8
+ 420              		.cfi_offset 14, -4
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 9
+
+
+ 421 0002 0546     		mov	r5, r0
+ 422 0004 0C46     		mov	r4, r1
+  44:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+  45:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     Volt->Ua = Volt_AB->V_Alpha;        /* 依据Ia+Ib+Ic=0 */
+ 423              		.loc 1 45 5 is_stmt 1 view .LVU68
+ 424              		.loc 1 45 23 is_stmt 0 view .LVU69
+ 425 0006 0868     		ldr	r0, [r1]	@ float
+ 426              	.LVL51:
+ 427              		.loc 1 45 14 view .LVU70
+ 428 0008 2860     		str	r0, [r5]	@ float
+  46:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     Volt->Ub = -DIV_1_2*Volt_AB->V_Alpha + Sqrt_3_div_2*Volt_AB->V_Beta;
+ 429              		.loc 1 46 5 is_stmt 1 view .LVU71
+ 430              		.loc 1 46 24 is_stmt 0 view .LVU72
+ 431 000a 4FF03F41 		mov	r1, #-1090519040
+ 432              	.LVL52:
+ 433              		.loc 1 46 24 view .LVU73
+ 434 000e FFF7FEFF 		bl	__aeabi_fmul
+ 435              	.LVL53:
+ 436 0012 0646     		mov	r6, r0
+ 437              		.loc 1 46 56 view .LVU74
+ 438 0014 0C49     		ldr	r1, .L11
+ 439 0016 6068     		ldr	r0, [r4, #4]	@ float
+ 440 0018 FFF7FEFF 		bl	__aeabi_fmul
+ 441              	.LVL54:
+ 442 001c 0146     		mov	r1, r0
+ 443              		.loc 1 46 42 view .LVU75
+ 444 001e 3046     		mov	r0, r6
+ 445 0020 FFF7FEFF 		bl	__aeabi_fadd
+ 446              	.LVL55:
+ 447              		.loc 1 46 14 view .LVU76
+ 448 0024 6860     		str	r0, [r5, #4]	@ float
+  47:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     Volt->Uc = -DIV_1_2*Volt_AB->V_Alpha - Sqrt_3_div_2*Volt_AB->V_Beta;
+ 449              		.loc 1 47 5 is_stmt 1 view .LVU77
+ 450              		.loc 1 47 24 is_stmt 0 view .LVU78
+ 451 0026 4FF03F41 		mov	r1, #-1090519040
+ 452 002a 2068     		ldr	r0, [r4]	@ float
+ 453 002c FFF7FEFF 		bl	__aeabi_fmul
+ 454              	.LVL56:
+ 455 0030 0646     		mov	r6, r0
+ 456              		.loc 1 47 56 view .LVU79
+ 457 0032 0549     		ldr	r1, .L11
+ 458 0034 6068     		ldr	r0, [r4, #4]	@ float
+ 459 0036 FFF7FEFF 		bl	__aeabi_fmul
+ 460              	.LVL57:
+ 461 003a 0146     		mov	r1, r0
+ 462              		.loc 1 47 42 view .LVU80
+ 463 003c 3046     		mov	r0, r6
+ 464 003e FFF7FEFF 		bl	__aeabi_fsub
+ 465              	.LVL58:
+ 466              		.loc 1 47 14 view .LVU81
+ 467 0042 A860     		str	r0, [r5, #8]	@ float
+  48:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+  49:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 468              		.loc 1 49 1 view .LVU82
+ 469 0044 70BD     		pop	{r4, r5, r6, pc}
+ 470              	.LVL59:
+ 471              	.L12:
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 10
+
+
+ 472              		.loc 1 49 1 view .LVU83
+ 473 0046 00BF     		.align	2
+ 474              	.L11:
+ 475 0048 7DB35D3F 		.word	1063105405
+ 476              		.cfi_endproc
+ 477              	.LFE68:
+ 479              		.global	__aeabi_fcmpgt
+ 480              		.section	.text.CalculateSector,"ax",%progbits
+ 481              		.align	1
+ 482              		.global	CalculateSector
+ 483              		.syntax unified
+ 484              		.thumb
+ 485              		.thumb_func
+ 487              	CalculateSector:
+ 488              	.LVL60:
+ 489              	.LFB69:
+  50:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+  51:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 当前扇区判断/扇区计算 */
+  52:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void CalculateSector(struct AlphaBeta_Aix ab, struct SVPWM_Control* ptr)
+  53:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 490              		.loc 1 53 1 is_stmt 1 view -0
+ 491              		.cfi_startproc
+ 492              		@ args = 0, pretend = 0, frame = 8
+ 493              		@ frame_needed = 0, uses_anonymous_args = 0
+ 494              		.loc 1 53 1 is_stmt 0 view .LVU85
+ 495 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 496              	.LCFI6:
+ 497              		.cfi_def_cfa_offset 32
+ 498              		.cfi_offset 4, -32
+ 499              		.cfi_offset 5, -28
+ 500              		.cfi_offset 6, -24
+ 501              		.cfi_offset 7, -20
+ 502              		.cfi_offset 8, -16
+ 503              		.cfi_offset 9, -12
+ 504              		.cfi_offset 10, -8
+ 505              		.cfi_offset 14, -4
+ 506 0004 82B0     		sub	sp, sp, #8
+ 507              	.LCFI7:
+ 508              		.cfi_def_cfa_offset 40
+ 509 0006 02AB     		add	r3, sp, #8
+ 510 0008 03E90300 		stmdb	r3, {r0, r1}
+ 511 000c 1546     		mov	r5, r2
+  54:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		int8_t A = 0;
+ 512              		.loc 1 54 3 is_stmt 1 view .LVU86
+ 513              	.LVL61:
+  55:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		int8_t B = 0;
+ 514              		.loc 1 55 3 view .LVU87
+  56:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		int8_t C = 0;
+ 515              		.loc 1 56 3 view .LVU88
+  57:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		int8_t N = 0;
+ 516              		.loc 1 57 3 view .LVU89
+  58:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
+  59:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****         /* 六个扇区的三个判断条件 */
+  60:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		float VA = ab.V_Beta;
+ 517              		.loc 1 60 3 view .LVU90
+ 518              		.loc 1 60 9 is_stmt 0 view .LVU91
+ 519 000e DDF80490 		ldr	r9, [sp, #4]	@ float
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 11
+
+
+ 520              	.LVL62:
+  61:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		float VB = ab.V_Alpha * Sqrt_3_div_2 - DIV_1_2 * ab.V_Beta;
+ 521              		.loc 1 61 3 is_stmt 1 view .LVU92
+ 522              		.loc 1 61 25 is_stmt 0 view .LVU93
+ 523 0012 3349     		ldr	r1, .L38
+ 524 0014 0098     		ldr	r0, [sp]	@ float
+ 525 0016 FFF7FEFF 		bl	__aeabi_fmul
+ 526              	.LVL63:
+ 527              		.loc 1 61 25 view .LVU94
+ 528 001a 0646     		mov	r6, r0
+ 529              		.loc 1 61 50 view .LVU95
+ 530 001c 4FF07C51 		mov	r1, #1056964608
+ 531 0020 4846     		mov	r0, r9
+ 532 0022 FFF7FEFF 		bl	__aeabi_fmul
+ 533              	.LVL64:
+ 534 0026 0446     		mov	r4, r0
+ 535              		.loc 1 61 9 view .LVU96
+ 536 0028 0146     		mov	r1, r0
+ 537 002a 3046     		mov	r0, r6
+ 538 002c FFF7FEFF 		bl	__aeabi_fsub
+ 539              	.LVL65:
+ 540 0030 8046     		mov	r8, r0
+ 541              	.LVL66:
+  62:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		float VC = 0 - ab.V_Alpha * Sqrt_3_div_2 - DIV_1_2 * ab.V_Beta;
+ 542              		.loc 1 62 3 is_stmt 1 view .LVU97
+ 543              		.loc 1 62 16 is_stmt 0 view .LVU98
+ 544 0032 3146     		mov	r1, r6
+ 545 0034 0020     		movs	r0, #0
+ 546              	.LVL67:
+ 547              		.loc 1 62 16 view .LVU99
+ 548 0036 FFF7FEFF 		bl	__aeabi_fsub
+ 549              	.LVL68:
+ 550 003a 8246     		mov	r10, r0
+ 551              		.loc 1 62 9 view .LVU100
+ 552 003c 2146     		mov	r1, r4
+ 553 003e FFF7FEFF 		bl	__aeabi_fsub
+ 554              	.LVL69:
+ 555 0042 0746     		mov	r7, r0
+ 556              	.LVL70:
+  63:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	
+  64:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****         /* 对X、Y、Z三个参量式赋值 */
+  65:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ptr->X = SVPWM_K * ab.V_Beta;
+ 557              		.loc 1 65 3 is_stmt 1 view .LVU101
+ 558              		.loc 1 65 20 is_stmt 0 view .LVU102
+ 559 0044 2749     		ldr	r1, .L38+4
+ 560 0046 4846     		mov	r0, r9
+ 561              	.LVL71:
+ 562              		.loc 1 65 20 view .LVU103
+ 563 0048 FFF7FEFF 		bl	__aeabi_fmul
+ 564              	.LVL72:
+ 565              		.loc 1 65 10 view .LVU104
+ 566 004c 6860     		str	r0, [r5, #4]	@ float
+  66:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ptr->Y = SVPWM_K * (ab.V_Alpha * Sqrt_3_div_2 + DIV_1_2 * ab.V_Beta);
+ 567              		.loc 1 66 3 is_stmt 1 view .LVU105
+ 568              		.loc 1 66 49 is_stmt 0 view .LVU106
+ 569 004e 2146     		mov	r1, r4
+ 570 0050 3046     		mov	r0, r6
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 12
+
+
+ 571 0052 FFF7FEFF 		bl	__aeabi_fadd
+ 572              	.LVL73:
+ 573              		.loc 1 66 20 view .LVU107
+ 574 0056 2349     		ldr	r1, .L38+4
+ 575 0058 FFF7FEFF 		bl	__aeabi_fmul
+ 576              	.LVL74:
+ 577              		.loc 1 66 10 view .LVU108
+ 578 005c A860     		str	r0, [r5, #8]	@ float
+  67:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ptr->Z = SVPWM_K * (0 - ab.V_Alpha * Sqrt_3_div_2 + DIV_1_2 * ab.V_Beta);
+ 579              		.loc 1 67 3 is_stmt 1 view .LVU109
+ 580              		.loc 1 67 53 is_stmt 0 view .LVU110
+ 581 005e 5146     		mov	r1, r10
+ 582 0060 2046     		mov	r0, r4
+ 583 0062 FFF7FEFF 		bl	__aeabi_fadd
+ 584              	.LVL75:
+ 585              		.loc 1 67 20 view .LVU111
+ 586 0066 1F49     		ldr	r1, .L38+4
+ 587 0068 FFF7FEFF 		bl	__aeabi_fmul
+ 588              	.LVL76:
+ 589              		.loc 1 67 10 view .LVU112
+ 590 006c E860     		str	r0, [r5, #12]	@ float
+  68:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	
+  69:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		if(VA > 0)
+ 591              		.loc 1 69 3 is_stmt 1 view .LVU113
+ 592              		.loc 1 69 5 is_stmt 0 view .LVU114
+ 593 006e 0021     		movs	r1, #0
+ 594 0070 4846     		mov	r0, r9
+ 595 0072 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 596              	.LVL77:
+ 597 0076 C8B1     		cbz	r0, .L34
+  70:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
+  71:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				A = 1;
+ 598              		.loc 1 71 7 view .LVU115
+ 599 0078 0124     		movs	r4, #1
+ 600              	.L14:
+ 601              	.LVL78:
+  72:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+  73:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		else
+  74:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
+  75:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				A = 0;
+  76:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+  77:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
+  78:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		if(VB > 0)
+ 602              		.loc 1 78 3 is_stmt 1 view .LVU116
+ 603              		.loc 1 78 5 is_stmt 0 view .LVU117
+ 604 007a 0021     		movs	r1, #0
+ 605 007c 4046     		mov	r0, r8
+ 606 007e FFF7FEFF 		bl	__aeabi_fcmpgt
+ 607              	.LVL79:
+ 608 0082 A8B1     		cbz	r0, .L35
+  79:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
+  80:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				B = 1;
+ 609              		.loc 1 80 7 view .LVU118
+ 610 0084 0126     		movs	r6, #1
+ 611              	.L16:
+ 612              	.LVL80:
+  81:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 13
+
+
+  82:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		else
+  83:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
+  84:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				B = 0;
+  85:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+  86:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
+  87:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		if(VC > 0)
+ 613              		.loc 1 87 3 is_stmt 1 view .LVU119
+ 614              		.loc 1 87 5 is_stmt 0 view .LVU120
+ 615 0086 0021     		movs	r1, #0
+ 616 0088 3846     		mov	r0, r7
+ 617 008a FFF7FEFF 		bl	__aeabi_fcmpgt
+ 618              	.LVL81:
+ 619 008e 88B1     		cbz	r0, .L36
+  88:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
+  89:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				C = 1;
+ 620              		.loc 1 89 7 view .LVU121
+ 621 0090 0123     		movs	r3, #1
+ 622              	.L18:
+ 623              	.LVL82:
+  90:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+  91:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		else
+  92:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
+  93:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				C = 0;
+  94:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+  95:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
+  96:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		N = 4*C + 2*B + A;
+ 624              		.loc 1 96 3 is_stmt 1 view .LVU122
+ 625              		.loc 1 96 11 is_stmt 0 view .LVU123
+ 626 0092 06EB4303 		add	r3, r6, r3, lsl #1
+ 627              	.LVL83:
+ 628              		.loc 1 96 17 view .LVU124
+ 629 0096 04EB4303 		add	r3, r4, r3, lsl #1
+ 630 009a DBB2     		uxtb	r3, r3
+ 631              	.LVL84:
+  97:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
+  98:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		switch(N)
+ 632              		.loc 1 98 3 is_stmt 1 view .LVU125
+ 633 009c 013B     		subs	r3, r3, #1
+ 634              	.LVL85:
+ 635              		.loc 1 98 3 is_stmt 0 view .LVU126
+ 636 009e 052B     		cmp	r3, #5
+ 637 00a0 0CD8     		bhi	.L13
+ 638 00a2 DFE803F0 		tbb	[pc, r3]
+ 639              	.L22:
+ 640 00a6 0E       		.byte	(.L27-.L22)/2
+ 641 00a7 1A       		.byte	(.L26-.L22)/2
+ 642 00a8 09       		.byte	(.L25-.L22)/2
+ 643 00a9 14       		.byte	(.L24-.L22)/2
+ 644 00aa 11       		.byte	(.L23-.L22)/2
+ 645 00ab 17       		.byte	(.L21-.L22)/2
+ 646              	.LVL86:
+ 647              		.p2align 1
+ 648              	.L34:
+  75:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 649              		.loc 1 75 7 view .LVU127
+ 650 00ac 0024     		movs	r4, #0
+ 651 00ae E4E7     		b	.L14
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 14
+
+
+ 652              	.LVL87:
+ 653              	.L35:
+  84:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 654              		.loc 1 84 7 view .LVU128
+ 655 00b0 0026     		movs	r6, #0
+ 656 00b2 E8E7     		b	.L16
+ 657              	.LVL88:
+ 658              	.L36:
+  93:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 659              		.loc 1 93 7 view .LVU129
+ 660 00b4 0023     		movs	r3, #0
+ 661 00b6 ECE7     		b	.L18
+ 662              	.LVL89:
+ 663              	.L25:
+  99:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
+ 100:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
+ 101:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 1;
+ 664              		.loc 1 101 5 is_stmt 1 view .LVU130
+ 665              		.loc 1 101 17 is_stmt 0 view .LVU131
+ 666 00b8 0123     		movs	r3, #1
+ 667              	.LVL90:
+ 668              		.loc 1 101 17 view .LVU132
+ 669 00ba 2B70     		strb	r3, [r5]
+ 102:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 670              		.loc 1 102 5 is_stmt 1 view .LVU133
+ 671              	.L13:
+ 103:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
+ 104:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 2;
+ 105:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 106:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 107:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 3;
+ 108:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 109:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 110:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 4;
+ 111:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 112:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
+ 113:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 5;
+ 114:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 115:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
+ 116:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 6;
+ 117:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 118:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}	
+ 119:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 672              		.loc 1 119 1 is_stmt 0 view .LVU134
+ 673 00bc 02B0     		add	sp, sp, #8
+ 674              	.LCFI8:
+ 675              		.cfi_remember_state
+ 676              		.cfi_def_cfa_offset 32
+ 677              		@ sp needed
+ 678 00be BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 679              	.LVL91:
+ 680              	.L27:
+ 681              	.LCFI9:
+ 682              		.cfi_restore_state
+ 104:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 683              		.loc 1 104 5 is_stmt 1 view .LVU135
+ 104:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 15
+
+
+ 684              		.loc 1 104 17 is_stmt 0 view .LVU136
+ 685 00c2 0223     		movs	r3, #2
+ 686              	.LVL92:
+ 104:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 687              		.loc 1 104 17 view .LVU137
+ 688 00c4 2B70     		strb	r3, [r5]
+ 105:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 689              		.loc 1 105 5 is_stmt 1 view .LVU138
+ 690 00c6 F9E7     		b	.L13
+ 691              	.LVL93:
+ 692              	.L23:
+ 107:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 693              		.loc 1 107 5 view .LVU139
+ 107:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 694              		.loc 1 107 17 is_stmt 0 view .LVU140
+ 695 00c8 0323     		movs	r3, #3
+ 696              	.LVL94:
+ 107:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 697              		.loc 1 107 17 view .LVU141
+ 698 00ca 2B70     		strb	r3, [r5]
+ 108:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 699              		.loc 1 108 5 is_stmt 1 view .LVU142
+ 700 00cc F6E7     		b	.L13
+ 701              	.LVL95:
+ 702              	.L24:
+ 110:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 703              		.loc 1 110 5 view .LVU143
+ 110:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 704              		.loc 1 110 17 is_stmt 0 view .LVU144
+ 705 00ce 0423     		movs	r3, #4
+ 706              	.LVL96:
+ 110:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 707              		.loc 1 110 17 view .LVU145
+ 708 00d0 2B70     		strb	r3, [r5]
+ 111:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
+ 709              		.loc 1 111 5 is_stmt 1 view .LVU146
+ 710 00d2 F3E7     		b	.L13
+ 711              	.LVL97:
+ 712              	.L21:
+ 113:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 713              		.loc 1 113 5 view .LVU147
+ 113:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 714              		.loc 1 113 17 is_stmt 0 view .LVU148
+ 715 00d4 0523     		movs	r3, #5
+ 716              	.LVL98:
+ 113:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 717              		.loc 1 113 17 view .LVU149
+ 718 00d6 2B70     		strb	r3, [r5]
+ 114:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
+ 719              		.loc 1 114 5 is_stmt 1 view .LVU150
+ 720 00d8 F0E7     		b	.L13
+ 721              	.LVL99:
+ 722              	.L26:
+ 116:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 723              		.loc 1 116 5 view .LVU151
+ 116:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 724              		.loc 1 116 17 is_stmt 0 view .LVU152
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 16
+
+
+ 725 00da 0623     		movs	r3, #6
+ 726              	.LVL100:
+ 116:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 727              		.loc 1 116 17 view .LVU153
+ 728 00dc 2B70     		strb	r3, [r5]
+ 117:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}	
+ 729              		.loc 1 117 5 is_stmt 1 view .LVU154
+ 730              		.loc 1 119 1 is_stmt 0 view .LVU155
+ 731 00de EDE7     		b	.L13
+ 732              	.L39:
+ 733              		.align	2
+ 734              	.L38:
+ 735 00e0 7DB35D3F 		.word	1063105405
+ 736 00e4 0080D843 		.word	1138262016
+ 737              		.cfi_endproc
+ 738              	.LFE69:
+ 740              		.global	__aeabi_fdiv
+ 741              		.section	.text.CalulateDutyCycle,"ax",%progbits
+ 742              		.align	1
+ 743              		.global	CalulateDutyCycle
+ 744              		.syntax unified
+ 745              		.thumb
+ 746              		.thumb_func
+ 748              	CalulateDutyCycle:
+ 749              	.LVL101:
+ 750              	.LFB70:
+ 120:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 121:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 计算出对应扇区占空比 */
+ 122:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void CalulateDutyCycle(struct SVPWM_Control* ctrl,struct SVPWM_Duty* ptr)
+ 123:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 751              		.loc 1 123 1 is_stmt 1 view -0
+ 752              		.cfi_startproc
+ 753              		@ args = 0, pretend = 0, frame = 0
+ 754              		@ frame_needed = 0, uses_anonymous_args = 0
+ 755              		.loc 1 123 1 is_stmt 0 view .LVU157
+ 756 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 757              	.LCFI10:
+ 758              		.cfi_def_cfa_offset 32
+ 759              		.cfi_offset 3, -32
+ 760              		.cfi_offset 4, -28
+ 761              		.cfi_offset 5, -24
+ 762              		.cfi_offset 6, -20
+ 763              		.cfi_offset 7, -16
+ 764              		.cfi_offset 8, -12
+ 765              		.cfi_offset 9, -8
+ 766              		.cfi_offset 14, -4
+ 767 0004 0446     		mov	r4, r0
+ 768 0006 0E46     		mov	r6, r1
+ 124:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****         /* 对X、Y、Z三个参量式 */
+ 125:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		switch(ctrl->sector)
+ 769              		.loc 1 125 3 is_stmt 1 view .LVU158
+ 770              		.loc 1 125 14 is_stmt 0 view .LVU159
+ 771 0008 0578     		ldrb	r5, [r0]	@ zero_extendqisi2
+ 772              		.loc 1 125 3 view .LVU160
+ 773 000a 6B1E     		subs	r3, r5, #1
+ 774 000c 052B     		cmp	r3, #5
+ 775 000e 08D8     		bhi	.L41
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 17
+
+
+ 776 0010 DFE803F0 		tbb	[pc, r3]
+ 777              	.L43:
+ 778 0014 65       		.byte	(.L48-.L43)/2
+ 779 0015 03       		.byte	(.L47-.L43)/2
+ 780 0016 75       		.byte	(.L46-.L43)/2
+ 781 0017 6D       		.byte	(.L45-.L43)/2
+ 782 0018 7D       		.byte	(.L44-.L43)/2
+ 783 0019 5D       		.byte	(.L42-.L43)/2
+ 784              		.p2align 1
+ 785              	.L47:
+ 126:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
+ 127:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
+ 128:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = ctrl->Z;
+ 786              		.loc 1 128 5 is_stmt 1 view .LVU161
+ 787              		.loc 1 128 25 is_stmt 0 view .LVU162
+ 788 001a C368     		ldr	r3, [r0, #12]	@ float
+ 789              		.loc 1 128 19 view .LVU163
+ 790 001c 0361     		str	r3, [r0, #16]	@ float
+ 129:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Y;
+ 791              		.loc 1 129 5 is_stmt 1 view .LVU164
+ 792              		.loc 1 129 26 is_stmt 0 view .LVU165
+ 793 001e 8368     		ldr	r3, [r0, #8]	@ float
+ 794              		.loc 1 129 20 view .LVU166
+ 795 0020 4361     		str	r3, [r0, #20]	@ float
+ 130:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 796              		.loc 1 130 5 is_stmt 1 view .LVU167
+ 797              	.LVL102:
+ 798              	.L41:
+ 131:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
+ 132:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = ctrl->Y;
+ 133:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
+ 134:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 135:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
+ 136:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = 0 - ctrl->Z;
+ 137:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 138:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 139:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 140:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = 0 - ctrl->X;
+ 141:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 142:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 143:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
+ 144:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = ctrl->X;
+ 145:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
+ 146:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 147:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 148:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = 0 - ctrl->Y;
+ 149:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 150:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 151:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 152:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
+ 153:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		/**/
+ 154:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		if((ctrl->T_First + ctrl->T_Second) > Ts)
+ 799              		.loc 1 154 3 view .LVU168
+ 800              		.loc 1 154 11 is_stmt 0 view .LVU169
+ 801 0022 D4F81090 		ldr	r9, [r4, #16]	@ float
+ 802              		.loc 1 154 27 view .LVU170
+ 803 0026 D4F81480 		ldr	r8, [r4, #20]	@ float
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 18
+
+
+ 804              		.loc 1 154 21 view .LVU171
+ 805 002a 4146     		mov	r1, r8
+ 806 002c 4846     		mov	r0, r9
+ 807 002e FFF7FEFF 		bl	__aeabi_fadd
+ 808              	.LVL103:
+ 809 0032 0746     		mov	r7, r0
+ 810              		.loc 1 154 5 view .LVU172
+ 811 0034 4F49     		ldr	r1, .L61
+ 812 0036 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 813              	.LVL104:
+ 814 003a B0B1     		cbz	r0, .L49
+ 155:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
+ 156:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First  = ctrl->T_First  * Ts / (ctrl->T_First + ctrl->T_Second);
+ 815              		.loc 1 156 5 is_stmt 1 view .LVU173
+ 816              		.loc 1 156 37 is_stmt 0 view .LVU174
+ 817 003c 4D49     		ldr	r1, .L61
+ 818 003e 4846     		mov	r0, r9
+ 819 0040 FFF7FEFF 		bl	__aeabi_fmul
+ 820              	.LVL105:
+ 821              		.loc 1 156 42 view .LVU175
+ 822 0044 3946     		mov	r1, r7
+ 823 0046 FFF7FEFF 		bl	__aeabi_fdiv
+ 824              	.LVL106:
+ 825 004a 0746     		mov	r7, r0
+ 826              		.loc 1 156 20 view .LVU176
+ 827 004c 2061     		str	r0, [r4, #16]	@ float
+ 157:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->T_Second  * Ts / (ctrl->T_First + ctrl->T_Second);
+ 828              		.loc 1 157 5 is_stmt 1 view .LVU177
+ 829              		.loc 1 157 38 is_stmt 0 view .LVU178
+ 830 004e 4949     		ldr	r1, .L61
+ 831 0050 4046     		mov	r0, r8
+ 832 0052 FFF7FEFF 		bl	__aeabi_fmul
+ 833              	.LVL107:
+ 834 0056 8146     		mov	r9, r0
+ 835              		.loc 1 157 60 view .LVU179
+ 836 0058 3946     		mov	r1, r7
+ 837 005a 4046     		mov	r0, r8
+ 838 005c FFF7FEFF 		bl	__aeabi_fadd
+ 839              	.LVL108:
+ 840 0060 0146     		mov	r1, r0
+ 841              		.loc 1 157 43 view .LVU180
+ 842 0062 4846     		mov	r0, r9
+ 843 0064 FFF7FEFF 		bl	__aeabi_fdiv
+ 844              	.LVL109:
+ 845              		.loc 1 157 20 view .LVU181
+ 846 0068 6061     		str	r0, [r4, #20]	@ float
+ 847              	.L49:
+ 158:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}			
+ 159:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
+ 160:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->T0 = (Ts - ctrl->T_First - ctrl->T_Second) / 2;
+ 848              		.loc 1 160 3 is_stmt 1 view .LVU182
+ 849              		.loc 1 160 24 is_stmt 0 view .LVU183
+ 850 006a 2769     		ldr	r7, [r4, #16]	@ float
+ 851              		.loc 1 160 18 view .LVU184
+ 852 006c 3946     		mov	r1, r7
+ 853 006e 4148     		ldr	r0, .L61
+ 854 0070 FFF7FEFF 		bl	__aeabi_fsub
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 19
+
+
+ 855              	.LVL110:
+ 856              		.loc 1 160 40 view .LVU185
+ 857 0074 D4F81490 		ldr	r9, [r4, #20]	@ float
+ 858              		.loc 1 160 34 view .LVU186
+ 859 0078 4946     		mov	r1, r9
+ 860 007a FFF7FEFF 		bl	__aeabi_fsub
+ 861              	.LVL111:
+ 862              		.loc 1 160 52 view .LVU187
+ 863 007e 4FF07C51 		mov	r1, #1056964608
+ 864 0082 FFF7FEFF 		bl	__aeabi_fmul
+ 865              	.LVL112:
+ 866              		.loc 1 160 12 view .LVU188
+ 867 0086 A061     		str	r0, [r4, #24]	@ float
+ 161:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
+ 162:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->Ta = ctrl->T0 / 2;
+ 868              		.loc 1 162 3 is_stmt 1 view .LVU189
+ 869              		.loc 1 162 23 is_stmt 0 view .LVU190
+ 870 0088 4FF07C51 		mov	r1, #1056964608
+ 871 008c FFF7FEFF 		bl	__aeabi_fmul
+ 872              	.LVL113:
+ 873 0090 8046     		mov	r8, r0
+ 874              		.loc 1 162 12 view .LVU191
+ 875 0092 E061     		str	r0, [r4, #28]	@ float
+ 163:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->Tb = ctrl->Ta + ctrl->T_First / 2;
+ 876              		.loc 1 163 3 is_stmt 1 view .LVU192
+ 877              		.loc 1 163 39 is_stmt 0 view .LVU193
+ 878 0094 4FF07C51 		mov	r1, #1056964608
+ 879 0098 3846     		mov	r0, r7
+ 880 009a FFF7FEFF 		bl	__aeabi_fmul
+ 881              	.LVL114:
+ 882 009e 0146     		mov	r1, r0
+ 883              		.loc 1 163 23 view .LVU194
+ 884 00a0 4046     		mov	r0, r8
+ 885 00a2 FFF7FEFF 		bl	__aeabi_fadd
+ 886              	.LVL115:
+ 887 00a6 0746     		mov	r7, r0
+ 888              		.loc 1 163 12 view .LVU195
+ 889 00a8 2062     		str	r0, [r4, #32]	@ float
+ 164:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->Tc = ctrl->Tb + ctrl->T_Second / 2;
+ 890              		.loc 1 164 3 is_stmt 1 view .LVU196
+ 891              		.loc 1 164 40 is_stmt 0 view .LVU197
+ 892 00aa 4FF07C51 		mov	r1, #1056964608
+ 893 00ae 4846     		mov	r0, r9
+ 894 00b0 FFF7FEFF 		bl	__aeabi_fmul
+ 895              	.LVL116:
+ 896 00b4 0146     		mov	r1, r0
+ 897              		.loc 1 164 23 view .LVU198
+ 898 00b6 3846     		mov	r0, r7
+ 899 00b8 FFF7FEFF 		bl	__aeabi_fadd
+ 900              	.LVL117:
+ 901              		.loc 1 164 12 view .LVU199
+ 902 00bc 6062     		str	r0, [r4, #36]	@ float
+ 165:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
+ 166:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		/* 判断对应扇区赋值三路占空比 */
+ 167:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		switch(ctrl->sector)
+ 903              		.loc 1 167 3 is_stmt 1 view .LVU200
+ 904 00be 013D     		subs	r5, r5, #1
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 20
+
+
+ 905 00c0 052D     		cmp	r5, #5
+ 906 00c2 34D8     		bhi	.L40
+ 907 00c4 DFE805F0 		tbb	[pc, r5]
+ 908              	.L53:
+ 909 00c8 3C       		.byte	(.L58-.L53)/2
+ 910 00c9 2E       		.byte	(.L57-.L53)/2
+ 911 00ca 49       		.byte	(.L56-.L53)/2
+ 912 00cb 43       		.byte	(.L55-.L53)/2
+ 913 00cc 4F       		.byte	(.L54-.L53)/2
+ 914 00cd 35       		.byte	(.L52-.L53)/2
+ 915              	.LVL118:
+ 916              		.p2align 1
+ 917              	.L42:
+ 132:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
+ 918              		.loc 1 132 5 view .LVU201
+ 132:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
+ 919              		.loc 1 132 25 is_stmt 0 view .LVU202
+ 920 00ce 8368     		ldr	r3, [r0, #8]	@ float
+ 132:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
+ 921              		.loc 1 132 19 view .LVU203
+ 922 00d0 0361     		str	r3, [r0, #16]	@ float
+ 133:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 923              		.loc 1 133 5 is_stmt 1 view .LVU204
+ 133:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 924              		.loc 1 133 24 is_stmt 0 view .LVU205
+ 925 00d2 4168     		ldr	r1, [r0, #4]	@ float
+ 926              	.LVL119:
+ 133:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 927              		.loc 1 133 24 view .LVU206
+ 928 00d4 0020     		movs	r0, #0
+ 929              	.LVL120:
+ 133:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 930              		.loc 1 133 24 view .LVU207
+ 931 00d6 FFF7FEFF 		bl	__aeabi_fsub
+ 932              	.LVL121:
+ 133:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 933              		.loc 1 133 20 view .LVU208
+ 934 00da 6061     		str	r0, [r4, #20]	@ float
+ 134:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
+ 935              		.loc 1 134 5 is_stmt 1 view .LVU209
+ 936 00dc A1E7     		b	.L41
+ 937              	.LVL122:
+ 938              	.L48:
+ 136:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 939              		.loc 1 136 5 view .LVU210
+ 136:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 940              		.loc 1 136 23 is_stmt 0 view .LVU211
+ 941 00de C168     		ldr	r1, [r0, #12]	@ float
+ 942              	.LVL123:
+ 136:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 943              		.loc 1 136 23 view .LVU212
+ 944 00e0 0020     		movs	r0, #0
+ 945              	.LVL124:
+ 136:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 946              		.loc 1 136 23 view .LVU213
+ 947 00e2 FFF7FEFF 		bl	__aeabi_fsub
+ 948              	.LVL125:
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 21
+
+
+ 136:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 949              		.loc 1 136 19 view .LVU214
+ 950 00e6 2061     		str	r0, [r4, #16]	@ float
+ 137:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 951              		.loc 1 137 5 is_stmt 1 view .LVU215
+ 137:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 952              		.loc 1 137 26 is_stmt 0 view .LVU216
+ 953 00e8 6368     		ldr	r3, [r4, #4]	@ float
+ 137:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 954              		.loc 1 137 20 view .LVU217
+ 955 00ea 6361     		str	r3, [r4, #20]	@ float
+ 138:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 956              		.loc 1 138 5 is_stmt 1 view .LVU218
+ 957 00ec 99E7     		b	.L41
+ 958              	.LVL126:
+ 959              	.L45:
+ 140:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 960              		.loc 1 140 5 view .LVU219
+ 140:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 961              		.loc 1 140 23 is_stmt 0 view .LVU220
+ 962 00ee 4168     		ldr	r1, [r0, #4]	@ float
+ 963              	.LVL127:
+ 140:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 964              		.loc 1 140 23 view .LVU221
+ 965 00f0 0020     		movs	r0, #0
+ 966              	.LVL128:
+ 140:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 967              		.loc 1 140 23 view .LVU222
+ 968 00f2 FFF7FEFF 		bl	__aeabi_fsub
+ 969              	.LVL129:
+ 140:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 970              		.loc 1 140 19 view .LVU223
+ 971 00f6 2061     		str	r0, [r4, #16]	@ float
+ 141:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 972              		.loc 1 141 5 is_stmt 1 view .LVU224
+ 141:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 973              		.loc 1 141 26 is_stmt 0 view .LVU225
+ 974 00f8 E368     		ldr	r3, [r4, #12]	@ float
+ 141:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 975              		.loc 1 141 20 view .LVU226
+ 976 00fa 6361     		str	r3, [r4, #20]	@ float
+ 142:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
+ 977              		.loc 1 142 5 is_stmt 1 view .LVU227
+ 978 00fc 91E7     		b	.L41
+ 979              	.LVL130:
+ 980              	.L46:
+ 144:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
+ 981              		.loc 1 144 5 view .LVU228
+ 144:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
+ 982              		.loc 1 144 25 is_stmt 0 view .LVU229
+ 983 00fe 4368     		ldr	r3, [r0, #4]	@ float
+ 144:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
+ 984              		.loc 1 144 19 view .LVU230
+ 985 0100 0361     		str	r3, [r0, #16]	@ float
+ 145:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 986              		.loc 1 145 5 is_stmt 1 view .LVU231
+ 145:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 22
+
+
+ 987              		.loc 1 145 24 is_stmt 0 view .LVU232
+ 988 0102 8168     		ldr	r1, [r0, #8]	@ float
+ 989              	.LVL131:
+ 145:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 990              		.loc 1 145 24 view .LVU233
+ 991 0104 0020     		movs	r0, #0
+ 992              	.LVL132:
+ 145:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 993              		.loc 1 145 24 view .LVU234
+ 994 0106 FFF7FEFF 		bl	__aeabi_fsub
+ 995              	.LVL133:
+ 145:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 996              		.loc 1 145 20 view .LVU235
+ 997 010a 6061     		str	r0, [r4, #20]	@ float
+ 146:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 998              		.loc 1 146 5 is_stmt 1 view .LVU236
+ 999 010c 89E7     		b	.L41
+ 1000              	.LVL134:
+ 1001              	.L44:
+ 148:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 1002              		.loc 1 148 5 view .LVU237
+ 148:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 1003              		.loc 1 148 23 is_stmt 0 view .LVU238
+ 1004 010e 8168     		ldr	r1, [r0, #8]	@ float
+ 1005              	.LVL135:
+ 148:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 1006              		.loc 1 148 23 view .LVU239
+ 1007 0110 0020     		movs	r0, #0
+ 1008              	.LVL136:
+ 148:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 1009              		.loc 1 148 23 view .LVU240
+ 1010 0112 FFF7FEFF 		bl	__aeabi_fsub
+ 1011              	.LVL137:
+ 148:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 1012              		.loc 1 148 19 view .LVU241
+ 1013 0116 2061     		str	r0, [r4, #16]	@ float
+ 149:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1014              		.loc 1 149 5 is_stmt 1 view .LVU242
+ 149:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1015              		.loc 1 149 24 is_stmt 0 view .LVU243
+ 1016 0118 E168     		ldr	r1, [r4, #12]	@ float
+ 1017 011a 0020     		movs	r0, #0
+ 1018 011c FFF7FEFF 		bl	__aeabi_fsub
+ 1019              	.LVL138:
+ 149:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1020              		.loc 1 149 20 view .LVU244
+ 1021 0120 6061     		str	r0, [r4, #20]	@ float
+ 150:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 1022              		.loc 1 150 5 is_stmt 1 view .LVU245
+ 1023 0122 7EE7     		b	.L41
+ 1024              	.L57:
+ 168:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
+ 169:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
+ 170:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tb;
+ 1025              		.loc 1 170 5 view .LVU246
+ 1026              		.loc 1 170 13 is_stmt 0 view .LVU247
+ 1027 0124 3760     		str	r7, [r6]	@ float
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 23
+
+
+ 171:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
+ 1028              		.loc 1 171 5 is_stmt 1 view .LVU248
+ 1029              		.loc 1 171 19 is_stmt 0 view .LVU249
+ 1030 0126 E369     		ldr	r3, [r4, #28]	@ float
+ 1031              		.loc 1 171 13 view .LVU250
+ 1032 0128 7360     		str	r3, [r6, #4]	@ float
+ 172:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
+ 1033              		.loc 1 172 5 is_stmt 1 view .LVU251
+ 1034              		.loc 1 172 19 is_stmt 0 view .LVU252
+ 1035 012a 636A     		ldr	r3, [r4, #36]	@ float
+ 1036              		.loc 1 172 13 view .LVU253
+ 1037 012c B360     		str	r3, [r6, #8]	@ float
+ 173:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1038              		.loc 1 173 5 is_stmt 1 view .LVU254
+ 1039              	.L40:
+ 174:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
+ 175:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Ta;
+ 176:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ 177:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 178:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 179:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
+ 180:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Ta;
+ 181:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 182:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
+ 183:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 184:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 185:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tc;
+ 186:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 187:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 188:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 189:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
+ 190:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tc;
+ 191:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
+ 192:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 193:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 194:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 195:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tb;
+ 196:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ 197:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 198:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 199:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 200:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
+ 201:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 1040              		.loc 1 201 1 is_stmt 0 view .LVU255
+ 1041 012e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 1042              	.LVL139:
+ 1043              	.L52:
+ 175:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ 1044              		.loc 1 175 5 is_stmt 1 view .LVU256
+ 175:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ 1045              		.loc 1 175 13 is_stmt 0 view .LVU257
+ 1046 0132 C6F80080 		str	r8, [r6]	@ float
+ 176:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 1047              		.loc 1 176 5 is_stmt 1 view .LVU258
+ 176:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 1048              		.loc 1 176 19 is_stmt 0 view .LVU259
+ 1049 0136 636A     		ldr	r3, [r4, #36]	@ float
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 24
+
+
+ 176:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 1050              		.loc 1 176 13 view .LVU260
+ 1051 0138 7360     		str	r3, [r6, #4]	@ float
+ 177:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1052              		.loc 1 177 5 is_stmt 1 view .LVU261
+ 177:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1053              		.loc 1 177 19 is_stmt 0 view .LVU262
+ 1054 013a 236A     		ldr	r3, [r4, #32]	@ float
+ 177:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1055              		.loc 1 177 13 view .LVU263
+ 1056 013c B360     		str	r3, [r6, #8]	@ float
+ 178:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
+ 1057              		.loc 1 178 5 is_stmt 1 view .LVU264
+ 1058 013e F6E7     		b	.L40
+ 1059              	.L58:
+ 180:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 1060              		.loc 1 180 5 view .LVU265
+ 180:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 1061              		.loc 1 180 13 is_stmt 0 view .LVU266
+ 1062 0140 C6F80080 		str	r8, [r6]	@ float
+ 181:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
+ 1063              		.loc 1 181 5 is_stmt 1 view .LVU267
+ 181:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
+ 1064              		.loc 1 181 19 is_stmt 0 view .LVU268
+ 1065 0144 236A     		ldr	r3, [r4, #32]	@ float
+ 181:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
+ 1066              		.loc 1 181 13 view .LVU269
+ 1067 0146 7360     		str	r3, [r6, #4]	@ float
+ 182:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1068              		.loc 1 182 5 is_stmt 1 view .LVU270
+ 182:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1069              		.loc 1 182 19 is_stmt 0 view .LVU271
+ 1070 0148 636A     		ldr	r3, [r4, #36]	@ float
+ 182:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1071              		.loc 1 182 13 view .LVU272
+ 1072 014a B360     		str	r3, [r6, #8]	@ float
+ 183:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 1073              		.loc 1 183 5 is_stmt 1 view .LVU273
+ 1074 014c EFE7     		b	.L40
+ 1075              	.L55:
+ 185:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 1076              		.loc 1 185 5 view .LVU274
+ 185:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 1077              		.loc 1 185 13 is_stmt 0 view .LVU275
+ 1078 014e 3060     		str	r0, [r6]	@ float
+ 186:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 1079              		.loc 1 186 5 is_stmt 1 view .LVU276
+ 186:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 1080              		.loc 1 186 19 is_stmt 0 view .LVU277
+ 1081 0150 236A     		ldr	r3, [r4, #32]	@ float
+ 186:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 1082              		.loc 1 186 13 view .LVU278
+ 1083 0152 7360     		str	r3, [r6, #4]	@ float
+ 187:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1084              		.loc 1 187 5 is_stmt 1 view .LVU279
+ 187:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1085              		.loc 1 187 19 is_stmt 0 view .LVU280
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 25
+
+
+ 1086 0154 E369     		ldr	r3, [r4, #28]	@ float
+ 187:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1087              		.loc 1 187 13 view .LVU281
+ 1088 0156 B360     		str	r3, [r6, #8]	@ float
+ 188:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
+ 1089              		.loc 1 188 5 is_stmt 1 view .LVU282
+ 1090 0158 E9E7     		b	.L40
+ 1091              	.L56:
+ 190:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
+ 1092              		.loc 1 190 5 view .LVU283
+ 190:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
+ 1093              		.loc 1 190 13 is_stmt 0 view .LVU284
+ 1094 015a 3060     		str	r0, [r6]	@ float
+ 191:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 1095              		.loc 1 191 5 is_stmt 1 view .LVU285
+ 191:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 1096              		.loc 1 191 19 is_stmt 0 view .LVU286
+ 1097 015c E369     		ldr	r3, [r4, #28]	@ float
+ 191:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 1098              		.loc 1 191 13 view .LVU287
+ 1099 015e 7360     		str	r3, [r6, #4]	@ float
+ 192:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1100              		.loc 1 192 5 is_stmt 1 view .LVU288
+ 192:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1101              		.loc 1 192 19 is_stmt 0 view .LVU289
+ 1102 0160 236A     		ldr	r3, [r4, #32]	@ float
+ 192:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1103              		.loc 1 192 13 view .LVU290
+ 1104 0162 B360     		str	r3, [r6, #8]	@ float
+ 193:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 1105              		.loc 1 193 5 is_stmt 1 view .LVU291
+ 1106 0164 E3E7     		b	.L40
+ 1107              	.L54:
+ 195:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ 1108              		.loc 1 195 5 view .LVU292
+ 195:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ 1109              		.loc 1 195 13 is_stmt 0 view .LVU293
+ 1110 0166 3760     		str	r7, [r6]	@ float
+ 196:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 1111              		.loc 1 196 5 is_stmt 1 view .LVU294
+ 196:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 1112              		.loc 1 196 19 is_stmt 0 view .LVU295
+ 1113 0168 636A     		ldr	r3, [r4, #36]	@ float
+ 196:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 1114              		.loc 1 196 13 view .LVU296
+ 1115 016a 7360     		str	r3, [r6, #4]	@ float
+ 197:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1116              		.loc 1 197 5 is_stmt 1 view .LVU297
+ 197:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1117              		.loc 1 197 19 is_stmt 0 view .LVU298
+ 1118 016c E369     		ldr	r3, [r4, #28]	@ float
+ 197:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 1119              		.loc 1 197 13 view .LVU299
+ 1120 016e B360     		str	r3, [r6, #8]	@ float
+ 198:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 1121              		.loc 1 198 5 is_stmt 1 view .LVU300
+ 1122              		.loc 1 201 1 is_stmt 0 view .LVU301
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 26
+
+
+ 1123 0170 DDE7     		b	.L40
+ 1124              	.L62:
+ 1125 0172 00BF     		.align	2
+ 1126              	.L61:
+ 1127 0174 00803B45 		.word	1161527296
+ 1128              		.cfi_endproc
+ 1129              	.LFE70:
+ 1131              		.global	__aeabi_f2uiz
+ 1132              		.global	__aeabi_fcmpge
+ 1133              		.section	.text.Open_PMSM_FOC,"ax",%progbits
+ 1134              		.align	1
+ 1135              		.global	Open_PMSM_FOC
+ 1136              		.syntax unified
+ 1137              		.thumb
+ 1138              		.thumb_func
+ 1140              	Open_PMSM_FOC:
+ 1141              	.LFB71:
+ 202:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 203:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** struct DQ_Aix test_DQ;
+ 204:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** struct AlphaBeta_Aix test_AB;
+ 205:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** struct SVPWM_Control test_ctrl;
+ 206:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** struct SVPWM_Duty test_Duty;
+ 207:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 208:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 开环FOC-实现120r/min的转速 */
+ 209:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Open_PMSM_FOC(void)
+ 210:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 1142              		.loc 1 210 1 is_stmt 1 view -0
+ 1143              		.cfi_startproc
+ 1144              		@ args = 0, pretend = 0, frame = 0
+ 1145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1146 0000 70B5     		push	{r4, r5, r6, lr}
+ 1147              	.LCFI11:
+ 1148              		.cfi_def_cfa_offset 16
+ 1149              		.cfi_offset 4, -16
+ 1150              		.cfi_offset 5, -12
+ 1151              		.cfi_offset 6, -8
+ 1152              		.cfi_offset 14, -4
+ 211:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.theta+=(0.1f)*(PI/180.0);		/* 步距为0.1度 */
+ 1153              		.loc 1 211 2 view .LVU303
+ 1154              		.loc 1 211 15 is_stmt 0 view .LVU304
+ 1155 0002 1D4C     		ldr	r4, .L68+8
+ 1156 0004 A068     		ldr	r0, [r4, #8]	@ float
+ 1157 0006 FFF7FEFF 		bl	__aeabi_f2d
+ 1158              	.LVL140:
+ 1159 000a 19A3     		adr	r3, .L68
+ 1160 000c D3E90023 		ldrd	r2, [r3]
+ 1161 0010 FFF7FEFF 		bl	__aeabi_dadd
+ 1162              	.LVL141:
+ 1163 0014 FFF7FEFF 		bl	__aeabi_d2f
+ 1164              	.LVL142:
+ 1165 0018 A060     		str	r0, [r4, #8]	@ float
+ 212:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	
+ 213:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.V_q=3.5f;		/* 力矩电流 */
+ 1166              		.loc 1 213 2 is_stmt 1 view .LVU305
+ 1167              		.loc 1 213 13 is_stmt 0 view .LVU306
+ 1168 001a 184B     		ldr	r3, .L68+12
+ 1169 001c 6360     		str	r3, [r4, #4]	@ float
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 27
+
+
+ 214:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 215:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Rev_Park(&test_DQ,&test_AB);			/* 反park变换获取静止坐标系中的Ia、Ib */
+ 1170              		.loc 1 215 2 is_stmt 1 view .LVU307
+ 1171 001e 184D     		ldr	r5, .L68+16
+ 1172 0020 2946     		mov	r1, r5
+ 1173 0022 2046     		mov	r0, r4
+ 1174 0024 FFF7FEFF 		bl	Rev_Park
+ 1175              	.LVL143:
+ 216:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	CalculateSector(test_AB,&test_ctrl);		/* 扇区计算及扇区判断 */
+ 1176              		.loc 1 216 2 view .LVU308
+ 1177 0028 164E     		ldr	r6, .L68+20
+ 1178 002a 3246     		mov	r2, r6
+ 1179 002c 95E80300 		ldm	r5, {r0, r1}
+ 1180 0030 FFF7FEFF 		bl	CalculateSector
+ 1181              	.LVL144:
+ 217:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	CalulateDutyCycle(&test_ctrl,&test_Duty);		/* 对应扇区的占空比计算 */
+ 1182              		.loc 1 217 2 view .LVU309
+ 1183 0034 144D     		ldr	r5, .L68+24
+ 1184 0036 2946     		mov	r1, r5
+ 1185 0038 3046     		mov	r0, r6
+ 1186 003a FFF7FEFF 		bl	CalulateDutyCycle
+ 1187              	.LVL145:
+ 218:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 219:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR1 = test_Duty.Ta;		/* 占空比设置 */
+ 1188              		.loc 1 219 2 view .LVU310
+ 1189              		.loc 1 219 13 is_stmt 0 view .LVU311
+ 1190 003e 2868     		ldr	r0, [r5]	@ float
+ 1191 0040 FFF7FEFF 		bl	__aeabi_f2uiz
+ 1192              	.LVL146:
+ 1193 0044 4FF08046 		mov	r6, #1073741824
+ 1194 0048 7063     		str	r0, [r6, #52]
+ 220:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR2 = test_Duty.Tb;
+ 1195              		.loc 1 220 2 is_stmt 1 view .LVU312
+ 1196              		.loc 1 220 13 is_stmt 0 view .LVU313
+ 1197 004a 6868     		ldr	r0, [r5, #4]	@ float
+ 1198 004c FFF7FEFF 		bl	__aeabi_f2uiz
+ 1199              	.LVL147:
+ 1200 0050 B063     		str	r0, [r6, #56]
+ 221:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR3 = test_Duty.Tc;
+ 1201              		.loc 1 221 2 is_stmt 1 view .LVU314
+ 1202              		.loc 1 221 13 is_stmt 0 view .LVU315
+ 1203 0052 A868     		ldr	r0, [r5, #8]	@ float
+ 1204 0054 FFF7FEFF 		bl	__aeabi_f2uiz
+ 1205              	.LVL148:
+ 1206 0058 F063     		str	r0, [r6, #60]
+ 222:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	
+ 223:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	if(test_DQ.theta>=2*PI) test_DQ.theta=0;		/* 转满一圈后清零 */
+ 1207              		.loc 1 223 2 is_stmt 1 view .LVU316
+ 1208              		.loc 1 223 4 is_stmt 0 view .LVU317
+ 1209 005a 0C49     		ldr	r1, .L68+28
+ 1210 005c A068     		ldr	r0, [r4, #8]	@ float
+ 1211 005e FFF7FEFF 		bl	__aeabi_fcmpge
+ 1212              	.LVL149:
+ 1213 0062 08B1     		cbz	r0, .L63
+ 1214              		.loc 1 223 26 is_stmt 1 discriminator 1 view .LVU318
+ 1215              		.loc 1 223 39 is_stmt 0 discriminator 1 view .LVU319
+ 1216 0064 0022     		movs	r2, #0
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 28
+
+
+ 1217 0066 A260     		str	r2, [r4, #8]	@ float
+ 1218              	.L63:
+ 224:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 1219              		.loc 1 224 1 view .LVU320
+ 1220 0068 70BD     		pop	{r4, r5, r6, pc}
+ 1221              	.L69:
+ 1222 006a 00BFAFF3 		.align	3
+ 1222      0080
+ 1223              	.L68:
+ 1224 0070 83558B8E 		.word	-1903471229
+ 1225 0074 49985C3F 		.word	1063032905
+ 1226 0078 00000000 		.word	.LANCHOR0
+ 1227 007c 00006040 		.word	1080033280
+ 1228 0080 00000000 		.word	.LANCHOR1
+ 1229 0084 00000000 		.word	.LANCHOR2
+ 1230 0088 00000000 		.word	.LANCHOR3
+ 1231 008c C50EC940 		.word	1086918341
+ 1232              		.cfi_endproc
+ 1233              	.LFE71:
+ 1235              		.section	.text.FOC_KeepAngle,"ax",%progbits
+ 1236              		.align	1
+ 1237              		.global	FOC_KeepAngle
+ 1238              		.syntax unified
+ 1239              		.thumb
+ 1240              		.thumb_func
+ 1242              	FOC_KeepAngle:
+ 1243              	.LFB72:
+ 225:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 226:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 角度闭环 */
+ 227:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void FOC_KeepAngle()
+ 228:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 1244              		.loc 1 228 1 is_stmt 1 view -0
+ 1245              		.cfi_startproc
+ 1246              		@ args = 0, pretend = 0, frame = 0
+ 1247              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1248 0000 70B5     		push	{r4, r5, r6, lr}
+ 1249              	.LCFI12:
+ 1250              		.cfi_def_cfa_offset 16
+ 1251              		.cfi_offset 4, -16
+ 1252              		.cfi_offset 5, -12
+ 1253              		.cfi_offset 6, -8
+ 1254              		.cfi_offset 14, -4
+ 229:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.theta+=(0.1f)*(PI/180.0);		/* 步距为0.1度 */
+ 1255              		.loc 1 229 2 view .LVU322
+ 1256              		.loc 1 229 15 is_stmt 0 view .LVU323
+ 1257 0002 1D4C     		ldr	r4, .L75+8
+ 1258 0004 A068     		ldr	r0, [r4, #8]	@ float
+ 1259 0006 FFF7FEFF 		bl	__aeabi_f2d
+ 1260              	.LVL150:
+ 1261 000a 19A3     		adr	r3, .L75
+ 1262 000c D3E90023 		ldrd	r2, [r3]
+ 1263 0010 FFF7FEFF 		bl	__aeabi_dadd
+ 1264              	.LVL151:
+ 1265 0014 FFF7FEFF 		bl	__aeabi_d2f
+ 1266              	.LVL152:
+ 1267 0018 A060     		str	r0, [r4, #8]	@ float
+ 230:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 29
+
+
+ 231:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.V_q=3.5f;		/* 力矩电流 */
+ 1268              		.loc 1 231 2 is_stmt 1 view .LVU324
+ 1269              		.loc 1 231 13 is_stmt 0 view .LVU325
+ 1270 001a 184B     		ldr	r3, .L75+12
+ 1271 001c 6360     		str	r3, [r4, #4]	@ float
+ 232:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 233:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Rev_Park(&test_DQ,&test_AB);			/* 反park变换获取静止坐标系中的Ia、Ib */
+ 1272              		.loc 1 233 2 is_stmt 1 view .LVU326
+ 1273 001e 184D     		ldr	r5, .L75+16
+ 1274 0020 2946     		mov	r1, r5
+ 1275 0022 2046     		mov	r0, r4
+ 1276 0024 FFF7FEFF 		bl	Rev_Park
+ 1277              	.LVL153:
+ 234:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	CalculateSector(test_AB,&test_ctrl);		/* 扇区计算及扇区判断 */
+ 1278              		.loc 1 234 2 view .LVU327
+ 1279 0028 164E     		ldr	r6, .L75+20
+ 1280 002a 3246     		mov	r2, r6
+ 1281 002c 95E80300 		ldm	r5, {r0, r1}
+ 1282 0030 FFF7FEFF 		bl	CalculateSector
+ 1283              	.LVL154:
+ 235:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	CalulateDutyCycle(&test_ctrl,&test_Duty);		/* 对应扇区的占空比计算 */
+ 1284              		.loc 1 235 2 view .LVU328
+ 1285 0034 144D     		ldr	r5, .L75+24
+ 1286 0036 2946     		mov	r1, r5
+ 1287 0038 3046     		mov	r0, r6
+ 1288 003a FFF7FEFF 		bl	CalulateDutyCycle
+ 1289              	.LVL155:
+ 236:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 237:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR1 = test_Duty.Ta;		/* 占空比设置 */
+ 1290              		.loc 1 237 2 view .LVU329
+ 1291              		.loc 1 237 13 is_stmt 0 view .LVU330
+ 1292 003e 2868     		ldr	r0, [r5]	@ float
+ 1293 0040 FFF7FEFF 		bl	__aeabi_f2uiz
+ 1294              	.LVL156:
+ 1295 0044 4FF08046 		mov	r6, #1073741824
+ 1296 0048 7063     		str	r0, [r6, #52]
+ 238:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR2 = test_Duty.Tb;
+ 1297              		.loc 1 238 2 is_stmt 1 view .LVU331
+ 1298              		.loc 1 238 13 is_stmt 0 view .LVU332
+ 1299 004a 6868     		ldr	r0, [r5, #4]	@ float
+ 1300 004c FFF7FEFF 		bl	__aeabi_f2uiz
+ 1301              	.LVL157:
+ 1302 0050 B063     		str	r0, [r6, #56]
+ 239:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR3 = test_Duty.Tc;
+ 1303              		.loc 1 239 2 is_stmt 1 view .LVU333
+ 1304              		.loc 1 239 13 is_stmt 0 view .LVU334
+ 1305 0052 A868     		ldr	r0, [r5, #8]	@ float
+ 1306 0054 FFF7FEFF 		bl	__aeabi_f2uiz
+ 1307              	.LVL158:
+ 1308 0058 F063     		str	r0, [r6, #60]
+ 240:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	
+ 241:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	if(test_DQ.theta>=2*PI) test_DQ.theta=0;		/* 转满一圈后清零 */
+ 1309              		.loc 1 241 2 is_stmt 1 view .LVU335
+ 1310              		.loc 1 241 4 is_stmt 0 view .LVU336
+ 1311 005a 0C49     		ldr	r1, .L75+28
+ 1312 005c A068     		ldr	r0, [r4, #8]	@ float
+ 1313 005e FFF7FEFF 		bl	__aeabi_fcmpge
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 30
+
+
+ 1314              	.LVL159:
+ 1315 0062 08B1     		cbz	r0, .L70
+ 1316              		.loc 1 241 26 is_stmt 1 discriminator 1 view .LVU337
+ 1317              		.loc 1 241 39 is_stmt 0 discriminator 1 view .LVU338
+ 1318 0064 0022     		movs	r2, #0
+ 1319 0066 A260     		str	r2, [r4, #8]	@ float
+ 1320              	.L70:
+ 242:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 1321              		.loc 1 242 1 view .LVU339
+ 1322 0068 70BD     		pop	{r4, r5, r6, pc}
+ 1323              	.L76:
+ 1324 006a 00BFAFF3 		.align	3
+ 1324      0080
+ 1325              	.L75:
+ 1326 0070 83558B8E 		.word	-1903471229
+ 1327 0074 49985C3F 		.word	1063032905
+ 1328 0078 00000000 		.word	.LANCHOR0
+ 1329 007c 00006040 		.word	1080033280
+ 1330 0080 00000000 		.word	.LANCHOR1
+ 1331 0084 00000000 		.word	.LANCHOR2
+ 1332 0088 00000000 		.word	.LANCHOR3
+ 1333 008c C50EC940 		.word	1086918341
+ 1334              		.cfi_endproc
+ 1335              	.LFE72:
+ 1337              		.section	.text.HAL_TIM_PeriodElapsedCallback,"ax",%progbits
+ 1338              		.align	1
+ 1339              		.global	HAL_TIM_PeriodElapsedCallback
+ 1340              		.syntax unified
+ 1341              		.thumb
+ 1342              		.thumb_func
+ 1344              	HAL_TIM_PeriodElapsedCallback:
+ 1345              	.LVL160:
+ 1346              	.LFB73:
+ 243:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 244:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 245:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 对实现120r/min转速下-->19.841us进入一次中断进行计算 */
+ 246:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 247:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 角度闭环(100ms) */
+ 248:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+ 249:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 1347              		.loc 1 249 1 is_stmt 1 view -0
+ 1348              		.cfi_startproc
+ 1349              		@ args = 0, pretend = 0, frame = 0
+ 1350              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1351              		.loc 1 249 1 is_stmt 0 view .LVU341
+ 1352 0000 08B5     		push	{r3, lr}
+ 1353              	.LCFI13:
+ 1354              		.cfi_def_cfa_offset 8
+ 1355              		.cfi_offset 3, -8
+ 1356              		.cfi_offset 14, -4
+ 250:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	if(htim->Instance == TIM3)
+ 1357              		.loc 1 250 2 is_stmt 1 view .LVU342
+ 1358              		.loc 1 250 9 is_stmt 0 view .LVU343
+ 1359 0002 0268     		ldr	r2, [r0]
+ 1360              		.loc 1 250 4 view .LVU344
+ 1361 0004 034B     		ldr	r3, .L81
+ 1362 0006 9A42     		cmp	r2, r3
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 31
+
+
+ 1363 0008 00D0     		beq	.L80
+ 1364              	.LVL161:
+ 1365              	.L77:
+ 251:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	{
+ 252:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		Open_PMSM_FOC();
+ 253:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&MyADC_Value,2);		/* 四路ADC通道 */
+ 254:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	}
+ 255:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 256:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 1366              		.loc 1 256 1 view .LVU345
+ 1367 000a 08BD     		pop	{r3, pc}
+ 1368              	.LVL162:
+ 1369              	.L80:
+ 252:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&MyADC_Value,2);		/* 四路ADC通道 */
+ 1370              		.loc 1 252 3 is_stmt 1 view .LVU346
+ 1371 000c FFF7FEFF 		bl	Open_PMSM_FOC
+ 1372              	.LVL163:
+ 1373              		.loc 1 256 1 is_stmt 0 view .LVU347
+ 1374 0010 FBE7     		b	.L77
+ 1375              	.L82:
+ 1376 0012 00BF     		.align	2
+ 1377              	.L81:
+ 1378 0014 00040040 		.word	1073742848
+ 1379              		.cfi_endproc
+ 1380              	.LFE73:
+ 1382              		.global	test_Duty
+ 1383              		.global	test_ctrl
+ 1384              		.global	test_AB
+ 1385              		.global	test_DQ
+ 1386              		.global	MyADC_Value
+ 1387              		.section	.bss.MyADC_Value,"aw",%nobits
+ 1388              		.align	2
+ 1391              	MyADC_Value:
+ 1392 0000 00000000 		.space	8
+ 1392      00000000 
+ 1393              		.section	.bss.test_AB,"aw",%nobits
+ 1394              		.align	2
+ 1395              		.set	.LANCHOR1,. + 0
+ 1398              	test_AB:
+ 1399 0000 00000000 		.space	8
+ 1399      00000000 
+ 1400              		.section	.bss.test_DQ,"aw",%nobits
+ 1401              		.align	2
+ 1402              		.set	.LANCHOR0,. + 0
+ 1405              	test_DQ:
+ 1406 0000 00000000 		.space	12
+ 1406      00000000 
+ 1406      00000000 
+ 1407              		.section	.bss.test_Duty,"aw",%nobits
+ 1408              		.align	2
+ 1409              		.set	.LANCHOR3,. + 0
+ 1412              	test_Duty:
+ 1413 0000 00000000 		.space	12
+ 1413      00000000 
+ 1413      00000000 
+ 1414              		.section	.bss.test_ctrl,"aw",%nobits
+ 1415              		.align	2
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 32
+
+
+ 1416              		.set	.LANCHOR2,. + 0
+ 1419              	test_ctrl:
+ 1420 0000 00000000 		.space	40
+ 1420      00000000 
+ 1420      00000000 
+ 1420      00000000 
+ 1420      00000000 
+ 1421              		.text
+ 1422              	.Letext0:
+ 1423              		.file 2 "d:\\stm32_vscode_bag\\gnu\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 1424              		.file 3 "d:\\stm32_vscode_bag\\gnu\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 1425              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 1426              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 1427              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 1428              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 1429              		.file 8 "E:/study/New_Study/My_FOC/FOC/PMSM_FOC.h"
+ 1430              		.file 9 "d:\\stm32_vscode_bag\\gnu\\arm-none-eabi\\include\\math.h"
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 33
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 PMSM_FOC.c
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:22     .text.Park_transit:00000000 $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:28     .text.Park_transit:00000000 Park_transit
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:159    .text.Rev_Park:00000000 $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:165    .text.Rev_Park:00000000 Rev_Park
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:307    .text.clark_transit:00000000 $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:313    .text.clark_transit:00000000 clark_transit
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:394    .text.clark_transit:0000005c $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:400    .text.Rev_clark:00000000 $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:406    .text.Rev_clark:00000000 Rev_clark
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:475    .text.Rev_clark:00000048 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:481    .text.CalculateSector:00000000 $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:487    .text.CalculateSector:00000000 CalculateSector
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:640    .text.CalculateSector:000000a6 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:647    .text.CalculateSector:000000ac $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:735    .text.CalculateSector:000000e0 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:742    .text.CalulateDutyCycle:00000000 $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:748    .text.CalulateDutyCycle:00000000 CalulateDutyCycle
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:778    .text.CalulateDutyCycle:00000014 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:784    .text.CalulateDutyCycle:0000001a $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:909    .text.CalulateDutyCycle:000000c8 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:916    .text.CalulateDutyCycle:000000ce $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1127   .text.CalulateDutyCycle:00000174 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1134   .text.Open_PMSM_FOC:00000000 $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1140   .text.Open_PMSM_FOC:00000000 Open_PMSM_FOC
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1224   .text.Open_PMSM_FOC:00000070 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1236   .text.FOC_KeepAngle:00000000 $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1242   .text.FOC_KeepAngle:00000000 FOC_KeepAngle
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1326   .text.FOC_KeepAngle:00000070 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1338   .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1344   .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1378   .text.HAL_TIM_PeriodElapsedCallback:00000014 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1412   .bss.test_Duty:00000000 test_Duty
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1419   .bss.test_ctrl:00000000 test_ctrl
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1398   .bss.test_AB:00000000 test_AB
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1405   .bss.test_DQ:00000000 test_DQ
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1391   .bss.MyADC_Value:00000000 MyADC_Value
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1388   .bss.MyADC_Value:00000000 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1394   .bss.test_AB:00000000 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1401   .bss.test_DQ:00000000 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1408   .bss.test_Duty:00000000 $d
+C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s:1415   .bss.test_ctrl:00000000 $d
+
+UNDEFINED SYMBOLS
+__aeabi_f2d
+__aeabi_dmul
+__aeabi_dadd
+__aeabi_d2f
+sin
+cos
+__aeabi_dsub
+__aeabi_fmul
+__aeabi_fsub
+__aeabi_fadd
+__aeabi_fcmpgt
+__aeabi_fdiv
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc92I3Fa.s 			page 34
+
+
+__aeabi_f2uiz
+__aeabi_fcmpge

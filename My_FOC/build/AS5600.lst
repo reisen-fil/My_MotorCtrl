@@ -1,0 +1,556 @@
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccpY7290.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"AS5600.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.AS5600_Write_Reg,"ax",%progbits
+  18              		.align	1
+  19              		.global	AS5600_Write_Reg
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	AS5600_Write_Reg:
+  25              	.LVL0:
+  26              	.LFB65:
+  27              		.file 1 "E:/study/New_Study/My_FOC/FOC/AS5600.c"
+   1:E:/study/New_Study/My_FOC/FOC\AS5600.c **** #include "AS5600.h"
+   2:E:/study/New_Study/My_FOC/FOC\AS5600.c ****  
+   3:E:/study/New_Study/My_FOC/FOC\AS5600.c **** float angle_prev=0; 
+   4:E:/study/New_Study/My_FOC/FOC\AS5600.c **** int full_rotations=0; // full rotation tracking;
+   5:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+   6:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+   7:E:/study/New_Study/My_FOC/FOC\AS5600.c **** //发送单字节时序
+   8:E:/study/New_Study/My_FOC/FOC\AS5600.c **** void AS5600_Write_Reg(unsigned char reg, unsigned char value)
+   9:E:/study/New_Study/My_FOC/FOC\AS5600.c **** {
+  28              		.loc 1 9 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 9 1 is_stmt 0 view .LVU1
+  33 0000 00B5     		push	{lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 4
+  36              		.cfi_offset 14, -4
+  37 0002 87B0     		sub	sp, sp, #28
+  38              	.LCFI1:
+  39              		.cfi_def_cfa_offset 32
+  40 0004 0246     		mov	r2, r0
+  41 0006 8DF81710 		strb	r1, [sp, #23]
+  10:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	HAL_I2C_Mem_Write(&hi2c1, Slave_Addr, reg, I2C_MEMADD_SIZE_8BIT, &value, 1, 50);
+  42              		.loc 1 10 2 is_stmt 1 view .LVU2
+  43 000a 3223     		movs	r3, #50
+  44 000c 0293     		str	r3, [sp, #8]
+  45 000e 0123     		movs	r3, #1
+  46 0010 0193     		str	r3, [sp, #4]
+  47 0012 0DF11701 		add	r1, sp, #23
+  48              	.LVL1:
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccpY7290.s 			page 2
+
+
+  49              		.loc 1 10 2 is_stmt 0 view .LVU3
+  50 0016 0091     		str	r1, [sp]
+  51 0018 6C21     		movs	r1, #108
+  52              	.LVL2:
+  53              		.loc 1 10 2 view .LVU4
+  54 001a 0348     		ldr	r0, .L3
+  55              	.LVL3:
+  56              		.loc 1 10 2 view .LVU5
+  57 001c FFF7FEFF 		bl	HAL_I2C_Mem_Write
+  58              	.LVL4:
+  11:E:/study/New_Study/My_FOC/FOC\AS5600.c **** }
+  59              		.loc 1 11 1 view .LVU6
+  60 0020 07B0     		add	sp, sp, #28
+  61              	.LCFI2:
+  62              		.cfi_def_cfa_offset 4
+  63              		@ sp needed
+  64 0022 5DF804FB 		ldr	pc, [sp], #4
+  65              	.L4:
+  66 0026 00BF     		.align	2
+  67              	.L3:
+  68 0028 00000000 		.word	hi2c1
+  69              		.cfi_endproc
+  70              	.LFE65:
+  72              		.section	.text.AS5600_Write_Regs,"ax",%progbits
+  73              		.align	1
+  74              		.global	AS5600_Write_Regs
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  79              	AS5600_Write_Regs:
+  80              	.LVL5:
+  81              	.LFB66:
+  12:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+  13:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+  14:E:/study/New_Study/My_FOC/FOC\AS5600.c **** //发送多字节时序
+  15:E:/study/New_Study/My_FOC/FOC\AS5600.c **** void AS5600_Write_Regs(unsigned char reg, unsigned char *value, unsigned char len)
+  16:E:/study/New_Study/My_FOC/FOC\AS5600.c **** {
+  82              		.loc 1 16 1 is_stmt 1 view -0
+  83              		.cfi_startproc
+  84              		@ args = 0, pretend = 0, frame = 0
+  85              		@ frame_needed = 0, uses_anonymous_args = 0
+  86              		.loc 1 16 1 is_stmt 0 view .LVU8
+  87 0000 00B5     		push	{lr}
+  88              	.LCFI3:
+  89              		.cfi_def_cfa_offset 4
+  90              		.cfi_offset 14, -4
+  91 0002 85B0     		sub	sp, sp, #20
+  92              	.LCFI4:
+  93              		.cfi_def_cfa_offset 24
+  17:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	HAL_I2C_Mem_Write(&hi2c1, Slave_Addr, reg, I2C_MEMADD_SIZE_8BIT, value, len, 50);
+  94              		.loc 1 17 2 is_stmt 1 view .LVU9
+  95 0004 3223     		movs	r3, #50
+  96 0006 0293     		str	r3, [sp, #8]
+  97 0008 0192     		str	r2, [sp, #4]
+  98 000a 0091     		str	r1, [sp]
+  99 000c 0123     		movs	r3, #1
+ 100 000e 0246     		mov	r2, r0
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccpY7290.s 			page 3
+
+
+ 101              	.LVL6:
+ 102              		.loc 1 17 2 is_stmt 0 view .LVU10
+ 103 0010 6C21     		movs	r1, #108
+ 104              	.LVL7:
+ 105              		.loc 1 17 2 view .LVU11
+ 106 0012 0348     		ldr	r0, .L7
+ 107              	.LVL8:
+ 108              		.loc 1 17 2 view .LVU12
+ 109 0014 FFF7FEFF 		bl	HAL_I2C_Mem_Write
+ 110              	.LVL9:
+  18:E:/study/New_Study/My_FOC/FOC\AS5600.c **** }
+ 111              		.loc 1 18 1 view .LVU13
+ 112 0018 05B0     		add	sp, sp, #20
+ 113              	.LCFI5:
+ 114              		.cfi_def_cfa_offset 4
+ 115              		@ sp needed
+ 116 001a 5DF804FB 		ldr	pc, [sp], #4
+ 117              	.L8:
+ 118 001e 00BF     		.align	2
+ 119              	.L7:
+ 120 0020 00000000 		.word	hi2c1
+ 121              		.cfi_endproc
+ 122              	.LFE66:
+ 124              		.section	.text.AS5600_Read_Reg,"ax",%progbits
+ 125              		.align	1
+ 126              		.global	AS5600_Read_Reg
+ 127              		.syntax unified
+ 128              		.thumb
+ 129              		.thumb_func
+ 131              	AS5600_Read_Reg:
+ 132              	.LVL10:
+ 133              	.LFB67:
+  19:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+  20:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+  21:E:/study/New_Study/My_FOC/FOC\AS5600.c **** //IIC读多字节
+  22:E:/study/New_Study/My_FOC/FOC\AS5600.c **** void AS5600_Read_Reg(unsigned char reg, unsigned char* buf, unsigned short len)
+  23:E:/study/New_Study/My_FOC/FOC\AS5600.c **** {
+ 134              		.loc 1 23 1 is_stmt 1 view -0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 0, uses_anonymous_args = 0
+ 138              		.loc 1 23 1 is_stmt 0 view .LVU15
+ 139 0000 00B5     		push	{lr}
+ 140              	.LCFI6:
+ 141              		.cfi_def_cfa_offset 4
+ 142              		.cfi_offset 14, -4
+ 143 0002 85B0     		sub	sp, sp, #20
+ 144              	.LCFI7:
+ 145              		.cfi_def_cfa_offset 24
+  24:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	HAL_I2C_Mem_Read(&hi2c1, Slave_Addr, reg, I2C_MEMADD_SIZE_8BIT, buf, len, 50);
+ 146              		.loc 1 24 2 is_stmt 1 view .LVU16
+ 147 0004 3223     		movs	r3, #50
+ 148 0006 0293     		str	r3, [sp, #8]
+ 149 0008 0192     		str	r2, [sp, #4]
+ 150 000a 0091     		str	r1, [sp]
+ 151 000c 0123     		movs	r3, #1
+ 152 000e 0246     		mov	r2, r0
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccpY7290.s 			page 4
+
+
+ 153              	.LVL11:
+ 154              		.loc 1 24 2 is_stmt 0 view .LVU17
+ 155 0010 6C21     		movs	r1, #108
+ 156              	.LVL12:
+ 157              		.loc 1 24 2 view .LVU18
+ 158 0012 0348     		ldr	r0, .L11
+ 159              	.LVL13:
+ 160              		.loc 1 24 2 view .LVU19
+ 161 0014 FFF7FEFF 		bl	HAL_I2C_Mem_Read
+ 162              	.LVL14:
+  25:E:/study/New_Study/My_FOC/FOC\AS5600.c **** }
+ 163              		.loc 1 25 1 view .LVU20
+ 164 0018 05B0     		add	sp, sp, #20
+ 165              	.LCFI8:
+ 166              		.cfi_def_cfa_offset 4
+ 167              		@ sp needed
+ 168 001a 5DF804FB 		ldr	pc, [sp], #4
+ 169              	.L12:
+ 170 001e 00BF     		.align	2
+ 171              	.L11:
+ 172 0020 00000000 		.word	hi2c1
+ 173              		.cfi_endproc
+ 174              	.LFE67:
+ 176              		.global	__aeabi_i2f
+ 177              		.global	__aeabi_fmul
+ 178              		.section	.text.GetAngle_Without_Track,"ax",%progbits
+ 179              		.align	1
+ 180              		.global	GetAngle_Without_Track
+ 181              		.syntax unified
+ 182              		.thumb
+ 183              		.thumb_func
+ 185              	GetAngle_Without_Track:
+ 186              	.LFB68:
+  26:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+  27:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+  28:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+  29:E:/study/New_Study/My_FOC/FOC\AS5600.c **** //得到弧度制的角度，范围在0-6.28
+  30:E:/study/New_Study/My_FOC/FOC\AS5600.c **** float GetAngle_Without_Track(void)
+  31:E:/study/New_Study/My_FOC/FOC\AS5600.c **** {   
+ 187              		.loc 1 31 1 is_stmt 1 view -0
+ 188              		.cfi_startproc
+ 189              		@ args = 0, pretend = 0, frame = 8
+ 190              		@ frame_needed = 0, uses_anonymous_args = 0
+ 191 0000 00B5     		push	{lr}
+ 192              	.LCFI9:
+ 193              		.cfi_def_cfa_offset 4
+ 194              		.cfi_offset 14, -4
+ 195 0002 83B0     		sub	sp, sp, #12
+ 196              	.LCFI10:
+ 197              		.cfi_def_cfa_offset 16
+  32:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	float angle_d;
+ 198              		.loc 1 32 2 view .LVU22
+  33:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	int16_t in_angle;
+ 199              		.loc 1 33 2 view .LVU23
+  34:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	uint8_t temp[2]={0};
+ 200              		.loc 1 34 2 view .LVU24
+ 201              		.loc 1 34 10 is_stmt 0 view .LVU25
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccpY7290.s 			page 5
+
+
+ 202 0004 0023     		movs	r3, #0
+ 203 0006 ADF80430 		strh	r3, [sp, #4]	@ movhi
+  35:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	AS5600_Read_Reg( Angle_Hight_Register_Addr, temp, 2);
+ 204              		.loc 1 35 2 is_stmt 1 view .LVU26
+ 205 000a 0222     		movs	r2, #2
+ 206 000c 01A9     		add	r1, sp, #4
+ 207 000e 0C20     		movs	r0, #12
+ 208 0010 FFF7FEFF 		bl	AS5600_Read_Reg
+ 209              	.LVL15:
+  36:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	in_angle = ((int16_t)temp[0] <<8) | (temp[1]);
+ 210              		.loc 1 36 2 view .LVU27
+ 211              		.loc 1 36 27 is_stmt 0 view .LVU28
+ 212 0014 9DF80430 		ldrb	r3, [sp, #4]	@ zero_extendqisi2
+ 213              		.loc 1 36 31 view .LVU29
+ 214 0018 1B02     		lsls	r3, r3, #8
+ 215              		.loc 1 36 36 view .LVU30
+ 216 001a 1BB2     		sxth	r3, r3
+ 217              		.loc 1 36 43 view .LVU31
+ 218 001c 9DF80500 		ldrb	r0, [sp, #5]	@ zero_extendqisi2
+ 219              	.LVL16:
+  37:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	angle_d = (float)in_angle * (2.0f*PI) / 4096;
+ 220              		.loc 1 37 2 is_stmt 1 view .LVU32
+ 221              		.loc 1 37 12 is_stmt 0 view .LVU33
+ 222 0020 1843     		orrs	r0, r0, r3
+ 223              	.LVL17:
+ 224              		.loc 1 37 12 view .LVU34
+ 225 0022 FFF7FEFF 		bl	__aeabi_i2f
+ 226              	.LVL18:
+ 227              		.loc 1 37 28 view .LVU35
+ 228 0026 0549     		ldr	r1, .L15
+ 229 0028 FFF7FEFF 		bl	__aeabi_fmul
+ 230              	.LVL19:
+ 231              		.loc 1 37 10 view .LVU36
+ 232 002c 4FF06651 		mov	r1, #964689920
+ 233 0030 FFF7FEFF 		bl	__aeabi_fmul
+ 234              	.LVL20:
+  38:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	return angle_d;
+ 235              		.loc 1 38 2 is_stmt 1 view .LVU37
+  39:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	//angle_d为弧度制，范围在0-6.28
+  40:E:/study/New_Study/My_FOC/FOC\AS5600.c **** }
+ 236              		.loc 1 40 1 is_stmt 0 view .LVU38
+ 237 0034 03B0     		add	sp, sp, #12
+ 238              	.LCFI11:
+ 239              		.cfi_def_cfa_offset 4
+ 240              		@ sp needed
+ 241 0036 5DF804FB 		ldr	pc, [sp], #4
+ 242              	.L16:
+ 243 003a 00BF     		.align	2
+ 244              	.L15:
+ 245 003c C50EC940 		.word	1086918341
+ 246              		.cfi_endproc
+ 247              	.LFE68:
+ 249              		.global	__aeabi_fsub
+ 250              		.global	__aeabi_fcmpgt
+ 251              		.global	__aeabi_fadd
+ 252              		.section	.text.GetAngle,"ax",%progbits
+ 253              		.align	1
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccpY7290.s 			page 6
+
+
+ 254              		.global	GetAngle
+ 255              		.syntax unified
+ 256              		.thumb
+ 257              		.thumb_func
+ 259              	GetAngle:
+ 260              	.LFB69:
+  41:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+  42:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+  43:E:/study/New_Study/My_FOC/FOC\AS5600.c **** float GetAngle(void)
+  44:E:/study/New_Study/My_FOC/FOC\AS5600.c **** {
+ 261              		.loc 1 44 1 is_stmt 1 view -0
+ 262              		.cfi_startproc
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265 0000 38B5     		push	{r3, r4, r5, lr}
+ 266              	.LCFI12:
+ 267              		.cfi_def_cfa_offset 16
+ 268              		.cfi_offset 3, -16
+ 269              		.cfi_offset 4, -12
+ 270              		.cfi_offset 5, -8
+ 271              		.cfi_offset 14, -4
+  45:E:/study/New_Study/My_FOC/FOC\AS5600.c ****     float val = GetAngle_Without_Track();
+ 272              		.loc 1 45 5 view .LVU40
+ 273              		.loc 1 45 17 is_stmt 0 view .LVU41
+ 274 0002 FFF7FEFF 		bl	GetAngle_Without_Track
+ 275              	.LVL21:
+ 276 0006 0446     		mov	r4, r0
+ 277              	.LVL22:
+  46:E:/study/New_Study/My_FOC/FOC\AS5600.c ****     float d_angle = val - angle_prev;
+ 278              		.loc 1 46 5 is_stmt 1 view .LVU42
+ 279              		.loc 1 46 11 is_stmt 0 view .LVU43
+ 280 0008 124B     		ldr	r3, .L27
+ 281 000a 1968     		ldr	r1, [r3]	@ float
+ 282 000c FFF7FEFF 		bl	__aeabi_fsub
+ 283              	.LVL23:
+ 284              		.loc 1 46 11 view .LVU44
+ 285 0010 0546     		mov	r5, r0
+ 286              	.LVL24:
+  47:E:/study/New_Study/My_FOC/FOC\AS5600.c ****     //计算旋转的总圈数
+  48:E:/study/New_Study/My_FOC/FOC\AS5600.c ****     //通过判断角度变化是否大于80%的一圈(0.8f*6.28318530718f)来判断是否发生了
+  49:E:/study/New_Study/My_FOC/FOC\AS5600.c ****     if(fabs(d_angle) > (0.8f*2.0f*PI) ) full_rotations += ( d_angle > 0 ) ? -1 : 1; 
+ 287              		.loc 1 49 5 is_stmt 1 view .LVU45
+ 288              		.loc 1 49 8 is_stmt 0 view .LVU46
+ 289 0012 20F00040 		bic	r0, r0, #-2147483648
+ 290              	.LVL25:
+ 291              		.loc 1 49 7 view .LVU47
+ 292 0016 1049     		ldr	r1, .L27+4
+ 293 0018 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 294              	.LVL26:
+ 295 001c 50B1     		cbz	r0, .L18
+ 296              		.loc 1 49 41 is_stmt 1 discriminator 1 view .LVU48
+ 297              		.loc 1 49 80 is_stmt 0 discriminator 1 view .LVU49
+ 298 001e 0021     		movs	r1, #0
+ 299 0020 2846     		mov	r0, r5
+ 300 0022 FFF7FEFF 		bl	__aeabi_fcmpgt
+ 301              	.LVL27:
+ 302 0026 90B1     		cbz	r0, .L25
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccpY7290.s 			page 7
+
+
+ 303              		.loc 1 49 80 view .LVU50
+ 304 0028 4FF0FF31 		mov	r1, #-1
+ 305              	.L20:
+ 306              		.loc 1 49 56 discriminator 5 view .LVU51
+ 307 002c 0B4A     		ldr	r2, .L27+8
+ 308 002e 1368     		ldr	r3, [r2]
+ 309 0030 0B44     		add	r3, r3, r1
+ 310 0032 1360     		str	r3, [r2]
+ 311              	.L18:
+  50:E:/study/New_Study/My_FOC/FOC\AS5600.c ****     angle_prev = val;
+ 312              		.loc 1 50 5 is_stmt 1 view .LVU52
+ 313              		.loc 1 50 16 is_stmt 0 view .LVU53
+ 314 0034 074B     		ldr	r3, .L27
+ 315 0036 1C60     		str	r4, [r3]	@ float
+  51:E:/study/New_Study/My_FOC/FOC\AS5600.c ****     return (float)full_rotations * 6.28318530718f + angle_prev;
+ 316              		.loc 1 51 5 is_stmt 1 view .LVU54
+ 317              		.loc 1 51 12 is_stmt 0 view .LVU55
+ 318 0038 084B     		ldr	r3, .L27+8
+ 319 003a 1868     		ldr	r0, [r3]
+ 320 003c FFF7FEFF 		bl	__aeabi_i2f
+ 321              	.LVL28:
+ 322              		.loc 1 51 34 view .LVU56
+ 323 0040 0749     		ldr	r1, .L27+12
+ 324 0042 FFF7FEFF 		bl	__aeabi_fmul
+ 325              	.LVL29:
+ 326              		.loc 1 51 51 view .LVU57
+ 327 0046 2146     		mov	r1, r4
+ 328 0048 FFF7FEFF 		bl	__aeabi_fadd
+ 329              	.LVL30:
+  52:E:/study/New_Study/My_FOC/FOC\AS5600.c ****     
+  53:E:/study/New_Study/My_FOC/FOC\AS5600.c **** }
+ 330              		.loc 1 53 1 view .LVU58
+ 331 004c 38BD     		pop	{r3, r4, r5, pc}
+ 332              	.LVL31:
+ 333              	.L25:
+  49:E:/study/New_Study/My_FOC/FOC\AS5600.c ****     angle_prev = val;
+ 334              		.loc 1 49 80 view .LVU59
+ 335 004e 0121     		movs	r1, #1
+ 336 0050 ECE7     		b	.L20
+ 337              	.L28:
+ 338 0052 00BF     		.align	2
+ 339              	.L27:
+ 340 0054 00000000 		.word	.LANCHOR0
+ 341 0058 9ED8A040 		.word	1084283038
+ 342 005c 00000000 		.word	.LANCHOR1
+ 343 0060 DB0FC940 		.word	1086918619
+ 344              		.cfi_endproc
+ 345              	.LFE69:
+ 347              		.section	.text.Get_Current_Angle,"ax",%progbits
+ 348              		.align	1
+ 349              		.global	Get_Current_Angle
+ 350              		.syntax unified
+ 351              		.thumb
+ 352              		.thumb_func
+ 354              	Get_Current_Angle:
+ 355              	.LFB70:
+  54:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccpY7290.s 			page 8
+
+
+  55:E:/study/New_Study/My_FOC/FOC\AS5600.c **** /* 获取角度值 */
+  56:E:/study/New_Study/My_FOC/FOC\AS5600.c **** float Get_Current_Angle(void)
+  57:E:/study/New_Study/My_FOC/FOC\AS5600.c **** {
+ 356              		.loc 1 57 1 is_stmt 1 view -0
+ 357              		.cfi_startproc
+ 358              		@ args = 0, pretend = 0, frame = 8
+ 359              		@ frame_needed = 0, uses_anonymous_args = 0
+ 360 0000 00B5     		push	{lr}
+ 361              	.LCFI13:
+ 362              		.cfi_def_cfa_offset 4
+ 363              		.cfi_offset 14, -4
+ 364 0002 83B0     		sub	sp, sp, #12
+ 365              	.LCFI14:
+ 366              		.cfi_def_cfa_offset 16
+  58:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	float angle_d;
+ 367              		.loc 1 58 2 view .LVU61
+  59:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	int16_t in_angle;
+ 368              		.loc 1 59 2 view .LVU62
+  60:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	uint8_t temp[2]={0};
+ 369              		.loc 1 60 2 view .LVU63
+ 370              		.loc 1 60 10 is_stmt 0 view .LVU64
+ 371 0004 0023     		movs	r3, #0
+ 372 0006 ADF80430 		strh	r3, [sp, #4]	@ movhi
+  61:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	AS5600_Read_Reg( Angle_Hight_Register_Addr, temp, 2);
+ 373              		.loc 1 61 2 is_stmt 1 view .LVU65
+ 374 000a 0222     		movs	r2, #2
+ 375 000c 01A9     		add	r1, sp, #4
+ 376 000e 0C20     		movs	r0, #12
+ 377 0010 FFF7FEFF 		bl	AS5600_Read_Reg
+ 378              	.LVL32:
+  62:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	in_angle = ((int16_t)temp[0] <<8) | (temp[1]);
+ 379              		.loc 1 62 2 view .LVU66
+ 380              		.loc 1 62 27 is_stmt 0 view .LVU67
+ 381 0014 9DF80430 		ldrb	r3, [sp, #4]	@ zero_extendqisi2
+ 382              		.loc 1 62 31 view .LVU68
+ 383 0018 1B02     		lsls	r3, r3, #8
+ 384              		.loc 1 62 36 view .LVU69
+ 385 001a 1BB2     		sxth	r3, r3
+ 386              		.loc 1 62 43 view .LVU70
+ 387 001c 9DF80500 		ldrb	r0, [sp, #5]	@ zero_extendqisi2
+ 388              	.LVL33:
+  63:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	angle_d = (float)in_angle * 360 / 4096;
+ 389              		.loc 1 63 2 is_stmt 1 view .LVU71
+ 390              		.loc 1 63 12 is_stmt 0 view .LVU72
+ 391 0020 1843     		orrs	r0, r0, r3
+ 392              	.LVL34:
+ 393              		.loc 1 63 12 view .LVU73
+ 394 0022 FFF7FEFF 		bl	__aeabi_i2f
+ 395              	.LVL35:
+ 396              		.loc 1 63 28 view .LVU74
+ 397 0026 0549     		ldr	r1, .L31
+ 398 0028 FFF7FEFF 		bl	__aeabi_fmul
+ 399              	.LVL36:
+ 400              		.loc 1 63 10 view .LVU75
+ 401 002c 4FF06651 		mov	r1, #964689920
+ 402 0030 FFF7FEFF 		bl	__aeabi_fmul
+ 403              	.LVL37:
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccpY7290.s 			page 9
+
+
+  64:E:/study/New_Study/My_FOC/FOC\AS5600.c **** 	return angle_d;
+ 404              		.loc 1 64 2 is_stmt 1 view .LVU76
+  65:E:/study/New_Study/My_FOC/FOC\AS5600.c **** }
+ 405              		.loc 1 65 1 is_stmt 0 view .LVU77
+ 406 0034 03B0     		add	sp, sp, #12
+ 407              	.LCFI15:
+ 408              		.cfi_def_cfa_offset 4
+ 409              		@ sp needed
+ 410 0036 5DF804FB 		ldr	pc, [sp], #4
+ 411              	.L32:
+ 412 003a 00BF     		.align	2
+ 413              	.L31:
+ 414 003c 0000B443 		.word	1135869952
+ 415              		.cfi_endproc
+ 416              	.LFE70:
+ 418              		.global	full_rotations
+ 419              		.global	angle_prev
+ 420              		.section	.bss.angle_prev,"aw",%nobits
+ 421              		.align	2
+ 422              		.set	.LANCHOR0,. + 0
+ 425              	angle_prev:
+ 426 0000 00000000 		.space	4
+ 427              		.section	.bss.full_rotations,"aw",%nobits
+ 428              		.align	2
+ 429              		.set	.LANCHOR1,. + 0
+ 432              	full_rotations:
+ 433 0000 00000000 		.space	4
+ 434              		.text
+ 435              	.Letext0:
+ 436              		.file 2 "d:\\stm32_vscode_bag\\gnu\\arm-none-eabi\\include\\machine\\_default_types.h"
+ 437              		.file 3 "d:\\stm32_vscode_bag\\gnu\\arm-none-eabi\\include\\sys\\_stdint.h"
+ 438              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 439              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 440              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 441              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h"
+ 442              		.file 8 "Core/Inc/i2c.h"
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccpY7290.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 AS5600.c
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:18     .text.AS5600_Write_Reg:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:24     .text.AS5600_Write_Reg:00000000 AS5600_Write_Reg
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:68     .text.AS5600_Write_Reg:00000028 $d
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:73     .text.AS5600_Write_Regs:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:79     .text.AS5600_Write_Regs:00000000 AS5600_Write_Regs
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:120    .text.AS5600_Write_Regs:00000020 $d
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:125    .text.AS5600_Read_Reg:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:131    .text.AS5600_Read_Reg:00000000 AS5600_Read_Reg
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:172    .text.AS5600_Read_Reg:00000020 $d
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:179    .text.GetAngle_Without_Track:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:185    .text.GetAngle_Without_Track:00000000 GetAngle_Without_Track
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:245    .text.GetAngle_Without_Track:0000003c $d
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:253    .text.GetAngle:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:259    .text.GetAngle:00000000 GetAngle
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:340    .text.GetAngle:00000054 $d
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:348    .text.Get_Current_Angle:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:354    .text.Get_Current_Angle:00000000 Get_Current_Angle
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:414    .text.Get_Current_Angle:0000003c $d
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:432    .bss.full_rotations:00000000 full_rotations
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:425    .bss.angle_prev:00000000 angle_prev
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:421    .bss.angle_prev:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccpY7290.s:428    .bss.full_rotations:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_I2C_Mem_Write
+hi2c1
+HAL_I2C_Mem_Read
+__aeabi_i2f
+__aeabi_fmul
+__aeabi_fsub
+__aeabi_fcmpgt
+__aeabi_fadd
