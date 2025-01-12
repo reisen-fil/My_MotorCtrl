@@ -1,0 +1,22 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "./build/My_FOC.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "servertype": "openocd",
+            "showDevDebugOutput": false,
+            // "servertype": "stlink",
+            "configFiles": [
+                "D:/stm32_vscode_bag/openocd-20240820/OpenOCD-20240820-0.12.0/share/openocd/scripts/interface/stlink-v2.cfg",
+                "D:/stm32_vscode_bag/openocd-20240820/OpenOCD-20240820-0.12.0/share/openocd/scripts/target/stm32f1x.cfg"]
+        }
+    ]
+}
