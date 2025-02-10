@@ -28,7 +28,8 @@ build/PMSM_FOC.o: E:/study/New_Study/My_FOC/FOC/PMSM_FOC.c \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
  E:/study/New_Study/My_FOC/FOC/AS5600.h \
  E:/study/New_Study/My_FOC/FOC/Mymath.h Core/Inc/i2c.h Core/Inc/main.h \
- Core/Inc/tim.h Core/Inc/adc.h
+ Core/Inc/usart.h Core/Inc/tim.h Core/Inc/adc.h Core/Inc/main.h \
+ E:/study/New_Study/My_FOC/FOC/test.h Core/Inc/usart.h
 E:/study/New_Study/My_FOC/FOC/PMSM_FOC.h:
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 Core/Inc/stm32f1xx_hal_conf.h:
@@ -62,5 +63,9 @@ E:/study/New_Study/My_FOC/FOC/AS5600.h:
 E:/study/New_Study/My_FOC/FOC/Mymath.h:
 Core/Inc/i2c.h:
 Core/Inc/main.h:
+Core/Inc/usart.h:
 Core/Inc/tim.h:
 Core/Inc/adc.h:
+Core/Inc/main.h:
+E:/study/New_Study/My_FOC/FOC/test.h:
+Core/Inc/usart.h:

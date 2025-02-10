@@ -26,7 +26,8 @@ build/AS5600.o: E:/study/New_Study/My_FOC/FOC/AS5600.c \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
- E:/study/New_Study/My_FOC/FOC/Mymath.h Core/Inc/i2c.h Core/Inc/main.h
+ E:/study/New_Study/My_FOC/FOC/Mymath.h Core/Inc/i2c.h Core/Inc/main.h \
+ Core/Inc/usart.h
 E:/study/New_Study/My_FOC/FOC/AS5600.h:
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 Core/Inc/stm32f1xx_hal_conf.h:
@@ -59,3 +60,4 @@ Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
 E:/study/New_Study/My_FOC/FOC/Mymath.h:
 Core/Inc/i2c.h:
 Core/Inc/main.h:
+Core/Inc/usart.h:

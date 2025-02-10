@@ -15,6 +15,7 @@
 #define Angle_Hight_Register_Addr 0x0C 			//寄存器高位地址
 #define Angle_Low_Register_Addr   0x0D 			//寄存器低位地址
 
+extern float Now_Angle,Last_Angle,AngleSpeed;		/* 计算转速所需的两个相对角度 */
 
 void AS5600_Read_Reg(unsigned char reg, unsigned char* buf, unsigned short len);
 void AS5600_Write_Reg(unsigned char reg, unsigned char value);
@@ -22,6 +23,8 @@ float GetAngle_Without_Track(void);
 float GetAngle(void);
 
 float Get_Current_Angle(void);
+float Get_CalibraAngle(float Angle_Offset);	
+float Get_AngleSpeed(void);
 
 
 #endif /* __BSP_AS5600_H */
