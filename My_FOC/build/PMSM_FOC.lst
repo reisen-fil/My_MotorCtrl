@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -30,35 +30,35 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
   28              	Park_transit:
   29              	.LVL0:
   30              	.LFB68:
-  31              		.file 1 "E:/study/New_Study/My_FOC/FOC/PMSM_FOC.c"
-   1:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** #include "PMSM_FOC.h"
-   2:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-   3:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** uint16_t MyADC_Value[2];
-   4:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float Amp_Offset[2];		/* 采样电压偏置 */
-   5:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-   6:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float Iq_ref,Id_ref;		/* 电流环反馈值 */
-   7:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float Current_theta;
-   8:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float ZeroAngle_ref;    /* 零电角度参考值 */
-   9:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  10:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float test_theta,test_speed;		/* 测试变量 */
-  11:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  12:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** Str_pid Speed_pid;    /* 速度环pid */
-  13:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** Str_pid Position_pid;   /* 位置式pid */
-  14:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  15:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float Lowpassfilter(float Tf, float x);
-  16:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  17:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
-  18:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** Park变换，输入电角度、Ualpha和Ubeta，经过Park变换得到Uq、Ud
-  19:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
-  20:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Park_transit(struct DQ_Aix* I_QD,struct AlphaBeta_Aix* I_AB)       
-  21:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** { 
+  31              		.file 1 "E:/MCU_Project/stm32/FOC_project/My_FOC/FOC/PMSM_FOC.c"
+   1:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** #include "PMSM_FOC.h"
+   2:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+   3:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** uint16_t MyADC_Value[2];
+   4:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float Amp_Offset[2];		/* 采样电压偏置 */
+   5:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+   6:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float Iq_ref,Id_ref;		/* 电流环反馈值 */
+   7:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float Current_theta;
+   8:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float ZeroAngle_ref;    /* 零电角度参考值 */
+   9:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  10:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float test_theta,test_speed;		/* 测试变量 */
+  11:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  12:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** Str_pid Speed_pid;    /* 速度环pid */
+  13:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** Str_pid Position_pid;   /* 位置式pid */
+  14:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  15:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float Lowpassfilter(float Tf, float x);
+  16:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  17:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
+  18:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** Park变换，输入电角度、Ualpha和Ubeta，经过Park变换得到Uq、Ud
+  19:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
+  20:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void Park_transit(struct DQ_Aix* I_QD,struct AlphaBeta_Aix* I_AB)       
+  21:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** { 
   32              		.loc 1 21 1 view -0
   33              		.cfi_startproc
   34              		@ args = 0, pretend = 0, frame = 16
   35              		@ frame_needed = 0, uses_anonymous_args = 0
   36              		.loc 1 21 1 is_stmt 0 view .LVU1
   37 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 2
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 2
 
 
   38              	.LCFI0:
@@ -77,9 +77,9 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
   51              		.cfi_def_cfa_offset 56
   52 0006 0546     		mov	r5, r0
   53 0008 0C46     		mov	r4, r1
-  22:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     // float angle_el = Get_Current_Angle() * POLE_PAIR_NUM;       /* 根据极对数计算电角�
-  23:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  24:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     I_QD->I_q = -I_AB->I_Alpha*sin(I_QD->theta) + I_AB->I_Beta*cos(I_QD->theta);       /* Park变�
+  22:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****     // float angle_el = Get_Current_Angle() * POLE_PAIR_NUM;       /* 根据极对数计算电角�
+  23:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  24:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****     I_QD->I_q = -I_AB->I_Alpha*sin(I_QD->theta) + I_AB->I_Beta*cos(I_QD->theta);       /* Park变�
   54              		.loc 1 24 5 is_stmt 1 view .LVU2
   55              		.loc 1 24 22 is_stmt 0 view .LVU3
   56 000a 0868     		ldr	r0, [r1]	@ float
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
   89 0044 5046     		mov	r0, r10
   90 0046 5946     		mov	r1, fp
   91 0048 FFF7FEFF 		bl	cos
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 3
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 3
 
 
   92              	.LVL7:
@@ -140,7 +140,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  108              	.LVL10:
  109              		.loc 1 24 15 view .LVU12
  110 006c 6860     		str	r0, [r5, #4]	@ float
-  25:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     I_QD->I_d = I_AB->I_Alpha*cos(I_QD->theta) + I_AB->I_Beta*sin(I_QD->theta);
+  25:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****     I_QD->I_d = I_AB->I_Alpha*cos(I_QD->theta) + I_AB->I_Beta*sin(I_QD->theta);
  111              		.loc 1 25 5 is_stmt 1 view .LVU13
  112              		.loc 1 25 21 is_stmt 0 view .LVU14
  113 006e 2068     		ldr	r0, [r4]	@ float
@@ -177,8 +177,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  144              	.LVL16:
  145              		.loc 1 25 15 view .LVU19
  146 00a6 2860     		str	r0, [r5]	@ float
-  26:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 4
+  26:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 4
 
 
  147              		.loc 1 26 1 view .LVU20
@@ -200,12 +200,12 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  165              	Rev_Park:
  166              	.LVL17:
  167              	.LFB69:
-  27:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  28:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
-  29:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 反park变换，输入Uq、Ud得到Ualpha、Ubeta
-  30:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
-  31:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Rev_Park(struct DQ_Aix* I_QD,struct AlphaBeta_Aix* I_AB)
-  32:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+  27:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  28:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
+  29:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 反park变换，输入Uq、Ud得到Ualpha、Ubeta
+  30:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
+  31:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void Rev_Park(struct DQ_Aix* I_QD,struct AlphaBeta_Aix* I_AB)
+  32:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  168              		.loc 1 32 1 is_stmt 1 view -0
  169              		.cfi_startproc
  170              		@ args = 0, pretend = 0, frame = 0
@@ -226,10 +226,10 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  185              		.cfi_offset 14, -4
  186 0004 0446     		mov	r4, r0
  187 0006 0D46     		mov	r5, r1
-  33:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	// I_QD->theta = Get_Current_Angle() * POLE_PAIR_NUM;       /* 根据极对数计算电角度 */
-  34:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	// I_QD->theta = test_DQ.theta;
-  35:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  36:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     I_AB->I_Alpha = I_QD->I_d*cos(I_QD->theta) - I_QD->I_q*sin(I_QD->theta);
+  33:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	// I_QD->theta = Get_Current_Angle() * POLE_PAIR_NUM;       /* 根据极对数计算电角度 */
+  34:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	// I_QD->theta = test_DQ.theta;
+  35:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  36:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****     I_AB->I_Alpha = I_QD->I_d*cos(I_QD->theta) - I_QD->I_q*sin(I_QD->theta);
  188              		.loc 1 36 5 is_stmt 1 view .LVU24
  189              		.loc 1 36 25 is_stmt 0 view .LVU25
  190 0008 0068     		ldr	r0, [r0]	@ float
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  193 000a FFF7FEFF 		bl	__aeabi_f2d
  194              	.LVL19:
  195              		.loc 1 36 25 view .LVU27
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 5
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 5
 
 
  196 000e 0646     		mov	r6, r0
@@ -289,7 +289,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  241              	.LVL27:
  242              		.loc 1 36 19 view .LVU34
  243 005e 2860     		str	r0, [r5]	@ float
-  37:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     I_AB->I_Beta = I_QD->I_d*sin(I_QD->theta) + I_QD->I_q*cos(I_QD->theta);	
+  37:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****     I_AB->I_Beta = I_QD->I_d*sin(I_QD->theta) + I_QD->I_q*cos(I_QD->theta);	
  244              		.loc 1 37 5 is_stmt 1 view .LVU35
  245              		.loc 1 37 24 is_stmt 0 view .LVU36
  246 0060 2068     		ldr	r0, [r4]	@ float
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  249 0066 0646     		mov	r6, r0
  250 0068 0F46     		mov	r7, r1
  251              		.loc 1 37 30 view .LVU37
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 6
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 6
 
 
  252 006a A068     		ldr	r0, [r4, #8]	@ float
@@ -346,8 +346,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  294              	.LVL36:
  295              		.loc 1 37 18 view .LVU43
  296 00b6 6860     		str	r0, [r5, #4]	@ float
-  38:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  39:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+  38:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  39:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  297              		.loc 1 39 1 view .LVU44
  298 00b8 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
  299              		.loc 1 39 1 view .LVU45
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  305              		.section	.text.clark_transit,"ax",%progbits
  306              		.align	1
  307              		.global	clark_transit
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 7
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 7
 
 
  308              		.syntax unified
@@ -367,12 +367,12 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  312              	clark_transit:
  313              	.LVL37:
  314              	.LFB70:
-  40:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  41:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
-  42:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** clark变换，输入Ua、Ub、Uc得到Ualpha、Ubeta
-  43:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
-  44:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void clark_transit(struct Three_Phase* I_abc,struct AlphaBeta_Aix* I_AB) 
-  45:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+  40:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  41:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
+  42:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** clark变换，输入Ua、Ub、Uc得到Ualpha、Ubeta
+  43:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
+  44:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void clark_transit(struct Three_Phase* I_abc,struct AlphaBeta_Aix* I_AB) 
+  45:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  315              		.loc 1 45 1 is_stmt 1 view -0
  316              		.cfi_startproc
  317              		@ args = 0, pretend = 0, frame = 0
@@ -387,8 +387,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  326              		.cfi_offset 14, -4
  327 0002 0446     		mov	r4, r0
  328 0004 0D46     		mov	r5, r1
-  46:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  47:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     I_AB->I_Alpha = DIV_2_3*(I_abc->Ia - DIV_1_2*I_abc->Ib - DIV_1_2*I_abc->Ic);   /* 做等幅值�
+  46:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  47:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****     I_AB->I_Alpha = DIV_2_3*(I_abc->Ia - DIV_1_2*I_abc->Ib - DIV_1_2*I_abc->Ic);   /* 做等幅值�
  329              		.loc 1 47 5 is_stmt 1 view .LVU48
  330              		.loc 1 47 35 is_stmt 0 view .LVU49
  331 0006 0668     		ldr	r6, [r0]	@ float
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  355 002a FFF7FEFF 		bl	__aeabi_fsub
  356              	.LVL43:
  357              		.loc 1 47 28 view .LVU56
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 8
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 8
 
 
  358 002e 0B49     		ldr	r1, .L7
@@ -426,7 +426,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  360              	.LVL44:
  361              		.loc 1 47 19 view .LVU57
  362 0034 2860     		str	r0, [r5]	@ float
-  48:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     I_AB->I_Beta = DIV_2_3*(Sqrt_3_div_2*I_abc->Ib - Sqrt_3_div_2*I_abc->Ic);
+  48:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****     I_AB->I_Beta = DIV_2_3*(Sqrt_3_div_2*I_abc->Ib - Sqrt_3_div_2*I_abc->Ic);
  363              		.loc 1 48 5 is_stmt 1 view .LVU58
  364              		.loc 1 48 41 is_stmt 0 view .LVU59
  365 0036 0A49     		ldr	r1, .L7+4
@@ -450,8 +450,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  383              	.LVL48:
  384              		.loc 1 48 18 view .LVU63
  385 0056 6860     		str	r0, [r5, #4]	@ float
-  49:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  50:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+  49:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  50:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  386              		.loc 1 50 1 view .LVU64
  387 0058 70BD     		pop	{r4, r5, r6, pc}
  388              	.LVL49:
@@ -473,15 +473,15 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  406              	Rev_clark:
  407              	.LVL50:
  408              	.LFB71:
-  51:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  52:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
-  53:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 反clark变换，输入Ualpha、Ubeta得到Ua、Ub、Uc
-  54:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
-  55:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Rev_clark(struct Three_Phase* I_abc,struct AlphaBeta_Aix* I_AB) 
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 9
+  51:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  52:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /**************************************************************************************************
+  53:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 反clark变换，输入Ualpha、Ubeta得到Ua、Ub、Uc
+  54:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** ***************************************************************************************************
+  55:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void Rev_clark(struct Three_Phase* I_abc,struct AlphaBeta_Aix* I_AB) 
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 9
 
 
-  56:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+  56:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  409              		.loc 1 56 1 is_stmt 1 view -0
  410              		.cfi_startproc
  411              		@ args = 0, pretend = 0, frame = 0
@@ -496,15 +496,15 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  420              		.cfi_offset 14, -4
  421 0002 0546     		mov	r5, r0
  422 0004 0C46     		mov	r4, r1
-  57:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  58:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     I_abc->Ia = I_AB->I_Alpha;        /* 依据Ia+Ib+Ic=0 */
+  57:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  58:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****     I_abc->Ia = I_AB->I_Alpha;        /* 依据Ia+Ib+Ic=0 */
  423              		.loc 1 58 5 is_stmt 1 view .LVU68
  424              		.loc 1 58 21 is_stmt 0 view .LVU69
  425 0006 0868     		ldr	r0, [r1]	@ float
  426              	.LVL51:
  427              		.loc 1 58 15 view .LVU70
  428 0008 2860     		str	r0, [r5]	@ float
-  59:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     I_abc->Ib = -DIV_1_2*I_AB->I_Alpha + Sqrt_3_div_2*I_AB->I_Beta;
+  59:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****     I_abc->Ib = -DIV_1_2*I_AB->I_Alpha + Sqrt_3_div_2*I_AB->I_Beta;
  429              		.loc 1 59 5 is_stmt 1 view .LVU71
  430              		.loc 1 59 25 is_stmt 0 view .LVU72
  431 000a 4FF03F41 		mov	r1, #-1090519040
@@ -525,7 +525,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  446              	.LVL55:
  447              		.loc 1 59 15 view .LVU76
  448 0024 6860     		str	r0, [r5, #4]	@ float
-  60:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****     I_abc->Ic = -DIV_1_2*I_AB->I_Alpha - Sqrt_3_div_2*I_AB->I_Beta;
+  60:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****     I_abc->Ic = -DIV_1_2*I_AB->I_Alpha - Sqrt_3_div_2*I_AB->I_Beta;
  449              		.loc 1 60 5 is_stmt 1 view .LVU77
  450              		.loc 1 60 25 is_stmt 0 view .LVU78
  451 0026 4FF03F41 		mov	r1, #-1090519040
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  458 0034 6068     		ldr	r0, [r4, #4]	@ float
  459 0036 FFF7FEFF 		bl	__aeabi_fmul
  460              	.LVL57:
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 10
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 10
 
 
  461 003a 0146     		mov	r1, r0
@@ -548,8 +548,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  465              	.LVL58:
  466              		.loc 1 60 15 view .LVU81
  467 0042 A860     		str	r0, [r5, #8]	@ float
-  61:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  62:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+  61:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  62:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  468              		.loc 1 62 1 view .LVU82
  469 0044 70BD     		pop	{r4, r5, r6, pc}
  470              	.LVL59:
@@ -570,10 +570,10 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  487              	CalculateSector:
  488              	.LVL60:
  489              	.LFB72:
-  63:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
-  64:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 当前扇区判断/扇区计算 */
-  65:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void CalculateSector(struct AlphaBeta_Aix ab, struct SVPWM_Control* ptr)
-  66:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+  63:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+  64:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 当前扇区判断/扇区计算 */
+  65:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void CalculateSector(struct AlphaBeta_Aix ab, struct SVPWM_Control* ptr)
+  66:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  490              		.loc 1 66 1 is_stmt 1 view -0
  491              		.cfi_startproc
  492              		@ args = 0, pretend = 0, frame = 8
@@ -596,26 +596,26 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  509 0006 02AB     		add	r3, sp, #8
  510 0008 03E90300 		stmdb	r3, {r0, r1}
  511 000c 1546     		mov	r5, r2
-  67:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		int8_t A = 0;
+  67:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		int8_t A = 0;
  512              		.loc 1 67 3 is_stmt 1 view .LVU86
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 11
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 11
 
 
  513              	.LVL61:
-  68:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		int8_t B = 0;
+  68:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		int8_t B = 0;
  514              		.loc 1 68 3 view .LVU87
-  69:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		int8_t C = 0;
+  69:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		int8_t C = 0;
  515              		.loc 1 69 3 view .LVU88
-  70:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		int8_t N = 0;
+  70:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		int8_t N = 0;
  516              		.loc 1 70 3 view .LVU89
-  71:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
-  72:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****         /* 六个扇区的三个判断条件 */
-  73:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		float VA = ab.I_Beta;
+  71:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		
+  72:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****         /* 六个扇区的三个判断条件 */
+  73:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		float VA = ab.I_Beta;
  517              		.loc 1 73 3 view .LVU90
  518              		.loc 1 73 9 is_stmt 0 view .LVU91
  519 000e DDF80490 		ldr	r9, [sp, #4]	@ float
  520              	.LVL62:
-  74:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		float VB = ab.I_Alpha * Sqrt_3_div_2 - DIV_1_2 * ab.I_Beta;
+  74:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		float VB = ab.I_Alpha * Sqrt_3_div_2 - DIV_1_2 * ab.I_Beta;
  521              		.loc 1 74 3 is_stmt 1 view .LVU92
  522              		.loc 1 74 25 is_stmt 0 view .LVU93
  523 0012 3349     		ldr	r1, .L38
@@ -637,7 +637,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  539              	.LVL65:
  540 0030 8046     		mov	r8, r0
  541              	.LVL66:
-  75:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		float VC = 0 - ab.I_Alpha * Sqrt_3_div_2 - DIV_1_2 * ab.I_Beta;
+  75:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		float VC = 0 - ab.I_Alpha * Sqrt_3_div_2 - DIV_1_2 * ab.I_Beta;
  542              		.loc 1 75 3 is_stmt 1 view .LVU97
  543              		.loc 1 75 16 is_stmt 0 view .LVU98
  544 0032 3146     		mov	r1, r6
@@ -653,12 +653,12 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  554              	.LVL69:
  555 0042 0746     		mov	r7, r0
  556              	.LVL70:
-  76:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	
-  77:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****         /* 对X、Y、Z三个参量式赋值 */
-  78:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ptr->X = SVPWM_K * ab.I_Beta;
+  76:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	
+  77:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****         /* 对X、Y、Z三个参量式赋值 */
+  78:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		ptr->X = SVPWM_K * ab.I_Beta;
  557              		.loc 1 78 3 is_stmt 1 view .LVU101
  558              		.loc 1 78 20 is_stmt 0 view .LVU102
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 12
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 12
 
 
  559 0044 2749     		ldr	r1, .L38+4
@@ -669,7 +669,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  564              	.LVL72:
  565              		.loc 1 78 10 view .LVU104
  566 004c 6860     		str	r0, [r5, #4]	@ float
-  79:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ptr->Y = SVPWM_K * (ab.I_Alpha * Sqrt_3_div_2 + DIV_1_2 * ab.I_Beta);
+  79:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		ptr->Y = SVPWM_K * (ab.I_Alpha * Sqrt_3_div_2 + DIV_1_2 * ab.I_Beta);
  567              		.loc 1 79 3 is_stmt 1 view .LVU105
  568              		.loc 1 79 49 is_stmt 0 view .LVU106
  569 004e 2146     		mov	r1, r4
@@ -682,7 +682,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  576              	.LVL74:
  577              		.loc 1 79 10 view .LVU108
  578 005c A860     		str	r0, [r5, #8]	@ float
-  80:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ptr->Z = SVPWM_K * (0 - ab.I_Alpha * Sqrt_3_div_2 + DIV_1_2 * ab.I_Beta);
+  80:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		ptr->Z = SVPWM_K * (0 - ab.I_Alpha * Sqrt_3_div_2 + DIV_1_2 * ab.I_Beta);
  579              		.loc 1 80 3 is_stmt 1 view .LVU109
  580              		.loc 1 80 53 is_stmt 0 view .LVU110
  581 005e 5146     		mov	r1, r10
@@ -695,8 +695,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  588              	.LVL76:
  589              		.loc 1 80 10 view .LVU112
  590 006c E860     		str	r0, [r5, #12]	@ float
-  81:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	
-  82:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		if(VA > 0)
+  81:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	
+  82:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		if(VA > 0)
  591              		.loc 1 82 3 is_stmt 1 view .LVU113
  592              		.loc 1 82 5 is_stmt 0 view .LVU114
  593 006e 0021     		movs	r1, #0
@@ -704,21 +704,21 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  595 0072 FFF7FEFF 		bl	__aeabi_fcmpgt
  596              	.LVL77:
  597 0076 C8B1     		cbz	r0, .L34
-  83:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
-  84:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				A = 1;
+  83:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		{
+  84:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				A = 1;
  598              		.loc 1 84 7 view .LVU115
  599 0078 0124     		movs	r4, #1
  600              	.L14:
  601              	.LVL78:
-  85:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
-  86:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		else
-  87:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
-  88:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				A = 0;
-  89:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
-  90:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
-  91:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		if(VB > 0)
+  85:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
+  86:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		else
+  87:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		{
+  88:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				A = 0;
+  89:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
+  90:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		
+  91:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		if(VB > 0)
  602              		.loc 1 91 3 is_stmt 1 view .LVU116
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 13
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 13
 
 
  603              		.loc 1 91 5 is_stmt 0 view .LVU117
@@ -727,19 +727,19 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  606 007e FFF7FEFF 		bl	__aeabi_fcmpgt
  607              	.LVL79:
  608 0082 A8B1     		cbz	r0, .L35
-  92:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
-  93:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				B = 1;
+  92:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		{
+  93:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				B = 1;
  609              		.loc 1 93 7 view .LVU118
  610 0084 0126     		movs	r6, #1
  611              	.L16:
  612              	.LVL80:
-  94:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
-  95:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		else
-  96:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
-  97:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				B = 0;
-  98:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
-  99:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
- 100:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		if(VC > 0)
+  94:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
+  95:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		else
+  96:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		{
+  97:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				B = 0;
+  98:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
+  99:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		
+ 100:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		if(VC > 0)
  613              		.loc 1 100 3 is_stmt 1 view .LVU119
  614              		.loc 1 100 5 is_stmt 0 view .LVU120
  615 0086 0021     		movs	r1, #0
@@ -747,19 +747,19 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  617 008a FFF7FEFF 		bl	__aeabi_fcmpgt
  618              	.LVL81:
  619 008e 88B1     		cbz	r0, .L36
- 101:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
- 102:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				C = 1;
+ 101:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		{
+ 102:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				C = 1;
  620              		.loc 1 102 7 view .LVU121
  621 0090 0123     		movs	r3, #1
  622              	.L18:
  623              	.LVL82:
- 103:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
- 104:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		else
- 105:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
- 106:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				C = 0;
- 107:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
- 108:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
- 109:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		N = 4*C + 2*B + A;
+ 103:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 104:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		else
+ 105:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		{
+ 106:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				C = 0;
+ 107:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 108:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		
+ 109:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		N = 4*C + 2*B + A;
  624              		.loc 1 109 3 is_stmt 1 view .LVU122
  625              		.loc 1 109 11 is_stmt 0 view .LVU123
  626 0092 06EB4303 		add	r3, r6, r3, lsl #1
@@ -768,8 +768,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  629 0096 04EB4303 		add	r3, r4, r3, lsl #1
  630 009a DBB2     		uxtb	r3, r3
  631              	.LVL84:
- 110:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
- 111:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		switch(N)
+ 110:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		
+ 111:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		switch(N)
  632              		.loc 1 111 3 is_stmt 1 view .LVU125
  633 009c 013B     		subs	r3, r3, #1
  634              	.LVL85:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  637 00a0 0CD8     		bhi	.L13
  638 00a2 DFE803F0 		tbb	[pc, r3]
  639              	.L22:
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 14
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 14
 
 
  640 00a6 0E       		.byte	(.L27-.L22)/2
@@ -790,55 +790,55 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  646              	.LVL86:
  647              		.p2align 1
  648              	.L34:
-  88:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+  88:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
  649              		.loc 1 88 7 view .LVU127
  650 00ac 0024     		movs	r4, #0
  651 00ae E4E7     		b	.L14
  652              	.LVL87:
  653              	.L35:
-  97:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+  97:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
  654              		.loc 1 97 7 view .LVU128
  655 00b0 0026     		movs	r6, #0
  656 00b2 E8E7     		b	.L16
  657              	.LVL88:
  658              	.L36:
- 106:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 106:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
  659              		.loc 1 106 7 view .LVU129
  660 00b4 0023     		movs	r3, #0
  661 00b6 ECE7     		b	.L18
  662              	.LVL89:
  663              	.L25:
- 112:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
- 113:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
- 114:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 1;
+ 112:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		{
+ 113:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
+ 114:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 1;
  664              		.loc 1 114 5 is_stmt 1 view .LVU130
  665              		.loc 1 114 17 is_stmt 0 view .LVU131
  666 00b8 0123     		movs	r3, #1
  667              	.LVL90:
  668              		.loc 1 114 17 view .LVU132
  669 00ba 2B70     		strb	r3, [r5]
- 115:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 115:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  670              		.loc 1 115 5 is_stmt 1 view .LVU133
  671              	.L13:
- 116:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
- 117:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 2;
- 118:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 119:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
- 120:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 3;
- 121:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 122:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
- 123:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 4;
- 124:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 125:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
- 126:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 5;
- 127:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 128:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
- 129:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 6;
- 130:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 131:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}	
- 132:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 116:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
+ 117:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 2;
+ 118:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 119:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 120:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 3;
+ 121:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 122:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 123:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 4;
+ 124:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 125:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
+ 126:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 5;
+ 127:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 128:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
+ 129:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->sector = 6;
+ 130:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 131:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}	
+ 132:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  672              		.loc 1 132 1 is_stmt 0 view .LVU134
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 15
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 15
 
 
  673 00bc 02B0     		add	sp, sp, #8
@@ -851,75 +851,75 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  680              	.L27:
  681              	.LCFI9:
  682              		.cfi_restore_state
- 117:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 117:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  683              		.loc 1 117 5 is_stmt 1 view .LVU135
- 117:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 117:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  684              		.loc 1 117 17 is_stmt 0 view .LVU136
  685 00c2 0223     		movs	r3, #2
  686              	.LVL92:
- 117:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 117:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  687              		.loc 1 117 17 view .LVU137
  688 00c4 2B70     		strb	r3, [r5]
- 118:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 118:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
  689              		.loc 1 118 5 is_stmt 1 view .LVU138
  690 00c6 F9E7     		b	.L13
  691              	.LVL93:
  692              	.L23:
- 120:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 120:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  693              		.loc 1 120 5 view .LVU139
- 120:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 120:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  694              		.loc 1 120 17 is_stmt 0 view .LVU140
  695 00c8 0323     		movs	r3, #3
  696              	.LVL94:
- 120:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 120:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  697              		.loc 1 120 17 view .LVU141
  698 00ca 2B70     		strb	r3, [r5]
- 121:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 121:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
  699              		.loc 1 121 5 is_stmt 1 view .LVU142
  700 00cc F6E7     		b	.L13
  701              	.LVL95:
  702              	.L24:
- 123:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 123:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  703              		.loc 1 123 5 view .LVU143
- 123:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 123:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  704              		.loc 1 123 17 is_stmt 0 view .LVU144
  705 00ce 0423     		movs	r3, #4
  706              	.LVL96:
- 123:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 123:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  707              		.loc 1 123 17 view .LVU145
  708 00d0 2B70     		strb	r3, [r5]
- 124:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
+ 124:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
  709              		.loc 1 124 5 is_stmt 1 view .LVU146
  710 00d2 F3E7     		b	.L13
  711              	.LVL97:
  712              	.L21:
- 126:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 126:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  713              		.loc 1 126 5 view .LVU147
- 126:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 126:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  714              		.loc 1 126 17 is_stmt 0 view .LVU148
  715 00d4 0523     		movs	r3, #5
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 16
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 16
 
 
  716              	.LVL98:
- 126:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 126:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  717              		.loc 1 126 17 view .LVU149
  718 00d6 2B70     		strb	r3, [r5]
- 127:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
+ 127:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
  719              		.loc 1 127 5 is_stmt 1 view .LVU150
  720 00d8 F0E7     		b	.L13
  721              	.LVL99:
  722              	.L26:
- 129:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 129:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  723              		.loc 1 129 5 view .LVU151
- 129:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 129:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  724              		.loc 1 129 17 is_stmt 0 view .LVU152
  725 00da 0623     		movs	r3, #6
  726              	.LVL100:
- 129:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 129:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  727              		.loc 1 129 17 view .LVU153
  728 00dc 2B70     		strb	r3, [r5]
- 130:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}	
+ 130:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}	
  729              		.loc 1 130 5 is_stmt 1 view .LVU154
  730              		.loc 1 132 1 is_stmt 0 view .LVU155
  731 00de EDE7     		b	.L13
@@ -940,10 +940,10 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  748              	CalulateDutyCycle:
  749              	.LVL101:
  750              	.LFB73:
- 133:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 134:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 计算出对应扇区占空比 */
- 135:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void CalulateDutyCycle(struct SVPWM_Control* ctrl,struct SVPWM_Duty* ptr)
- 136:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 133:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 134:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 计算出对应扇区占空比 */
+ 135:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void CalulateDutyCycle(struct SVPWM_Control* ctrl,struct SVPWM_Duty* ptr)
+ 136:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  751              		.loc 1 136 1 is_stmt 1 view -0
  752              		.cfi_startproc
  753              		@ args = 0, pretend = 0, frame = 0
@@ -958,15 +958,15 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  762              		.cfi_offset 6, -20
  763              		.cfi_offset 7, -16
  764              		.cfi_offset 8, -12
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 17
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 17
 
 
  765              		.cfi_offset 9, -8
  766              		.cfi_offset 14, -4
  767 0004 0446     		mov	r4, r0
  768 0006 0E46     		mov	r6, r1
- 137:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c ****         /* 对X、Y、Z三个参量式,在扇区判断的基础上进行扇区计算值的赋值 */
- 138:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		switch(ctrl->sector)
+ 137:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c ****         /* 对X、Y、Z三个参量式,在扇区判断的基础上进行扇区计算值的赋值 */
+ 138:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		switch(ctrl->sector)
  769              		.loc 1 138 3 is_stmt 1 view .LVU158
  770              		.loc 1 138 14 is_stmt 0 view .LVU159
  771 0008 0578     		ldrb	r5, [r0]	@ zero_extendqisi2
@@ -984,51 +984,51 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  783 0019 5D       		.byte	(.L42-.L43)/2
  784              		.p2align 1
  785              	.L47:
- 139:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
- 140:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
- 141:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = ctrl->Z;
+ 139:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		{
+ 140:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
+ 141:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = ctrl->Z;
  786              		.loc 1 141 5 is_stmt 1 view .LVU161
  787              		.loc 1 141 25 is_stmt 0 view .LVU162
  788 001a C368     		ldr	r3, [r0, #12]	@ float
  789              		.loc 1 141 19 view .LVU163
  790 001c 0361     		str	r3, [r0, #16]	@ float
- 142:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Y;
+ 142:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Y;
  791              		.loc 1 142 5 is_stmt 1 view .LVU164
  792              		.loc 1 142 26 is_stmt 0 view .LVU165
  793 001e 8368     		ldr	r3, [r0, #8]	@ float
  794              		.loc 1 142 20 view .LVU166
  795 0020 4361     		str	r3, [r0, #20]	@ float
- 143:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 143:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  796              		.loc 1 143 5 is_stmt 1 view .LVU167
  797              	.LVL102:
  798              	.L41:
- 144:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
- 145:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = ctrl->Y;
- 146:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
- 147:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 148:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
- 149:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = 0 - ctrl->Z;
- 150:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
- 151:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 152:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
- 153:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = 0 - ctrl->X;
- 154:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
- 155:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 156:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
- 157:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = ctrl->X;
- 158:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
- 159:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 18
+ 144:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
+ 145:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = ctrl->Y;
+ 146:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
+ 147:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 148:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
+ 149:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = 0 - ctrl->Z;
+ 150:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 151:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 152:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 153:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = 0 - ctrl->X;
+ 154:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 155:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 156:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
+ 157:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = ctrl->X;
+ 158:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
+ 159:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 18
 
 
- 160:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
- 161:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = 0 - ctrl->Y;
- 162:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
- 163:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 164:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
- 165:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
- 166:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		/* 当大于Ts本身时,对T_First和T_Second的大小进行缩放 */
- 167:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		if((ctrl->T_First + ctrl->T_Second) > Ts)
+ 160:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 161:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First = 0 - ctrl->Y;
+ 162:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 163:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 164:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 165:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		
+ 166:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		/* 当大于Ts本身时,对T_First和T_Second的大小进行缩放 */
+ 167:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		if((ctrl->T_First + ctrl->T_Second) > Ts)
  799              		.loc 1 167 3 view .LVU168
  800              		.loc 1 167 11 is_stmt 0 view .LVU169
  801 0022 D4F81090 		ldr	r9, [r4, #16]	@ float
@@ -1045,8 +1045,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  812 0036 FFF7FEFF 		bl	__aeabi_fcmpgt
  813              	.LVL104:
  814 003a B0B1     		cbz	r0, .L49
- 168:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
- 169:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First  = ctrl->T_First  * Ts / (ctrl->T_First + ctrl->T_Second);
+ 168:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		{
+ 169:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_First  = ctrl->T_First  * Ts / (ctrl->T_First + ctrl->T_Second);
  815              		.loc 1 169 5 is_stmt 1 view .LVU173
  816              		.loc 1 169 37 is_stmt 0 view .LVU174
  817 003c 4D49     		ldr	r1, .L61
@@ -1060,7 +1060,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  825 004a 0746     		mov	r7, r0
  826              		.loc 1 169 20 view .LVU176
  827 004c 2061     		str	r0, [r4, #16]	@ float
- 170:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->T_Second  * Ts / (ctrl->T_First + ctrl->T_Second);
+ 170:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->T_Second  * Ts / (ctrl->T_First + ctrl->T_Second);
  828              		.loc 1 170 5 is_stmt 1 view .LVU177
  829              		.loc 1 170 38 is_stmt 0 view .LVU178
  830 004e 4949     		ldr	r1, .L61
@@ -1078,15 +1078,15 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  842 0062 4846     		mov	r0, r9
  843 0064 FFF7FEFF 		bl	__aeabi_fdiv
  844              	.LVL109:
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 19
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 19
 
 
  845              		.loc 1 170 20 view .LVU181
  846 0068 6061     		str	r0, [r4, #20]	@ float
  847              	.L49:
- 171:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}			
- 172:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
- 173:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->T0 = (Ts - ctrl->T_First - ctrl->T_Second) / 2;
+ 171:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}			
+ 172:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		
+ 173:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->T0 = (Ts - ctrl->T_First - ctrl->T_Second) / 2;
  848              		.loc 1 173 3 is_stmt 1 view .LVU182
  849              		.loc 1 173 24 is_stmt 0 view .LVU183
  850 006a D4F81090 		ldr	r9, [r4, #16]	@ float
@@ -1107,9 +1107,9 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  865              	.LVL112:
  866              		.loc 1 173 12 view .LVU188
  867 0086 A061     		str	r0, [r4, #24]	@ float
- 174:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
- 175:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		/* 按照PWM中心对齐模式2、PWM计数模式1来设置三路逆变器PWM的大小 */
- 176:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->Tc = ctrl->T0 / 2;
+ 174:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		
+ 175:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		/* 按照PWM中心对齐模式2、PWM计数模式1来设置三路逆变器PWM的大小 */
+ 176:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->Tc = ctrl->T0 / 2;
  868              		.loc 1 176 3 is_stmt 1 view .LVU189
  869              		.loc 1 176 23 is_stmt 0 view .LVU190
  870 0088 4FF07C51 		mov	r1, #1056964608
@@ -1118,7 +1118,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  873 0090 8046     		mov	r8, r0
  874              		.loc 1 176 12 view .LVU191
  875 0092 6062     		str	r0, [r4, #36]	@ float
- 177:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->Tb = ctrl->Tc + ctrl->T_Second / 2;
+ 177:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->Tb = ctrl->Tc + ctrl->T_Second / 2;
  876              		.loc 1 177 3 is_stmt 1 view .LVU192
  877              		.loc 1 177 40 is_stmt 0 view .LVU193
  878 0094 4FF07C51 		mov	r1, #1056964608
@@ -1133,12 +1133,12 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  887 00a6 0746     		mov	r7, r0
  888              		.loc 1 177 12 view .LVU195
  889 00a8 2062     		str	r0, [r4, #32]	@ float
- 178:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->Ta = ctrl->Tb + ctrl->T_First / 2;
+ 178:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		ctrl->Ta = ctrl->Tb + ctrl->T_First / 2;
  890              		.loc 1 178 3 is_stmt 1 view .LVU196
  891              		.loc 1 178 39 is_stmt 0 view .LVU197
  892 00aa 4FF07C51 		mov	r1, #1056964608
  893 00ae 4846     		mov	r0, r9
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 20
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 20
 
 
  894 00b0 FFF7FEFF 		bl	__aeabi_fmul
@@ -1150,14 +1150,14 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  900              	.LVL117:
  901              		.loc 1 178 12 view .LVU199
  902 00bc E061     		str	r0, [r4, #28]	@ float
- 179:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 180:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		/* 按照PWM中心对齐模式1、PWM计数模式2来设置三路逆变器PWM的大小 */
- 181:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// ctrl->Ta = ctrl->T0 / 2;
- 182:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// ctrl->Tb = ctrl->Ta + ctrl->T_First / 2;
- 183:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// ctrl->Tc = ctrl->Tb + ctrl->T_Second / 2;
- 184:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
- 185:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		/* 判断对应扇区赋值三路占空比 */
- 186:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		switch(ctrl->sector)
+ 179:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 180:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		/* 按照PWM中心对齐模式1、PWM计数模式2来设置三路逆变器PWM的大小 */
+ 181:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		// ctrl->Ta = ctrl->T0 / 2;
+ 182:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		// ctrl->Tb = ctrl->Ta + ctrl->T_First / 2;
+ 183:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		// ctrl->Tc = ctrl->Tb + ctrl->T_Second / 2;
+ 184:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		
+ 185:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		/* 判断对应扇区赋值三路占空比 */
+ 186:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		switch(ctrl->sector)
  903              		.loc 1 186 3 is_stmt 1 view .LVU200
  904 00be 013D     		subs	r5, r5, #1
  905 00c0 052D     		cmp	r5, #5
@@ -1173,351 +1173,351 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  915              	.LVL118:
  916              		.p2align 1
  917              	.L42:
- 145:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
+ 145:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
  918              		.loc 1 145 5 view .LVU201
- 145:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
+ 145:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
  919              		.loc 1 145 25 is_stmt 0 view .LVU202
  920 00ce 8368     		ldr	r3, [r0, #8]	@ float
- 145:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
+ 145:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->X;
  921              		.loc 1 145 19 view .LVU203
  922 00d0 0361     		str	r3, [r0, #16]	@ float
- 146:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 146:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  923              		.loc 1 146 5 is_stmt 1 view .LVU204
- 146:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 146:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  924              		.loc 1 146 24 is_stmt 0 view .LVU205
  925 00d2 4168     		ldr	r1, [r0, #4]	@ float
  926              	.LVL119:
- 146:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 146:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  927              		.loc 1 146 24 view .LVU206
  928 00d4 0020     		movs	r0, #0
  929              	.LVL120:
- 146:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 146:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  930              		.loc 1 146 24 view .LVU207
  931 00d6 FFF7FEFF 		bl	__aeabi_fsub
  932              	.LVL121:
- 146:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 146:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  933              		.loc 1 146 20 view .LVU208
  934 00da 6061     		str	r0, [r4, #20]	@ float
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 21
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 21
 
 
- 147:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
+ 147:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
  935              		.loc 1 147 5 is_stmt 1 view .LVU209
  936 00dc A1E7     		b	.L41
  937              	.LVL122:
  938              	.L48:
- 149:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 149:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
  939              		.loc 1 149 5 view .LVU210
- 149:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 149:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
  940              		.loc 1 149 23 is_stmt 0 view .LVU211
  941 00de C168     		ldr	r1, [r0, #12]	@ float
  942              	.LVL123:
- 149:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 149:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
  943              		.loc 1 149 23 view .LVU212
  944 00e0 0020     		movs	r0, #0
  945              	.LVL124:
- 149:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 149:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
  946              		.loc 1 149 23 view .LVU213
  947 00e2 FFF7FEFF 		bl	__aeabi_fsub
  948              	.LVL125:
- 149:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
+ 149:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->X;
  949              		.loc 1 149 19 view .LVU214
  950 00e6 2061     		str	r0, [r4, #16]	@ float
- 150:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 150:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  951              		.loc 1 150 5 is_stmt 1 view .LVU215
- 150:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 150:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  952              		.loc 1 150 26 is_stmt 0 view .LVU216
  953 00e8 6368     		ldr	r3, [r4, #4]	@ float
- 150:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 150:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  954              		.loc 1 150 20 view .LVU217
  955 00ea 6361     		str	r3, [r4, #20]	@ float
- 151:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 151:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
  956              		.loc 1 151 5 is_stmt 1 view .LVU218
  957 00ec 99E7     		b	.L41
  958              	.LVL126:
  959              	.L45:
- 153:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 153:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
  960              		.loc 1 153 5 view .LVU219
- 153:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 153:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
  961              		.loc 1 153 23 is_stmt 0 view .LVU220
  962 00ee 4168     		ldr	r1, [r0, #4]	@ float
  963              	.LVL127:
- 153:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 153:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
  964              		.loc 1 153 23 view .LVU221
  965 00f0 0020     		movs	r0, #0
  966              	.LVL128:
- 153:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 153:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
  967              		.loc 1 153 23 view .LVU222
  968 00f2 FFF7FEFF 		bl	__aeabi_fsub
  969              	.LVL129:
- 153:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
+ 153:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = ctrl->Z;
  970              		.loc 1 153 19 view .LVU223
  971 00f6 2061     		str	r0, [r4, #16]	@ float
- 154:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 154:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  972              		.loc 1 154 5 is_stmt 1 view .LVU224
- 154:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 154:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  973              		.loc 1 154 26 is_stmt 0 view .LVU225
  974 00f8 E368     		ldr	r3, [r4, #12]	@ float
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 22
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 22
 
 
- 154:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 154:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  975              		.loc 1 154 20 view .LVU226
  976 00fa 6361     		str	r3, [r4, #20]	@ float
- 155:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
+ 155:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
  977              		.loc 1 155 5 is_stmt 1 view .LVU227
  978 00fc 91E7     		b	.L41
  979              	.LVL130:
  980              	.L46:
- 157:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
+ 157:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
  981              		.loc 1 157 5 view .LVU228
- 157:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
+ 157:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
  982              		.loc 1 157 25 is_stmt 0 view .LVU229
  983 00fe 4368     		ldr	r3, [r0, #4]	@ float
- 157:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
+ 157:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Y;
  984              		.loc 1 157 19 view .LVU230
  985 0100 0361     		str	r3, [r0, #16]	@ float
- 158:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 158:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  986              		.loc 1 158 5 is_stmt 1 view .LVU231
- 158:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 158:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  987              		.loc 1 158 24 is_stmt 0 view .LVU232
  988 0102 8168     		ldr	r1, [r0, #8]	@ float
  989              	.LVL131:
- 158:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 158:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  990              		.loc 1 158 24 view .LVU233
  991 0104 0020     		movs	r0, #0
  992              	.LVL132:
- 158:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 158:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  993              		.loc 1 158 24 view .LVU234
  994 0106 FFF7FEFF 		bl	__aeabi_fsub
  995              	.LVL133:
- 158:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 158:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  996              		.loc 1 158 20 view .LVU235
  997 010a 6061     		str	r0, [r4, #20]	@ float
- 159:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 159:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
  998              		.loc 1 159 5 is_stmt 1 view .LVU236
  999 010c 89E7     		b	.L41
  1000              	.LVL134:
  1001              	.L44:
- 161:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 161:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
  1002              		.loc 1 161 5 view .LVU237
- 161:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 161:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
  1003              		.loc 1 161 23 is_stmt 0 view .LVU238
  1004 010e 8168     		ldr	r1, [r0, #8]	@ float
  1005              	.LVL135:
- 161:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 161:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
  1006              		.loc 1 161 23 view .LVU239
  1007 0110 0020     		movs	r0, #0
  1008              	.LVL136:
- 161:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 161:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
  1009              		.loc 1 161 23 view .LVU240
  1010 0112 FFF7FEFF 		bl	__aeabi_fsub
  1011              	.LVL137:
- 161:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
+ 161:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ctrl->T_Second = 0 - ctrl->Z;
  1012              		.loc 1 161 19 view .LVU241
  1013 0116 2061     		str	r0, [r4, #16]	@ float
- 162:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 162:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1014              		.loc 1 162 5 is_stmt 1 view .LVU242
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 23
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 23
 
 
- 162:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 162:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1015              		.loc 1 162 24 is_stmt 0 view .LVU243
  1016 0118 E168     		ldr	r1, [r4, #12]	@ float
  1017 011a 0020     		movs	r0, #0
  1018 011c FFF7FEFF 		bl	__aeabi_fsub
  1019              	.LVL138:
- 162:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 162:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1020              		.loc 1 162 20 view .LVU244
  1021 0120 6061     		str	r0, [r4, #20]	@ float
- 163:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 163:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
  1022              		.loc 1 163 5 is_stmt 1 view .LVU245
  1023 0122 7EE7     		b	.L41
  1024              	.L57:
- 187:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		{
- 188:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
- 189:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tb;
+ 187:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		{
+ 188:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 2:
+ 189:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tb;
  1025              		.loc 1 189 5 view .LVU246
  1026              		.loc 1 189 13 is_stmt 0 view .LVU247
  1027 0124 3760     		str	r7, [r6]	@ float
- 190:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
+ 190:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
  1028              		.loc 1 190 5 is_stmt 1 view .LVU248
  1029              		.loc 1 190 19 is_stmt 0 view .LVU249
  1030 0126 E369     		ldr	r3, [r4, #28]	@ float
  1031              		.loc 1 190 13 view .LVU250
  1032 0128 7360     		str	r3, [r6, #4]	@ float
- 191:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
+ 191:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
  1033              		.loc 1 191 5 is_stmt 1 view .LVU251
  1034              		.loc 1 191 19 is_stmt 0 view .LVU252
  1035 012a 636A     		ldr	r3, [r4, #36]	@ float
  1036              		.loc 1 191 13 view .LVU253
  1037 012c B360     		str	r3, [r6, #8]	@ float
- 192:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 192:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1038              		.loc 1 192 5 is_stmt 1 view .LVU254
  1039              	.L40:
- 193:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
- 194:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Ta;
- 195:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
- 196:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
- 197:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 198:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
- 199:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Ta;
- 200:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
- 201:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
- 202:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 203:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
- 204:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tc;
- 205:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
- 206:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
- 207:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 208:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
- 209:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tc;
- 210:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
- 211:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
- 212:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 213:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
- 214:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tb;
- 215:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 24
+ 193:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 6:
+ 194:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Ta;
+ 195:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ 196:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 197:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 198:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
+ 199:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Ta;
+ 200:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 201:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
+ 202:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 203:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 204:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tc;
+ 205:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 206:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 207:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 208:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
+ 209:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tc;
+ 210:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
+ 211:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 212:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 213:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 214:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Ta = ctrl->Tb;
+ 215:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 24
 
 
- 216:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
- 217:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
- 218:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
- 219:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		
- 220:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 216:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 217:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 218:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 219:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		
+ 220:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  1040              		.loc 1 220 1 is_stmt 0 view .LVU255
  1041 012e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
  1042              	.LVL139:
  1043              	.L52:
- 194:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ 194:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
  1044              		.loc 1 194 5 is_stmt 1 view .LVU256
- 194:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ 194:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
  1045              		.loc 1 194 13 is_stmt 0 view .LVU257
  1046 0132 3060     		str	r0, [r6]	@ float
- 195:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 195:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
  1047              		.loc 1 195 5 is_stmt 1 view .LVU258
- 195:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 195:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
  1048              		.loc 1 195 19 is_stmt 0 view .LVU259
  1049 0134 636A     		ldr	r3, [r4, #36]	@ float
- 195:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 195:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
  1050              		.loc 1 195 13 view .LVU260
  1051 0136 7360     		str	r3, [r6, #4]	@ float
- 196:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 196:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1052              		.loc 1 196 5 is_stmt 1 view .LVU261
- 196:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 196:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1053              		.loc 1 196 19 is_stmt 0 view .LVU262
  1054 0138 236A     		ldr	r3, [r4, #32]	@ float
- 196:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 196:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1055              		.loc 1 196 13 view .LVU263
  1056 013a B360     		str	r3, [r6, #8]	@ float
- 197:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
+ 197:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 1:
  1057              		.loc 1 197 5 is_stmt 1 view .LVU264
  1058 013c F7E7     		b	.L40
  1059              	.L58:
- 199:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 199:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
  1060              		.loc 1 199 5 view .LVU265
- 199:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 199:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
  1061              		.loc 1 199 13 is_stmt 0 view .LVU266
  1062 013e 3060     		str	r0, [r6]	@ float
- 200:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
+ 200:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
  1063              		.loc 1 200 5 is_stmt 1 view .LVU267
- 200:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
+ 200:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
  1064              		.loc 1 200 19 is_stmt 0 view .LVU268
  1065 0140 236A     		ldr	r3, [r4, #32]	@ float
- 200:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
+ 200:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tc;
  1066              		.loc 1 200 13 view .LVU269
  1067 0142 7360     		str	r3, [r6, #4]	@ float
- 201:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 201:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1068              		.loc 1 201 5 is_stmt 1 view .LVU270
- 201:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 201:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1069              		.loc 1 201 19 is_stmt 0 view .LVU271
  1070 0144 636A     		ldr	r3, [r4, #36]	@ float
- 201:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 201:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1071              		.loc 1 201 13 view .LVU272
  1072 0146 B360     		str	r3, [r6, #8]	@ float
- 202:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
+ 202:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 4:
  1073              		.loc 1 202 5 is_stmt 1 view .LVU273
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 25
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 25
 
 
  1074 0148 F1E7     		b	.L40
  1075              	.L55:
- 204:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 204:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
  1076              		.loc 1 204 5 view .LVU274
- 204:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
+ 204:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tb;
  1077              		.loc 1 204 13 is_stmt 0 view .LVU275
  1078 014a C6F80080 		str	r8, [r6]	@ float
- 205:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 205:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
  1079              		.loc 1 205 5 is_stmt 1 view .LVU276
- 205:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 205:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
  1080              		.loc 1 205 19 is_stmt 0 view .LVU277
  1081 014e 236A     		ldr	r3, [r4, #32]	@ float
- 205:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 205:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
  1082              		.loc 1 205 13 view .LVU278
  1083 0150 7360     		str	r3, [r6, #4]	@ float
- 206:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 206:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1084              		.loc 1 206 5 is_stmt 1 view .LVU279
- 206:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 206:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1085              		.loc 1 206 19 is_stmt 0 view .LVU280
  1086 0152 E369     		ldr	r3, [r4, #28]	@ float
- 206:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 206:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1087              		.loc 1 206 13 view .LVU281
  1088 0154 B360     		str	r3, [r6, #8]	@ float
- 207:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
+ 207:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 3:
  1089              		.loc 1 207 5 is_stmt 1 view .LVU282
  1090 0156 EAE7     		b	.L40
  1091              	.L56:
- 209:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
+ 209:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
  1092              		.loc 1 209 5 view .LVU283
- 209:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
+ 209:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Ta;
  1093              		.loc 1 209 13 is_stmt 0 view .LVU284
  1094 0158 C6F80080 		str	r8, [r6]	@ float
- 210:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 210:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
  1095              		.loc 1 210 5 is_stmt 1 view .LVU285
- 210:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 210:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
  1096              		.loc 1 210 19 is_stmt 0 view .LVU286
  1097 015c E369     		ldr	r3, [r4, #28]	@ float
- 210:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
+ 210:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Tb;
  1098              		.loc 1 210 13 view .LVU287
  1099 015e 7360     		str	r3, [r6, #4]	@ float
- 211:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 211:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1100              		.loc 1 211 5 is_stmt 1 view .LVU288
- 211:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 211:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1101              		.loc 1 211 19 is_stmt 0 view .LVU289
  1102 0160 236A     		ldr	r3, [r4, #32]	@ float
- 211:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 211:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1103              		.loc 1 211 13 view .LVU290
  1104 0162 B360     		str	r3, [r6, #8]	@ float
- 212:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
+ 212:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 			case 5:
  1105              		.loc 1 212 5 is_stmt 1 view .LVU291
  1106 0164 E3E7     		b	.L40
  1107              	.L54:
- 214:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ 214:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
  1108              		.loc 1 214 5 view .LVU292
- 214:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
+ 214:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tb = ctrl->Tc;
  1109              		.loc 1 214 13 is_stmt 0 view .LVU293
  1110 0166 3760     		str	r7, [r6]	@ float
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 26
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 26
 
 
- 215:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 215:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
  1111              		.loc 1 215 5 is_stmt 1 view .LVU294
- 215:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 215:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
  1112              		.loc 1 215 19 is_stmt 0 view .LVU295
  1113 0168 636A     		ldr	r3, [r4, #36]	@ float
- 215:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
+ 215:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				ptr->Tc = ctrl->Ta;
  1114              		.loc 1 215 13 view .LVU296
  1115 016a 7360     		str	r3, [r6, #4]	@ float
- 216:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 216:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1116              		.loc 1 216 5 is_stmt 1 view .LVU297
- 216:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 216:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1117              		.loc 1 216 19 is_stmt 0 view .LVU298
  1118 016c E369     		ldr	r3, [r4, #28]	@ float
- 216:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 				break;
+ 216:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 				break;
  1119              		.loc 1 216 13 view .LVU299
  1120 016e B360     		str	r3, [r6, #8]	@ float
- 217:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		}
+ 217:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		}
  1121              		.loc 1 217 5 is_stmt 1 view .LVU300
  1122              		.loc 1 220 1 is_stmt 0 view .LVU301
  1123 0170 DDE7     		b	.L40
@@ -1537,28 +1537,28 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1139              	FOC_SVPWM:
  1140              	.LVL140:
  1141              	.LFB74:
- 221:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 222:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** struct Three_Phase Current_abc;		/* 实际的电机三相电流 */
- 223:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 224:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** struct DQ_Aix test_DQ;
- 225:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** struct DQ_Aix Current_DQ;		/* 实际的力矩电流 */
- 226:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 227:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** struct AlphaBeta_Aix test_AB;
- 228:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** struct AlphaBeta_Aix Current_AB;		/* 实际的AB轴电流 */
- 229:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 230:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** struct SVPWM_Control test_ctrl;
- 231:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** struct SVPWM_Duty test_Duty;
- 232:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 233:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* SVPWM算法 */
- 234:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void FOC_SVPWM(float FOC_Iq,float FOC_Id)
- 235:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 221:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 222:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** struct Three_Phase Current_abc;		/* 实际的电机三相电流 */
+ 223:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 224:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** struct DQ_Aix test_DQ;
+ 225:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** struct DQ_Aix Current_DQ;		/* 实际的力矩电流 */
+ 226:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 227:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** struct AlphaBeta_Aix test_AB;
+ 228:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** struct AlphaBeta_Aix Current_AB;		/* 实际的AB轴电流 */
+ 229:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 230:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** struct SVPWM_Control test_ctrl;
+ 231:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** struct SVPWM_Duty test_Duty;
+ 232:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 233:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* SVPWM算法 */
+ 234:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void FOC_SVPWM(float FOC_Iq,float FOC_Id)
+ 235:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  1142              		.loc 1 235 1 is_stmt 1 view -0
  1143              		.cfi_startproc
  1144              		@ args = 0, pretend = 0, frame = 0
  1145              		@ frame_needed = 0, uses_anonymous_args = 0
  1146              		.loc 1 235 1 is_stmt 0 view .LVU303
  1147 0000 38B5     		push	{r3, r4, r5, lr}
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 27
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 27
 
 
  1148              	.LCFI11:
@@ -1567,17 +1567,17 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1151              		.cfi_offset 4, -12
  1152              		.cfi_offset 5, -8
  1153              		.cfi_offset 14, -4
- 236:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.I_q=FOC_Iq;		/* q轴力矩电流 */
+ 236:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.I_q=FOC_Iq;		/* q轴力矩电流 */
  1154              		.loc 1 236 2 is_stmt 1 view .LVU304
  1155              		.loc 1 236 13 is_stmt 0 view .LVU305
  1156 0002 114B     		ldr	r3, .L65
  1157 0004 5860     		str	r0, [r3, #4]	@ float
- 237:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.I_d=FOC_Id;		/* d轴转轴部分 */
+ 237:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.I_d=FOC_Id;		/* d轴转轴部分 */
  1158              		.loc 1 237 2 is_stmt 1 view .LVU306
  1159              		.loc 1 237 13 is_stmt 0 view .LVU307
  1160 0006 1960     		str	r1, [r3]	@ float
- 238:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 239:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Rev_Park(&test_DQ,&test_AB);			/* 反park变换获取静止坐标系中的Ia、Ib */
+ 238:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 239:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Rev_Park(&test_DQ,&test_AB);			/* 反park变换获取静止坐标系中的Ia、Ib */
  1161              		.loc 1 239 2 is_stmt 1 view .LVU308
  1162 0008 104C     		ldr	r4, .L65+4
  1163 000a 2146     		mov	r1, r4
@@ -1588,22 +1588,22 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1168              		.loc 1 239 2 view .LVU310
  1169 000e FFF7FEFF 		bl	Rev_Park
  1170              	.LVL143:
- 240:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	CalculateSector(test_AB,&test_ctrl);		/* 扇区计算及扇区判断 */
+ 240:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	CalculateSector(test_AB,&test_ctrl);		/* 扇区计算及扇区判断 */
  1171              		.loc 1 240 2 is_stmt 1 view .LVU311
  1172 0012 0F4D     		ldr	r5, .L65+8
  1173 0014 2A46     		mov	r2, r5
  1174 0016 94E80300 		ldm	r4, {r0, r1}
  1175 001a FFF7FEFF 		bl	CalculateSector
  1176              	.LVL144:
- 241:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	CalulateDutyCycle(&test_ctrl,&test_Duty);		/* 对应扇区的占空比计算 */
+ 241:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	CalulateDutyCycle(&test_ctrl,&test_Duty);		/* 对应扇区的占空比计算 */
  1177              		.loc 1 241 2 view .LVU312
  1178 001e 0D4C     		ldr	r4, .L65+12
  1179 0020 2146     		mov	r1, r4
  1180 0022 2846     		mov	r0, r5
  1181 0024 FFF7FEFF 		bl	CalulateDutyCycle
  1182              	.LVL145:
- 242:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 243:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR1 = test_Duty.Ta;		/* 占空比设置 */
+ 242:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 243:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR1 = test_Duty.Ta;		/* 占空比设置 */
  1183              		.loc 1 243 2 view .LVU313
  1184              		.loc 1 243 13 is_stmt 0 view .LVU314
  1185 0028 2068     		ldr	r0, [r4]	@ float
@@ -1611,24 +1611,24 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1187              	.LVL146:
  1188 002e 4FF08045 		mov	r5, #1073741824
  1189 0032 6863     		str	r0, [r5, #52]
- 244:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR2 = test_Duty.Tb;
+ 244:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR2 = test_Duty.Tb;
  1190              		.loc 1 244 2 is_stmt 1 view .LVU315
  1191              		.loc 1 244 13 is_stmt 0 view .LVU316
  1192 0034 6068     		ldr	r0, [r4, #4]	@ float
  1193 0036 FFF7FEFF 		bl	__aeabi_f2uiz
  1194              	.LVL147:
  1195 003a A863     		str	r0, [r5, #56]
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 28
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 28
 
 
- 245:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR3 = test_Duty.Tc;	
+ 245:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	TIM2->CCR3 = test_Duty.Tc;	
  1196              		.loc 1 245 2 is_stmt 1 view .LVU317
  1197              		.loc 1 245 13 is_stmt 0 view .LVU318
  1198 003c A068     		ldr	r0, [r4, #8]	@ float
  1199 003e FFF7FEFF 		bl	__aeabi_f2uiz
  1200              	.LVL148:
  1201 0042 E863     		str	r0, [r5, #60]
- 246:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 246:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  1202              		.loc 1 246 1 view .LVU319
  1203 0044 38BD     		pop	{r3, r4, r5, pc}
  1204              	.L66:
@@ -1649,14 +1649,14 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1220              		.thumb_func
  1222              	Open_PMSM_FOC:
  1223              	.LFB75:
- 247:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 248:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 开环FOC-实现对应转速 */
- 249:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 250:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 帕克逆变换的旋转电角度为正的时候正转,为负的时候反转 */
- 251:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 252:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 角度人为自增的FOC控制 */
- 253:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Open_PMSM_FOC(void)
- 254:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 247:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 248:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 开环FOC-实现对应转速 */
+ 249:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 250:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 帕克逆变换的旋转电角度为正的时候正转,为负的时候反转 */
+ 251:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 252:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 角度人为自增的FOC控制 */
+ 253:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void Open_PMSM_FOC(void)
+ 254:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  1224              		.loc 1 254 1 is_stmt 1 view -0
  1225              		.cfi_startproc
  1226              		@ args = 0, pretend = 0, frame = 0
@@ -1666,7 +1666,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1230              		.cfi_def_cfa_offset 8
  1231              		.cfi_offset 4, -8
  1232              		.cfi_offset 14, -4
- 255:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.theta+=(2.0f)*(PI/180.0);		/* 步距为1度 */
+ 255:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.theta+=(2.0f)*(PI/180.0);		/* 步距为1度 */
  1233              		.loc 1 255 2 view .LVU321
  1234              		.loc 1 255 15 is_stmt 0 view .LVU322
  1235 0002 0F4C     		ldr	r4, .L72+8
@@ -1678,12 +1678,12 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1241 0010 FFF7FEFF 		bl	__aeabi_dadd
  1242              	.LVL150:
  1243 0014 FFF7FEFF 		bl	__aeabi_d2f
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 29
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 29
 
 
  1244              	.LVL151:
  1245 0018 A060     		str	r0, [r4, #8]	@ float
- 256:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	if(test_DQ.theta>=2*PI) test_DQ.theta=0;		/* 转满一圈后清零 */
+ 256:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	if(test_DQ.theta>=2*PI) test_DQ.theta=0;		/* 转满一圈后清零 */
  1246              		.loc 1 256 2 is_stmt 1 view .LVU323
  1247              		.loc 1 256 4 is_stmt 0 view .LVU324
  1248 001a 0A49     		ldr	r1, .L72+12
@@ -1695,19 +1695,19 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1254 0022 0022     		movs	r2, #0
  1255 0024 A260     		str	r2, [r4, #8]	@ float
  1256              	.L68:
- 257:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 258:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	// test_DQ.theta+=(-1.0f)*(PI/180.0);		/* 步距为1度 */
- 259:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	// if(test_DQ.theta<=-2*PI) test_DQ.theta=0;		/* 转满一圈后清零 */
- 260:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 261:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	// Current_DQ.theta = test_DQ.theta;	/* 电角度更新 */	
- 262:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 263:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	FOC_SVPWM(1.5f,0.0f);
+ 257:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 258:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	// test_DQ.theta+=(-1.0f)*(PI/180.0);		/* 步距为1度 */
+ 259:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	// if(test_DQ.theta<=-2*PI) test_DQ.theta=0;		/* 转满一圈后清零 */
+ 260:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 261:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	// Current_DQ.theta = test_DQ.theta;	/* 电角度更新 */	
+ 262:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 263:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	FOC_SVPWM(1.5f,0.0f);
  1257              		.loc 1 263 2 is_stmt 1 view .LVU327
  1258 0026 0021     		movs	r1, #0
  1259 0028 4FF07F50 		mov	r0, #1069547520
  1260 002c FFF7FEFF 		bl	FOC_SVPWM
  1261              	.LVL153:
- 264:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 264:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  1262              		.loc 1 264 1 is_stmt 0 view .LVU328
  1263 0030 10BD     		pop	{r4, pc}
  1264              	.L73:
@@ -1729,16 +1729,16 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1281              	FOC_Mode:
  1282              	.LVL154:
  1283              	.LFB76:
- 265:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 266:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 获取的电角度为编码器角度转换的FOC控制 */
- 267:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void FOC_Mode(float Iq,float Id)
- 268:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 265:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 266:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 获取的电角度为编码器角度转换的FOC控制 */
+ 267:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void FOC_Mode(float Iq,float Id)
+ 268:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  1284              		.loc 1 268 1 is_stmt 1 view -0
  1285              		.cfi_startproc
  1286              		@ args = 0, pretend = 0, frame = 0
  1287              		@ frame_needed = 0, uses_anonymous_args = 0
  1288              		.loc 1 268 1 is_stmt 0 view .LVU330
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 30
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 30
 
 
  1289 0000 38B5     		push	{r3, r4, r5, lr}
@@ -1750,7 +1750,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1295              		.cfi_offset 14, -4
  1296 0002 0446     		mov	r4, r0
  1297 0004 0D46     		mov	r5, r1
- 269:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.theta = Get_CalibraAngle(120.0f)*PI/180;	
+ 269:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.theta = Get_CalibraAngle(120.0f)*PI/180;	
  1298              		.loc 1 269 2 is_stmt 1 view .LVU331
  1299              		.loc 1 269 18 is_stmt 0 view .LVU332
  1300 0006 0848     		ldr	r0, .L76
@@ -1769,14 +1769,14 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1313              		.loc 1 269 16 view .LVU336
  1314 0018 064B     		ldr	r3, .L76+12
  1315 001a 9860     		str	r0, [r3, #8]	@ float
- 270:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 271:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	FOC_SVPWM(Iq,Id);
+ 270:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 271:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	FOC_SVPWM(Iq,Id);
  1316              		.loc 1 271 2 is_stmt 1 view .LVU337
  1317 001c 2946     		mov	r1, r5
  1318 001e 2046     		mov	r0, r4
  1319 0020 FFF7FEFF 		bl	FOC_SVPWM
  1320              	.LVL159:
- 272:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 272:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  1321              		.loc 1 272 1 is_stmt 0 view .LVU338
  1322 0024 38BD     		pop	{r3, r4, r5, pc}
  1323              	.LVL160:
@@ -1798,17 +1798,17 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1340              		.thumb_func
  1342              	Set_ZeroAngle:
  1343              	.LFB77:
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 31
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 31
 
 
- 273:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 274:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 零电角度校准 */
- 275:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 276:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 在该情况下，电角度在大约120度时近乎与编码器实现零点对齐(在编码器�
- 277:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 化的时候应重新获取零点对应电角度值) */
- 278:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 279:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Set_ZeroAngle(void)
- 280:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 273:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 274:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 零电角度校准 */
+ 275:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 276:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 在该情况下，电角度在大约120度时近乎与编码器实现零点对齐(在编码器�
+ 277:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 化的时候应重新获取零点对应电角度值) */
+ 278:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 279:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void Set_ZeroAngle(void)
+ 280:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  1344              		.loc 1 280 1 is_stmt 1 view -0
  1345              		.cfi_startproc
  1346              		@ args = 0, pretend = 0, frame = 0
@@ -1818,23 +1818,23 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1350              		.cfi_def_cfa_offset 8
  1351              		.cfi_offset 3, -8
  1352              		.cfi_offset 14, -4
- 281:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	/* 给定适当电流实现零角度初始定位 */
- 282:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.theta=120*(PI/180.0);	
+ 281:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	/* 给定适当电流实现零角度初始定位 */
+ 282:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.theta=120*(PI/180.0);	
  1353              		.loc 1 282 2 view .LVU341
  1354              		.loc 1 282 15 is_stmt 0 view .LVU342
  1355 0002 074B     		ldr	r3, .L80
  1356 0004 074A     		ldr	r2, .L80+4
  1357 0006 9A60     		str	r2, [r3, #8]	@ float
- 283:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 284:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	FOC_SVPWM(0.0f,1.0f);	/* d轴电流 */
+ 283:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 284:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	FOC_SVPWM(0.0f,1.0f);	/* d轴电流 */
  1358              		.loc 1 284 2 is_stmt 1 view .LVU343
  1359 0008 4FF07E51 		mov	r1, #1065353216
  1360 000c 0020     		movs	r0, #0
  1361 000e FFF7FEFF 		bl	FOC_SVPWM
  1362              	.LVL161:
- 285:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 286:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	/* 速度闭环时,计算实际转速的双角度校准 */
- 287:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Now_Angle = GetAngle();
+ 285:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 286:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	/* 速度闭环时,计算实际转速的双角度校准 */
+ 287:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Now_Angle = GetAngle();
  1363              		.loc 1 287 2 view .LVU344
  1364              		.loc 1 287 14 is_stmt 0 view .LVU345
  1365 0012 FFF7FEFF 		bl	GetAngle
@@ -1842,14 +1842,14 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1367              		.loc 1 287 12 view .LVU346
  1368 0016 044B     		ldr	r3, .L80+8
  1369 0018 1860     		str	r0, [r3]	@ float
- 288:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Last_Angle = Now_Angle;
+ 288:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Last_Angle = Now_Angle;
  1370              		.loc 1 288 2 is_stmt 1 view .LVU347
  1371              		.loc 1 288 13 is_stmt 0 view .LVU348
  1372 001a 044B     		ldr	r3, .L80+12
  1373 001c 1860     		str	r0, [r3]	@ float
- 289:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 290:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	// ZeroAngle_ref = Get_Current_Angle();/* 返回初始定位时编码器测得的机械角度值(�
- 291:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 289:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 290:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	// ZeroAngle_ref = Get_Current_Angle();/* 返回初始定位时编码器测得的机械角度值(�
+ 291:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  1374              		.loc 1 291 1 view .LVU349
  1375 001e 08BD     		pop	{r3, pc}
  1376              	.L81:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1379 0020 00000000 		.word	.LANCHOR0
  1380 0024 D9090640 		.word	1074137561
  1381 0028 00000000 		.word	Now_Angle
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 32
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 32
 
 
  1382 002c 00000000 		.word	Last_Angle
@@ -1872,10 +1872,10 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1391              		.thumb_func
  1393              	Get_FOCAngle:
  1394              	.LFB78:
- 292:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 293:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 获取编码器测得的变化的电角度值(返回弧度值) */
- 294:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float Get_FOCAngle(void)
- 295:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 292:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 293:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 获取编码器测得的变化的电角度值(返回弧度值) */
+ 294:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float Get_FOCAngle(void)
+ 295:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  1395              		.loc 1 295 1 is_stmt 1 view -0
  1396              		.cfi_startproc
  1397              		@ args = 0, pretend = 0, frame = 0
@@ -1885,7 +1885,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1401              		.cfi_def_cfa_offset 8
  1402              		.cfi_offset 3, -8
  1403              		.cfi_offset 14, -4
- 296:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	float Current_Angle = (Get_Current_Angle() - ZeroAngle_ref)*POLE_PAIR_NUM*(PI/180.0);
+ 296:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	float Current_Angle = (Get_Current_Angle() - ZeroAngle_ref)*POLE_PAIR_NUM*(PI/180.0);
  1404              		.loc 1 296 2 view .LVU351
  1405              		.loc 1 296 25 is_stmt 0 view .LVU352
  1406 0002 FFF7FEFF 		bl	Get_Current_Angle
@@ -1909,16 +1909,16 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1424              		.loc 1 296 8 view .LVU356
  1425 0022 FFF7FEFF 		bl	__aeabi_d2f
  1426              	.LVL168:
- 297:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	return Current_Angle;
+ 297:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	return Current_Angle;
  1427              		.loc 1 297 2 is_stmt 1 view .LVU357
- 298:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 298:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  1428              		.loc 1 298 1 is_stmt 0 view .LVU358
  1429 0026 08BD     		pop	{r3, pc}
  1430              	.L85:
  1431              		.align	3
  1432              	.L84:
  1433 0028 F5499FF4 		.word	-190887435
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 33
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 33
 
 
  1434 002c 2DDF913F 		.word	1066524461
@@ -1935,31 +1935,31 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1447              	Lowpassfilter_sim:
  1448              	.LVL169:
  1449              	.LFB80:
- 299:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 300:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 301:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 开环控制/闭环 */
- 302:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 定时2ms */
- 303:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
- 304:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
- 305:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	if(htim->Instance == TIM3)
- 306:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	{
- 307:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// Open_PMSM_FOC();
- 308:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 309:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		test_speed = Speed_pid.now;
- 310:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// test_speed = Get_AngleSpeed();
- 311:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		Speed_FOC_Ctrl();
- 312:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 313:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// I_Feedback_Sample();
- 314:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// Iq_FOCctrl();
- 315:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 316:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// test_theta = Get_CalibraAngle(120.0f);	
- 317:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	}
- 318:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
- 319:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 320:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 采样电流低通滤波器 */
- 321:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float y = 0;
- 322:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float Lowpassfilter_sim(float x)
- 323:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 299:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 300:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 301:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 开环控制/闭环 */
+ 302:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 定时2ms */
+ 303:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+ 304:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
+ 305:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	if(htim->Instance == TIM3)
+ 306:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	{
+ 307:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		// Open_PMSM_FOC();
+ 308:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 309:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		test_speed = Speed_pid.now;
+ 310:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		// test_speed = Get_AngleSpeed();
+ 311:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		Speed_FOC_Ctrl();
+ 312:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 313:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		// I_Feedback_Sample();
+ 314:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		// Iq_FOCctrl();
+ 315:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 316:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		// test_theta = Get_CalibraAngle(120.0f);	
+ 317:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	}
+ 318:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
+ 319:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 320:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 采样电流低通滤波器 */
+ 321:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float y = 0;
+ 322:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float Lowpassfilter_sim(float x)
+ 323:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  1450              		.loc 1 323 1 is_stmt 1 view -0
  1451              		.cfi_startproc
  1452              		@ args = 0, pretend = 0, frame = 0
@@ -1975,10 +1975,10 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1462              		.cfi_offset 7, -8
  1463              		.cfi_offset 14, -4
  1464 0002 0446     		mov	r4, r0
- 324:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	float out = 0.9*x + 0.1*y;
+ 324:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	float out = 0.9*x + 0.1*y;
  1465              		.loc 1 324 2 is_stmt 1 view .LVU361
  1466              		.loc 1 324 17 is_stmt 0 view .LVU362
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 34
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 34
 
 
  1467 0004 FFF7FEFF 		bl	__aeabi_f2d
@@ -2009,13 +2009,13 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1492              		.loc 1 324 8 view .LVU366
  1493 0034 FFF7FEFF 		bl	__aeabi_d2f
  1494              	.LVL175:
- 325:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	y = x;
+ 325:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	y = x;
  1495              		.loc 1 325 2 is_stmt 1 view .LVU367
  1496              		.loc 1 325 4 is_stmt 0 view .LVU368
  1497 0038 2C60     		str	r4, [r5]	@ float
- 326:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	return out;
+ 326:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	return out;
  1498              		.loc 1 326 2 is_stmt 1 view .LVU369
- 327:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 327:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  1499              		.loc 1 327 1 is_stmt 0 view .LVU370
  1500 003a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  1501              	.LVL176:
@@ -2038,17 +2038,17 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1519              		.syntax unified
  1520              		.thumb
  1521              		.thumb_func
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 35
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 35
 
 
  1523              	Lowpassfilter:
  1524              	.LVL177:
  1525              	.LFB81:
- 328:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 329:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** uint32_t Last_Timesamp = 0.0;
- 330:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float Last_y = 0.0;
- 331:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float Lowpassfilter(float Tf, float x)
- 332:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 328:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 329:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** uint32_t Last_Timesamp = 0.0;
+ 330:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float Last_y = 0.0;
+ 331:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float Lowpassfilter(float Tf, float x)
+ 332:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  1526              		.loc 1 332 1 is_stmt 1 view -0
  1527              		.cfi_startproc
  1528              		@ args = 0, pretend = 0, frame = 0
@@ -2065,17 +2065,17 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1539              		.cfi_offset 14, -4
  1540 0004 0646     		mov	r6, r0
  1541 0006 0C46     		mov	r4, r1
- 333:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	float dt = 0.0;
+ 333:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	float dt = 0.0;
  1542              		.loc 1 333 2 is_stmt 1 view .LVU374
  1543              	.LVL178:
- 334:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 335:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	uint32_t Timesamp = SysTick->VAL;
+ 334:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 335:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	uint32_t Timesamp = SysTick->VAL;
  1544              		.loc 1 335 2 view .LVU375
  1545              		.loc 1 335 11 is_stmt 0 view .LVU376
  1546 0008 4FF0E023 		mov	r3, #-536813568
  1547 000c 9F69     		ldr	r7, [r3, #24]
  1548              	.LVL179:
- 336:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	if(Timesamp < Last_Timesamp) dt = (float)(Last_Timesamp - Timesamp)/9*1e-6;
+ 336:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	if(Timesamp < Last_Timesamp) dt = (float)(Last_Timesamp - Timesamp)/9*1e-6;
  1549              		.loc 1 336 2 is_stmt 1 view .LVU377
  1550              		.loc 1 336 14 is_stmt 0 view .LVU378
  1551 000e 304B     		ldr	r3, .L99+8
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1568              		.loc 1 336 71 discriminator 1 view .LVU383
  1569 0026 28A3     		adr	r3, .L99
  1570 0028 D3E90023 		ldrd	r2, [r3]
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 36
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 36
 
 
  1571 002c FFF7FEFF 		bl	__aeabi_dmul
@@ -2109,10 +2109,10 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1576 0034 0546     		mov	r5, r0
  1577              	.LVL186:
  1578              	.L92:
- 337:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	else
- 338:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		dt = (float)(0xFFFFFF - Timesamp + Last_Timesamp)/9*1e-6;
- 339:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 340:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	if(dt<0.0||dt==0) dt = 0.0015f;
+ 337:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	else
+ 338:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		dt = (float)(0xFFFFFF - Timesamp + Last_Timesamp)/9*1e-6;
+ 339:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 340:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	if(dt<0.0||dt==0) dt = 0.0015f;
  1579              		.loc 1 340 2 is_stmt 1 view .LVU385
  1580              		.loc 1 340 4 is_stmt 0 view .LVU386
  1581 0036 0021     		movs	r1, #0
@@ -2122,7 +2122,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1585              	.LVL187:
  1586              		.loc 1 340 4 view .LVU388
  1587 003e F8B9     		cbnz	r0, .L96
- 341:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	else if(dt>0.05f)
+ 341:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	else if(dt>0.05f)
  1588              		.loc 1 341 7 is_stmt 1 view .LVU389
  1589              		.loc 1 341 9 is_stmt 0 view .LVU390
  1590 0040 2549     		ldr	r1, .L99+16
@@ -2130,69 +2130,69 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1592 0044 FFF7FEFF 		bl	__aeabi_fcmpgt
  1593              	.LVL188:
  1594 0048 D8B1     		cbz	r0, .L93
- 342:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	{
- 343:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		Last_y = x;
+ 342:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	{
+ 343:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		Last_y = x;
  1595              		.loc 1 343 3 is_stmt 1 view .LVU391
  1596              		.loc 1 343 10 is_stmt 0 view .LVU392
  1597 004a 244B     		ldr	r3, .L99+20
  1598 004c 1C60     		str	r4, [r3]	@ float
- 344:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		Last_Timesamp = Timesamp;
+ 344:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		Last_Timesamp = Timesamp;
  1599              		.loc 1 344 3 is_stmt 1 view .LVU393
  1600              		.loc 1 344 17 is_stmt 0 view .LVU394
  1601 004e 204B     		ldr	r3, .L99+8
  1602 0050 1F60     		str	r7, [r3]
- 345:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		return x;
+ 345:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		return x;
  1603              		.loc 1 345 3 is_stmt 1 view .LVU395
  1604              		.loc 1 345 10 is_stmt 0 view .LVU396
  1605 0052 2046     		mov	r0, r4
  1606 0054 35E0     		b	.L90
  1607              	.LVL189:
  1608              	.L91:
- 338:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 338:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
  1609              		.loc 1 338 3 is_stmt 1 view .LVU397
- 338:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 338:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
  1610              		.loc 1 338 36 is_stmt 0 view .LVU398
  1611 0056 C01B     		subs	r0, r0, r7
- 338:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 338:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
  1612              		.loc 1 338 8 view .LVU399
  1613 0058 00F1FF10 		add	r0, r0, #16711935
  1614 005c 00F57F40 		add	r0, r0, #65280
  1615 0060 FFF7FEFF 		bl	__aeabi_ui2f
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 37
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 37
 
 
  1616              	.LVL190:
- 338:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 338:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
  1617              		.loc 1 338 52 view .LVU400
  1618 0064 1B49     		ldr	r1, .L99+12
  1619 0066 FFF7FEFF 		bl	__aeabi_fdiv
  1620              	.LVL191:
  1621 006a FFF7FEFF 		bl	__aeabi_f2d
  1622              	.LVL192:
- 338:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 338:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
  1623              		.loc 1 338 54 view .LVU401
  1624 006e 16A3     		adr	r3, .L99
  1625 0070 D3E90023 		ldrd	r2, [r3]
  1626 0074 FFF7FEFF 		bl	__aeabi_dmul
  1627              	.LVL193:
- 338:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 338:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
  1628              		.loc 1 338 6 view .LVU402
  1629 0078 FFF7FEFF 		bl	__aeabi_d2f
  1630              	.LVL194:
  1631 007c 0546     		mov	r5, r0
  1632              	.LVL195:
- 338:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 338:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
  1633              		.loc 1 338 6 view .LVU403
  1634 007e DAE7     		b	.L92
  1635              	.LVL196:
  1636              	.L96:
- 340:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	else if(dt>0.05f)
+ 340:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	else if(dt>0.05f)
  1637              		.loc 1 340 23 view .LVU404
  1638 0080 174D     		ldr	r5, .L99+24
  1639              	.LVL197:
  1640              	.L93:
- 346:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	}
- 347:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	float alpha = Tf / (Tf + dt);
+ 346:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	}
+ 347:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	float alpha = Tf / (Tf + dt);
  1641              		.loc 1 347 2 is_stmt 1 view .LVU405
  1642              		.loc 1 347 25 is_stmt 0 view .LVU406
  1643 0082 3146     		mov	r1, r6
@@ -2206,7 +2206,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1651              	.LVL199:
  1652 0092 0646     		mov	r6, r0
  1653              	.LVL200:
- 348:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	float y = alpha * Last_y + (1.0f - alpha) * x;
+ 348:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	float y = alpha * Last_y + (1.0f - alpha) * x;
  1654              		.loc 1 348 2 is_stmt 1 view .LVU408
  1655              		.loc 1 348 18 is_stmt 0 view .LVU409
  1656 0094 DFF84480 		ldr	r8, .L99+20
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1662              	.LVL202:
  1663              		.loc 1 348 35 view .LVU411
  1664 00a2 3146     		mov	r1, r6
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 38
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 38
 
 
  1665 00a4 4FF07E50 		mov	r0, #1065353216
@@ -2233,21 +2233,21 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1674 00b4 2846     		mov	r0, r5
  1675 00b6 FFF7FEFF 		bl	__aeabi_fadd
  1676              	.LVL205:
- 349:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	
- 350:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Last_y = y;
+ 349:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	
+ 350:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Last_y = y;
  1677              		.loc 1 350 2 is_stmt 1 view .LVU414
  1678              		.loc 1 350 9 is_stmt 0 view .LVU415
  1679 00ba C8F80000 		str	r0, [r8]	@ float
- 351:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Last_Timesamp = Timesamp;
+ 351:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Last_Timesamp = Timesamp;
  1680              		.loc 1 351 2 is_stmt 1 view .LVU416
  1681              		.loc 1 351 16 is_stmt 0 view .LVU417
  1682 00be 044B     		ldr	r3, .L99+8
  1683 00c0 1F60     		str	r7, [r3]
- 352:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	return y;
+ 352:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	return y;
  1684              		.loc 1 352 2 is_stmt 1 view .LVU418
  1685              	.LVL206:
  1686              	.L90:
- 353:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 353:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  1687              		.loc 1 353 1 is_stmt 0 view .LVU419
  1688 00c2 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
  1689              	.LVL207:
@@ -2273,12 +2273,12 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1711              	LimitAmp:
  1712              	.LVL208:
  1713              	.LFB82:
- 354:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 355:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 限幅部分 */
- 356:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** float LimitAmp(float Amp,float Amp_max,float Amp_min)
- 357:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 354:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 355:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 限幅部分 */
+ 356:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** float LimitAmp(float Amp,float Amp_max,float Amp_min)
+ 357:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  1714              		.loc 1 357 1 is_stmt 1 view -0
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 39
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 39
 
 
  1715              		.cfi_startproc
@@ -2295,14 +2295,14 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1726 0002 0646     		mov	r6, r0
  1727 0004 0C46     		mov	r4, r1
  1728 0006 1546     		mov	r5, r2
- 358:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	if(Amp >= Amp_max) Amp=Amp_max;
+ 358:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	if(Amp >= Amp_max) Amp=Amp_max;
  1729              		.loc 1 358 2 is_stmt 1 view .LVU423
  1730              		.loc 1 358 4 is_stmt 0 view .LVU424
  1731 0008 FFF7FEFF 		bl	__aeabi_fcmpge
  1732              	.LVL209:
  1733              		.loc 1 358 4 view .LVU425
  1734 000c 28B9     		cbnz	r0, .L102
- 359:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	else if(Amp <= Amp_min) Amp=Amp_min;
+ 359:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	else if(Amp <= Amp_min) Amp=Amp_min;
  1735              		.loc 1 359 7 is_stmt 1 view .LVU426
  1736              		.loc 1 359 9 is_stmt 0 view .LVU427
  1737 000e 2946     		mov	r1, r5
@@ -2313,19 +2313,19 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1742 0018 3446     		mov	r4, r6
  1743              	.LVL211:
  1744              	.L102:
- 360:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	return Amp;
+ 360:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	return Amp;
  1745              		.loc 1 360 2 is_stmt 1 view .LVU428
- 361:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 361:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  1746              		.loc 1 361 1 is_stmt 0 view .LVU429
  1747 001a 2046     		mov	r0, r4
  1748 001c 70BD     		pop	{r4, r5, r6, pc}
  1749              	.LVL212:
  1750              	.L103:
- 359:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	else if(Amp <= Amp_min) Amp=Amp_min;
+ 359:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	else if(Amp <= Amp_min) Amp=Amp_min;
  1751              		.loc 1 359 29 view .LVU430
  1752 001e 2C46     		mov	r4, r5
  1753              	.LVL213:
- 359:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	else if(Amp <= Amp_min) Amp=Amp_min;
+ 359:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	else if(Amp <= Amp_min) Amp=Amp_min;
  1754              		.loc 1 359 29 view .LVU431
  1755 0020 FBE7     		b	.L102
  1756              		.cfi_endproc
@@ -2338,14 +2338,14 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1764              		.thumb
  1765              		.thumb_func
  1767              	I_Feedback_Sample:
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 40
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 40
 
 
  1768              	.LFB83:
- 362:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 363:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 电流反馈采样部分 */
- 364:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void I_Feedback_Sample(void)
- 365:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 362:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 363:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 电流反馈采样部分 */
+ 364:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void I_Feedback_Sample(void)
+ 365:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  1769              		.loc 1 365 1 is_stmt 1 view -0
  1770              		.cfi_startproc
  1771              		@ args = 0, pretend = 0, frame = 0
@@ -2359,7 +2359,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1779              		.cfi_offset 7, -12
  1780              		.cfi_offset 8, -8
  1781              		.cfi_offset 14, -4
- 366:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&MyADC_Value,sizeof(MyADC_Value)/sizeof(MyADC_Value[0]));		/*
+ 366:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&MyADC_Value,sizeof(MyADC_Value)/sizeof(MyADC_Value[0]));		/*
  1782              		.loc 1 366 2 view .LVU433
  1783 0004 424C     		ldr	r4, .L107+16
  1784 0006 0222     		movs	r2, #2
@@ -2367,16 +2367,16 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1786 000a 4248     		ldr	r0, .L107+20
  1787 000c FFF7FEFF 		bl	HAL_ADC_Start_DMA
  1788              	.LVL214:
- 367:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 368:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	MyADC_Value[0] = MyADC_Value[0]+AD_Offset;
+ 367:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 368:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	MyADC_Value[0] = MyADC_Value[0]+AD_Offset;
  1789              		.loc 1 368 2 view .LVU434
- 369:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	MyADC_Value[1] = MyADC_Value[1]+AD_Offset;
+ 369:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	MyADC_Value[1] = MyADC_Value[1]+AD_Offset;
  1790              		.loc 1 369 2 view .LVU435
  1791              		.loc 1 369 30 is_stmt 0 view .LVU436
  1792 0010 6688     		ldrh	r6, [r4, #2]
- 370:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 371:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	/* 采样电流计算 */
- 372:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Current_abc.Ia = (3.3*((float)MyADC_Value[0]/4096)-Amp_Offset[0])/Ref/Gain;
+ 370:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 371:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	/* 采样电流计算 */
+ 372:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Current_abc.Ia = (3.3*((float)MyADC_Value[0]/4096)-Amp_Offset[0])/Ref/Gain;
  1793              		.loc 1 372 2 is_stmt 1 view .LVU437
  1794              		.loc 1 372 25 is_stmt 0 view .LVU438
  1795 0012 2088     		ldrh	r0, [r4]
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1811              		.loc 1 372 63 view .LVU441
  1812 0032 DFF8E480 		ldr	r8, .L107+24
  1813 0036 D8F80000 		ldr	r0, [r8]	@ float
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 41
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 41
 
 
  1814 003a FFF7FEFF 		bl	__aeabi_f2d
@@ -2426,7 +2426,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1836              		.loc 1 372 17 view .LVU445
  1837 0062 2F4D     		ldr	r5, .L107+32
  1838 0064 2860     		str	r0, [r5]	@ float
- 373:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Current_abc.Ib = (3.3*((float)MyADC_Value[1]/4096)-Amp_Offset[1])/Ref/Gain;
+ 373:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Current_abc.Ib = (3.3*((float)MyADC_Value[1]/4096)-Amp_Offset[1])/Ref/Gain;
  1839              		.loc 1 373 2 is_stmt 1 view .LVU446
  1840              		.loc 1 373 25 is_stmt 0 view .LVU447
  1841 0066 3046     		mov	r0, r6
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1867              	.LVL229:
  1868              		.loc 1 373 67 view .LVU452
  1869 009a 1BA3     		adr	r3, .L107+8
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 42
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 42
 
 
  1870 009c D3E90023 		ldrd	r2, [r3]
@@ -2474,7 +2474,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1880 00b0 0146     		mov	r1, r0
  1881              		.loc 1 373 17 view .LVU454
  1882 00b2 6860     		str	r0, [r5, #4]	@ float
- 374:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Current_abc.Ic = -Current_abc.Ia-Current_abc.Ib;  /* 根据基尔霍夫电流定律得 */
+ 374:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Current_abc.Ic = -Current_abc.Ia-Current_abc.Ib;  /* 根据基尔霍夫电流定律得 */
  1883              		.loc 1 374 2 is_stmt 1 view .LVU455
  1884              		.loc 1 374 19 is_stmt 0 view .LVU456
  1885 00b4 04F10040 		add	r0, r4, #-2147483648
@@ -2483,8 +2483,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1888              	.LVL233:
  1889              		.loc 1 374 17 view .LVU458
  1890 00bc A860     		str	r0, [r5, #8]	@ float
- 375:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 376:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Current_DQ.theta = Get_CalibraAngle(120.0f)*PI/180;
+ 375:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 376:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Current_DQ.theta = Get_CalibraAngle(120.0f)*PI/180;
  1891              		.loc 1 376 2 is_stmt 1 view .LVU459
  1892              		.loc 1 376 21 is_stmt 0 view .LVU460
  1893 00be 1948     		ldr	r0, .L107+36
@@ -2501,24 +2501,24 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1904              		.loc 1 376 19 view .LVU463
  1905 00d0 174C     		ldr	r4, .L107+48
  1906 00d2 A060     		str	r0, [r4, #8]	@ float
- 377:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 378:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	clark_transit(&Current_abc,&Current_AB);			/* clark变换 */
+ 377:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 378:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	clark_transit(&Current_abc,&Current_AB);			/* clark变换 */
  1907              		.loc 1 378 2 is_stmt 1 view .LVU464
  1908 00d4 174E     		ldr	r6, .L107+52
  1909 00d6 3146     		mov	r1, r6
  1910 00d8 2846     		mov	r0, r5
  1911 00da FFF7FEFF 		bl	clark_transit
  1912              	.LVL237:
- 379:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Park_transit(&Current_DQ,&Current_AB);				/* Park变换 */
+ 379:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Park_transit(&Current_DQ,&Current_AB);				/* Park变换 */
  1913              		.loc 1 379 2 view .LVU465
  1914 00de 3146     		mov	r1, r6
  1915 00e0 2046     		mov	r0, r4
  1916 00e2 FFF7FEFF 		bl	Park_transit
  1917              	.LVL238:
- 380:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 381:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Current_DQ.I_q = -AD_to_Current*Lowpassfilter(0.01,Current_DQ.I_q);		/* 低通滤波后的Iq电流
+ 380:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 381:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Current_DQ.I_q = -AD_to_Current*Lowpassfilter(0.01,Current_DQ.I_q);		/* 低通滤波后的Iq电流
  1918              		.loc 1 381 2 view .LVU466
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 43
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 43
 
 
  1919              		.loc 1 381 34 is_stmt 0 view .LVU467
@@ -2532,8 +2532,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1927              	.LVL240:
  1928              		.loc 1 381 17 view .LVU469
  1929 00f4 6060     		str	r0, [r4, #4]	@ float
- 382:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	// Current_DQ.I_d = Lowpassfilter(0.01,Current_DQ.I_d);		/* Id电流 */
- 383:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 382:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	// Current_DQ.I_d = Lowpassfilter(0.01,Current_DQ.I_d);		/* Id电流 */
+ 383:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  1930              		.loc 1 383 1 view .LVU470
  1931 00f6 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
  1932              	.L108:
@@ -2566,10 +2566,10 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1959              		.thumb_func
  1961              	Check_DriftOffsets:
  1962              	.LFB84:
- 384:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 385:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 检测电流采样放大器偏置(抑制零飘) */
- 386:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Check_DriftOffsets(void)
- 387:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 384:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 385:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 检测电流采样放大器偏置(抑制零飘) */
+ 386:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void Check_DriftOffsets(void)
+ 387:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  1963              		.loc 1 387 1 is_stmt 1 view -0
  1964              		.cfi_startproc
  1965              		@ args = 0, pretend = 0, frame = 0
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1968              	.LCFI20:
  1969              		.cfi_def_cfa_offset 32
  1970              		.cfi_offset 3, -32
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 44
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 44
 
 
  1971              		.cfi_offset 4, -28
@@ -2588,10 +2588,10 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1975              		.cfi_offset 8, -12
  1976              		.cfi_offset 9, -8
  1977              		.cfi_offset 14, -4
- 388:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	uint16_t detect_time = 1000;
+ 388:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	uint16_t detect_time = 1000;
  1978              		.loc 1 388 2 view .LVU472
  1979              	.LVL241:
- 389:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	for(int i=0;i<detect_time;i++)
+ 389:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	for(int i=0;i<detect_time;i++)
  1980              		.loc 1 389 2 view .LVU473
  1981              	.LBB2:
  1982              		.loc 1 389 6 view .LVU474
@@ -2601,8 +2601,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1986 0006 3BE0     		b	.L110
  1987              	.LVL242:
  1988              	.L111:
- 390:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	{
- 391:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&MyADC_Value,sizeof(MyADC_Value)/sizeof(MyADC_Value[0]));		/
+ 390:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	{
+ 391:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&MyADC_Value,sizeof(MyADC_Value)/sizeof(MyADC_Value[0]));		/
  1989              		.loc 1 391 3 is_stmt 1 discriminator 3 view .LVU477
  1990 0008 274E     		ldr	r6, .L113+8
  1991 000a 0222     		movs	r2, #2
@@ -2610,7 +2610,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  1993 000e 2748     		ldr	r0, .L113+12
  1994 0010 FFF7FEFF 		bl	HAL_ADC_Start_DMA
  1995              	.LVL243:
- 392:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		Amp_Offset[0] += 3.3*((float)MyADC_Value[0]/4096);
+ 392:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		Amp_Offset[0] += 3.3*((float)MyADC_Value[0]/4096);
  1996              		.loc 1 392 3 discriminator 3 view .LVU478
  1997              		.loc 1 392 25 is_stmt 0 discriminator 3 view .LVU479
  1998 0014 3088     		ldrh	r0, [r6]
@@ -2638,13 +2638,13 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2020 003e 4B46     		mov	r3, r9
  2021 0040 FFF7FEFF 		bl	__aeabi_dadd
  2022              	.LVL249:
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 45
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 45
 
 
  2023 0044 FFF7FEFF 		bl	__aeabi_d2f
  2024              	.LVL250:
  2025 0048 2060     		str	r0, [r4]	@ float
- 393:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		Amp_Offset[1] += 3.3*((float)MyADC_Value[1]/4096);
+ 393:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		Amp_Offset[1] += 3.3*((float)MyADC_Value[1]/4096);
  2026              		.loc 1 393 3 is_stmt 1 discriminator 3 view .LVU483
  2027              		.loc 1 393 25 is_stmt 0 discriminator 3 view .LVU484
  2028 004a 7088     		ldrh	r0, [r6, #2]
@@ -2674,23 +2674,23 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2052 0078 FFF7FEFF 		bl	__aeabi_d2f
  2053              	.LVL257:
  2054 007c 6060     		str	r0, [r4, #4]	@ float
- 389:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	{
+ 389:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	{
  2055              		.loc 1 389 28 is_stmt 1 discriminator 3 view .LVU488
- 389:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	{
+ 389:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	{
  2056              		.loc 1 389 29 is_stmt 0 discriminator 3 view .LVU489
  2057 007e 0135     		adds	r5, r5, #1
  2058              	.LVL258:
  2059              	.L110:
- 389:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	{
+ 389:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	{
  2060              		.loc 1 389 14 is_stmt 1 discriminator 1 view .LVU490
- 389:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	{
+ 389:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	{
  2061              		.loc 1 389 2 is_stmt 0 discriminator 1 view .LVU491
  2062 0080 B5F57A7F 		cmp	r5, #1000
  2063 0084 C0DB     		blt	.L111
  2064              	.LBE2:
- 394:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	}
- 395:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 396:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Amp_Offset[0] = Amp_Offset[0]/detect_time;
+ 394:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	}
+ 395:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 396:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Amp_Offset[0] = Amp_Offset[0]/detect_time;
  2065              		.loc 1 396 2 is_stmt 1 view .LVU492
  2066              		.loc 1 396 28 is_stmt 0 view .LVU493
  2067 0086 0A4C     		ldr	r4, .L113+16
@@ -2698,13 +2698,13 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2069 0088 0A49     		ldr	r1, .L113+20
  2070 008a 2068     		ldr	r0, [r4]	@ float
  2071 008c FFF7FEFF 		bl	__aeabi_fdiv
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 46
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 46
 
 
  2072              	.LVL259:
  2073              		.loc 1 396 16 view .LVU495
  2074 0090 2060     		str	r0, [r4]	@ float
- 397:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Amp_Offset[1] = Amp_Offset[1]/detect_time;
+ 397:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Amp_Offset[1] = Amp_Offset[1]/detect_time;
  2075              		.loc 1 397 2 is_stmt 1 view .LVU496
  2076              		.loc 1 397 31 is_stmt 0 view .LVU497
  2077 0092 0849     		ldr	r1, .L113+20
@@ -2713,7 +2713,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2080              	.LVL260:
  2081              		.loc 1 397 16 view .LVU498
  2082 009a 6060     		str	r0, [r4, #4]	@ float
- 398:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 398:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  2083              		.loc 1 398 1 view .LVU499
  2084 009c BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
  2085              	.LVL261:
@@ -2738,11 +2738,11 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2106              	Current_PID_Ctrl:
  2107              	.LVL262:
  2108              	.LFB85:
- 399:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 400:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 401:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 电流环pid */
- 402:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Current_PID_Ctrl(float Now_Iq,float Target_Iq,float Now_Id,float Target_Id,float Kp,float Ki)
- 403:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 399:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 400:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 401:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 电流环pid */
+ 402:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void Current_PID_Ctrl(float Now_Iq,float Target_Iq,float Now_Id,float Target_Id,float Kp,float Ki)
+ 403:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  2109              		.loc 1 403 1 is_stmt 1 view -0
  2110              		.cfi_startproc
  2111              		@ args = 8, pretend = 0, frame = 0
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2121              		.cfi_offset 7, -16
  2122              		.cfi_offset 8, -12
  2123              		.cfi_offset 9, -8
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 47
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 47
 
 
  2124              		.cfi_offset 14, -4
@@ -2770,10 +2770,10 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2130 000a 1D46     		mov	r5, r3
  2131 000c DDF82080 		ldr	r8, [sp, #32]	@ float
  2132 0010 099F     		ldr	r7, [sp, #36]	@ float
- 404:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	/* Iq闭环部分 */
- 405:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	float Last_Iq,Iq_Error,Iq_Bias,Last_Iq_Bias,Iq_Sum;
+ 404:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	/* Iq闭环部分 */
+ 405:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	float Last_Iq,Iq_Error,Iq_Bias,Last_Iq_Bias,Iq_Sum;
  2133              		.loc 1 405 2 is_stmt 1 view .LVU504
- 406:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Iq_Bias = Target_Iq - Now_Iq;
+ 406:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Iq_Bias = Target_Iq - Now_Iq;
  2134              		.loc 1 406 2 view .LVU505
  2135              		.loc 1 406 10 is_stmt 0 view .LVU506
  2136 0012 2146     		mov	r1, r4
@@ -2781,7 +2781,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2138              		.loc 1 406 10 view .LVU507
  2139 0014 FFF7FEFF 		bl	__aeabi_fsub
  2140              	.LVL265:
- 407:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Iq_Error = Iq_Bias - Last_Iq_Bias;
+ 407:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Iq_Error = Iq_Bias - Last_Iq_Bias;
  2141              		.loc 1 407 2 is_stmt 1 view .LVU508
  2142              		.loc 1 407 11 is_stmt 0 view .LVU509
  2143 0018 0021     		movs	r1, #0
@@ -2790,8 +2790,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2146              		.loc 1 407 11 view .LVU510
  2147 001e 0446     		mov	r4, r0
  2148              	.LVL267:
- 408:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	
- 409:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Iq_Sum += Iq_Error;		/* Ki积分累积 */
+ 408:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	
+ 409:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Iq_Sum += Iq_Error;		/* Ki积分累积 */
  2149              		.loc 1 409 2 is_stmt 1 view .LVU511
  2150              		.loc 1 409 9 is_stmt 0 view .LVU512
  2151 0020 0021     		movs	r1, #0
@@ -2800,8 +2800,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2154              		.loc 1 409 9 view .LVU513
  2155 0026 8146     		mov	r9, r0
  2156              	.LVL269:
- 410:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 411:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Iq_ref = Kp*Iq_Error + Ki*Iq_Sum;
+ 410:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 411:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Iq_ref = Kp*Iq_Error + Ki*Iq_Sum;
  2157              		.loc 1 411 2 is_stmt 1 view .LVU514
  2158              		.loc 1 411 13 is_stmt 0 view .LVU515
  2159 0028 4146     		mov	r1, r8
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2170 0036 FFF7FEFF 		bl	__aeabi_fmul
  2171              	.LVL273:
  2172 003a 0146     		mov	r1, r0
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 48
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 48
 
 
  2173              		.loc 1 411 23 view .LVU518
@@ -2829,25 +2829,25 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2178              		.loc 1 411 9 view .LVU519
  2179 0044 134B     		ldr	r3, .L117
  2180 0046 1860     		str	r0, [r3]	@ float
- 412:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 413:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	LimitAmp(Iq_ref,7.0f,-7.0f);	/* 积分限幅 */
+ 412:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 413:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	LimitAmp(Iq_ref,7.0f,-7.0f);	/* 积分限幅 */
  2181              		.loc 1 413 2 is_stmt 1 view .LVU520
- 414:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 415:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Last_Iq_Bias = Iq_Bias;
+ 414:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 415:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Last_Iq_Bias = Iq_Bias;
  2182              		.loc 1 415 2 view .LVU521
  2183              	.LVL275:
- 416:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 417:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	/* Id闭环部分 */
- 418:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	float Last_Id,Id_Error,Id_Bias,Last_Id_Bias,Id_Sum;
+ 416:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 417:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	/* Id闭环部分 */
+ 418:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	float Last_Id,Id_Error,Id_Bias,Last_Id_Bias,Id_Sum;
  2184              		.loc 1 418 2 view .LVU522
- 419:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Id_Bias = Target_Id - Now_Id;
+ 419:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Id_Bias = Target_Id - Now_Id;
  2185              		.loc 1 419 2 view .LVU523
  2186              		.loc 1 419 10 is_stmt 0 view .LVU524
  2187 0048 3146     		mov	r1, r6
  2188 004a 2846     		mov	r0, r5
  2189 004c FFF7FEFF 		bl	__aeabi_fsub
  2190              	.LVL276:
- 420:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Id_Error = Id_Bias - Last_Id_Bias;
+ 420:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Id_Error = Id_Bias - Last_Id_Bias;
  2191              		.loc 1 420 2 is_stmt 1 view .LVU525
  2192              		.loc 1 420 11 is_stmt 0 view .LVU526
  2193 0050 0021     		movs	r1, #0
@@ -2856,8 +2856,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2196              		.loc 1 420 11 view .LVU527
  2197 0056 0546     		mov	r5, r0
  2198              	.LVL278:
- 421:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	
- 422:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Id_Sum += Id_Error;		/* Ki积分累积 */
+ 421:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	
+ 422:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Id_Sum += Id_Error;		/* Ki积分累积 */
  2199              		.loc 1 422 2 is_stmt 1 view .LVU528
  2200              		.loc 1 422 9 is_stmt 0 view .LVU529
  2201 0058 0021     		movs	r1, #0
@@ -2866,8 +2866,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2204              		.loc 1 422 9 view .LVU530
  2205 005e 0646     		mov	r6, r0
  2206              	.LVL280:
- 423:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 424:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Id_ref = Kp*Id_Error + Ki*Id_Sum;
+ 423:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 424:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Id_ref = Kp*Id_Error + Ki*Id_Sum;
  2207              		.loc 1 424 2 is_stmt 1 view .LVU531
  2208              		.loc 1 424 13 is_stmt 0 view .LVU532
  2209 0060 2946     		mov	r1, r5
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2214              	.LVL282:
  2215 0068 0546     		mov	r5, r0
  2216              	.LVL283:
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 49
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 49
 
 
  2217              		.loc 1 424 27 view .LVU534
@@ -2895,15 +2895,15 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2228              		.loc 1 424 9 view .LVU536
  2229 007c 064B     		ldr	r3, .L117+4
  2230 007e 1860     		str	r0, [r3]	@ float
- 425:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 426:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	LimitAmp(Id_ref,1.0f,-1.0f);	/* 积分限幅 */
+ 425:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 426:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	LimitAmp(Id_ref,1.0f,-1.0f);	/* 积分限幅 */
  2231              		.loc 1 426 2 is_stmt 1 view .LVU537
- 427:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 428:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Last_Id_Bias = Id_Bias;	
+ 427:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 428:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Last_Id_Bias = Id_Bias;	
  2232              		.loc 1 428 2 view .LVU538
  2233              	.LVL286:
- 429:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 430:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.theta = Current_DQ.theta;
+ 429:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 430:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	test_DQ.theta = Current_DQ.theta;
  2234              		.loc 1 430 2 view .LVU539
  2235              		.loc 1 430 28 is_stmt 0 view .LVU540
  2236 0080 064B     		ldr	r3, .L117+8
@@ -2911,16 +2911,16 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2238              		.loc 1 430 16 view .LVU541
  2239 0084 064B     		ldr	r3, .L117+12
  2240 0086 9A60     		str	r2, [r3, #8]	@ float
- 431:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 432:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	// test_DQ.theta = Get_FOCAngle();
- 433:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	// test_theta = Get_CalibraAngle(120.0f)*PI/180;
- 434:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 435:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	FOC_SVPWM(Iq_ref,Id_ref);
+ 431:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 432:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	// test_DQ.theta = Get_FOCAngle();
+ 433:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	// test_theta = Get_CalibraAngle(120.0f)*PI/180;
+ 434:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 435:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	FOC_SVPWM(Iq_ref,Id_ref);
  2241              		.loc 1 435 2 is_stmt 1 view .LVU542
  2242 0088 2046     		mov	r0, r4
  2243 008a FFF7FEFF 		bl	FOC_SVPWM
  2244              	.LVL287:
- 436:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 436:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  2245              		.loc 1 436 1 is_stmt 0 view .LVU543
  2246 008e BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
  2247              	.LVL288:
@@ -2938,17 +2938,17 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2260              		.align	1
  2261              		.global	Iq_FOCctrl
  2262              		.syntax unified
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 50
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 50
 
 
  2263              		.thumb
  2264              		.thumb_func
  2266              	Iq_FOCctrl:
  2267              	.LFB86:
- 437:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 438:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* FOC电流环闭环控制 */
- 439:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Iq_FOCctrl(void)
- 440:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 437:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 438:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* FOC电流环闭环控制 */
+ 439:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void Iq_FOCctrl(void)
+ 440:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  2268              		.loc 1 440 1 is_stmt 1 view -0
  2269              		.cfi_startproc
  2270              		@ args = 0, pretend = 0, frame = 0
@@ -2960,12 +2960,12 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2276 0002 83B0     		sub	sp, sp, #12
  2277              	.LCFI23:
  2278              		.cfi_def_cfa_offset 16
- 441:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	I_Feedback_Sample();  /* q轴电流以及d轴电流采样 */
+ 441:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	I_Feedback_Sample();  /* q轴电流以及d轴电流采样 */
  2279              		.loc 1 441 2 view .LVU546
  2280 0004 FFF7FEFF 		bl	I_Feedback_Sample
  2281              	.LVL289:
- 442:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 443:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Current_PID_Ctrl(Current_DQ.I_q,3.5f,Current_DQ.I_d,1.0f,0.5f,0.0f);		/* PID闭环控制 */
+ 442:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 443:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Current_PID_Ctrl(Current_DQ.I_q,3.5f,Current_DQ.I_d,1.0f,0.5f,0.0f);		/* PID闭环控制 */
  2282              		.loc 1 443 2 view .LVU547
  2283 0008 0748     		ldr	r0, .L121
  2284 000a 0023     		movs	r3, #0
@@ -2978,7 +2978,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2291 001c 4068     		ldr	r0, [r0, #4]	@ float
  2292 001e FFF7FEFF 		bl	Current_PID_Ctrl
  2293              	.LVL290:
- 444:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 444:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  2294              		.loc 1 444 1 is_stmt 0 view .LVU548
  2295 0022 03B0     		add	sp, sp, #12
  2296              	.LCFI24:
@@ -2998,16 +2998,16 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2311              		.syntax unified
  2312              		.thumb
  2313              		.thumb_func
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 51
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 51
 
 
  2315              	Speed_PID_Ctrl:
  2316              	.LVL291:
  2317              	.LFB87:
- 445:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 446:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* 速度环pid */
- 447:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Speed_PID_Ctrl(Str_pid* ctrl)
- 448:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 445:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 446:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* 速度环pid */
+ 447:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void Speed_PID_Ctrl(Str_pid* ctrl)
+ 448:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  2318              		.loc 1 448 1 is_stmt 1 view -0
  2319              		.cfi_startproc
  2320              		@ args = 0, pretend = 0, frame = 0
@@ -3023,7 +3023,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2330              		.cfi_offset 7, -8
  2331              		.cfi_offset 14, -4
  2332 0002 0446     		mov	r4, r0
- 449:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	ctrl->erro = ctrl->target-ctrl->now;
+ 449:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	ctrl->erro = ctrl->target-ctrl->now;
  2333              		.loc 1 449 2 is_stmt 1 view .LVU551
  2334              		.loc 1 449 27 is_stmt 0 view .LVU552
  2335 0004 8169     		ldr	r1, [r0, #24]	@ float
@@ -3035,8 +3035,8 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2341 000c 0546     		mov	r5, r0
  2342              		.loc 1 449 13 view .LVU554
  2343 000e 2061     		str	r0, [r4, #16]	@ float
- 450:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 451:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	ctrl->i_sum += ctrl->erro;
+ 450:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 451:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	ctrl->i_sum += ctrl->erro;
  2344              		.loc 1 451 2 is_stmt 1 view .LVU555
  2345              		.loc 1 451 14 is_stmt 0 view .LVU556
  2346 0010 E169     		ldr	r1, [r4, #28]	@ float
@@ -3044,7 +3044,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2348              	.LVL294:
  2349 0016 0646     		mov	r6, r0
  2350 0018 E061     		str	r0, [r4, #28]	@ float
- 452:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	ctrl->out = ctrl->Kp*(ctrl->erro-ctrl->erro_last)+ctrl->Ki*ctrl->i_sum;
+ 452:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	ctrl->out = ctrl->Kp*(ctrl->erro-ctrl->erro_last)+ctrl->Ki*ctrl->i_sum;
  2351              		.loc 1 452 2 is_stmt 1 view .LVU557
  2352              		.loc 1 452 18 is_stmt 0 view .LVU558
  2353 001a 2768     		ldr	r7, [r4]	@ float
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2361 0026 3846     		mov	r0, r7
  2362 0028 FFF7FEFF 		bl	__aeabi_fmul
  2363              	.LVL296:
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 52
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 52
 
 
  2364 002c 0746     		mov	r7, r0
@@ -3074,7 +3074,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2374              	.LVL298:
  2375              		.loc 1 452 12 view .LVU563
  2376 003e 2062     		str	r0, [r4, #32]	@ float
- 453:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	ctrl->out = LimitAmp(ctrl->out,3.0f,-3.0f);		/* 限幅部分 */
+ 453:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	ctrl->out = LimitAmp(ctrl->out,3.0f,-3.0f);		/* 限幅部分 */
  2377              		.loc 1 453 2 is_stmt 1 view .LVU564
  2378              		.loc 1 453 14 is_stmt 0 view .LVU565
  2379 0040 034A     		ldr	r2, .L125
@@ -3083,12 +3083,12 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2382              	.LVL299:
  2383              		.loc 1 453 12 view .LVU566
  2384 0048 2062     		str	r0, [r4, #32]	@ float
- 454:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 455:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	ctrl->erro_last = ctrl->erro;
+ 454:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 455:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	ctrl->erro_last = ctrl->erro;
  2385              		.loc 1 455 2 is_stmt 1 view .LVU567
  2386              		.loc 1 455 18 is_stmt 0 view .LVU568
  2387 004a 6561     		str	r5, [r4, #20]	@ float
- 456:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 456:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  2388              		.loc 1 456 1 view .LVU569
  2389 004c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
  2390              	.LVL300:
@@ -3108,23 +3108,23 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2405              		.thumb_func
  2407              	Speed_FOC_Ctrl:
  2408              	.LFB88:
- 457:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 458:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** /* FOC速度环(无电流内环) */
- 459:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** void Speed_FOC_Ctrl(void)
- 460:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** {
+ 457:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 458:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** /* FOC速度环(无电流内环) */
+ 459:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** void Speed_FOC_Ctrl(void)
+ 460:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** {
  2409              		.loc 1 460 1 is_stmt 1 view -0
  2410              		.cfi_startproc
  2411              		@ args = 0, pretend = 0, frame = 0
  2412              		@ frame_needed = 0, uses_anonymous_args = 0
  2413 0000 10B5     		push	{r4, lr}
  2414              	.LCFI26:
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 53
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 53
 
 
  2415              		.cfi_def_cfa_offset 8
  2416              		.cfi_offset 4, -8
  2417              		.cfi_offset 14, -4
- 461:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Speed_pid.now = Get_AngleSpeed();/* 计算电机实际角速度 */
+ 461:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Speed_pid.now = Get_AngleSpeed();/* 计算电机实际角速度 */
  2418              		.loc 1 461 2 view .LVU572
  2419              		.loc 1 461 18 is_stmt 0 view .LVU573
  2420 0002 FFF7FEFF 		bl	Get_AngleSpeed
@@ -3132,24 +3132,24 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2422              		.loc 1 461 16 view .LVU574
  2423 0006 064C     		ldr	r4, .L129
  2424 0008 A061     		str	r0, [r4, #24]	@ float
- 462:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Speed_pid.target=12.5f;			/* 目标速度 */
+ 462:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Speed_pid.target=12.5f;			/* 目标速度 */
  2425              		.loc 1 462 2 is_stmt 1 view .LVU575
  2426              		.loc 1 462 18 is_stmt 0 view .LVU576
  2427 000a 064B     		ldr	r3, .L129+4
  2428 000c E360     		str	r3, [r4, #12]	@ float
- 463:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
- 464:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	Speed_PID_Ctrl(&Speed_pid);		/* 闭环控制 */
+ 463:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
+ 464:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	Speed_PID_Ctrl(&Speed_pid);		/* 闭环控制 */
  2429              		.loc 1 464 2 is_stmt 1 view .LVU577
  2430 000e 2046     		mov	r0, r4
  2431 0010 FFF7FEFF 		bl	Speed_PID_Ctrl
  2432              	.LVL302:
- 465:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	FOC_Mode(Speed_pid.out,0.0f);	/* FOC矢量控制 */
+ 465:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	FOC_Mode(Speed_pid.out,0.0f);	/* FOC矢量控制 */
  2433              		.loc 1 465 2 view .LVU578
  2434 0014 0021     		movs	r1, #0
  2435 0016 206A     		ldr	r0, [r4, #32]	@ float
  2436 0018 FFF7FEFF 		bl	FOC_Mode
  2437              	.LVL303:
- 466:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** }
+ 466:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** }
  2438              		.loc 1 466 1 is_stmt 0 view .LVU579
  2439 001c 10BD     		pop	{r4, pc}
  2440              	.L130:
@@ -3168,57 +3168,57 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2455              	HAL_TIM_PeriodElapsedCallback:
  2456              	.LVL304:
  2457              	.LFB79:
- 304:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	if(htim->Instance == TIM3)
+ 304:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	if(htim->Instance == TIM3)
  2458              		.loc 1 304 1 is_stmt 1 view -0
  2459              		.cfi_startproc
  2460              		@ args = 0, pretend = 0, frame = 0
  2461              		@ frame_needed = 0, uses_anonymous_args = 0
- 304:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	if(htim->Instance == TIM3)
+ 304:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	if(htim->Instance == TIM3)
  2462              		.loc 1 304 1 is_stmt 0 view .LVU581
  2463 0000 08B5     		push	{r3, lr}
  2464              	.LCFI27:
  2465              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 54
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 54
 
 
  2466              		.cfi_offset 3, -8
  2467              		.cfi_offset 14, -4
- 305:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	{
+ 305:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	{
  2468              		.loc 1 305 2 is_stmt 1 view .LVU582
- 305:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	{
+ 305:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	{
  2469              		.loc 1 305 9 is_stmt 0 view .LVU583
  2470 0002 0268     		ldr	r2, [r0]
- 305:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 	{
+ 305:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 	{
  2471              		.loc 1 305 4 view .LVU584
  2472 0004 054B     		ldr	r3, .L135
  2473 0006 9A42     		cmp	r2, r3
  2474 0008 00D0     		beq	.L134
  2475              	.LVL305:
  2476              	.L131:
- 318:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 318:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
  2477              		.loc 1 318 1 view .LVU585
  2478 000a 08BD     		pop	{r3, pc}
  2479              	.LVL306:
  2480              	.L134:
  2481              	.LBB3:
- 309:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// test_speed = Get_AngleSpeed();
+ 309:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		// test_speed = Get_AngleSpeed();
  2482              		.loc 1 309 3 is_stmt 1 view .LVU586
- 309:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// test_speed = Get_AngleSpeed();
+ 309:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		// test_speed = Get_AngleSpeed();
  2483              		.loc 1 309 25 is_stmt 0 view .LVU587
  2484 000c 044B     		ldr	r3, .L135+4
  2485 000e 9A69     		ldr	r2, [r3, #24]	@ float
- 309:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 		// test_speed = Get_AngleSpeed();
+ 309:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 		// test_speed = Get_AngleSpeed();
  2486              		.loc 1 309 14 view .LVU588
  2487 0010 044B     		ldr	r3, .L135+8
  2488 0012 1A60     		str	r2, [r3]	@ float
- 311:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 311:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
  2489              		.loc 1 311 3 is_stmt 1 view .LVU589
  2490 0014 FFF7FEFF 		bl	Speed_FOC_Ctrl
  2491              	.LVL307:
- 311:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 311:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
  2492              		.loc 1 311 3 is_stmt 0 view .LVU590
  2493              	.LBE3:
- 318:E:/study/New_Study/My_FOC/FOC\PMSM_FOC.c **** 
+ 318:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\PMSM_FOC.c **** 
  2494              		.loc 1 318 1 view .LVU591
  2495 0018 F7E7     		b	.L131
  2496              	.L136:
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2511              		.global	test_AB
  2512              		.global	Current_DQ
  2513              		.global	test_DQ
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 55
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 55
 
 
  2514              		.global	Current_abc
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2578              	Last_Timesamp:
  2579 0000 00000000 		.space	4
  2580              		.section	.bss.Last_y,"aw",%nobits
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 56
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 56
 
 
  2581              		.align	2
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2640              	test_ctrl:
  2641 0000 00000000 		.space	40
  2641      00000000 
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 57
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 57
 
 
  2641      00000000 
@@ -3389,131 +3389,131 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 1
  2670              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
  2671              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h"
  2672              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
- 2673              		.file 11 "E:/study/New_Study/My_FOC/FOC/AS5600.h"
+ 2673              		.file 11 "E:/MCU_Project/stm32/FOC_project/My_FOC/FOC/AS5600.h"
  2674              		.file 12 "Core/Inc/adc.h"
- 2675              		.file 13 "E:/study/New_Study/My_FOC/FOC/PMSM_FOC.h"
+ 2675              		.file 13 "E:/MCU_Project/stm32/FOC_project/My_FOC/FOC/PMSM_FOC.h"
  2676              		.file 14 "d:\\stm32_vscode_bag\\gnu\\arm-none-eabi\\include\\math.h"
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 58
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 58
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 PMSM_FOC.c
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:22     .text.Park_transit:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:28     .text.Park_transit:00000000 Park_transit
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:159    .text.Rev_Park:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:165    .text.Rev_Park:00000000 Rev_Park
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:306    .text.clark_transit:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:312    .text.clark_transit:00000000 clark_transit
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:393    .text.clark_transit:0000005c $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:400    .text.Rev_clark:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:406    .text.Rev_clark:00000000 Rev_clark
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:475    .text.Rev_clark:00000048 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:481    .text.CalculateSector:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:487    .text.CalculateSector:00000000 CalculateSector
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:640    .text.CalculateSector:000000a6 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:647    .text.CalculateSector:000000ac $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:735    .text.CalculateSector:000000e0 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:742    .text.CalulateDutyCycle:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:748    .text.CalulateDutyCycle:00000000 CalulateDutyCycle
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:778    .text.CalulateDutyCycle:00000014 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:784    .text.CalulateDutyCycle:0000001a $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:909    .text.CalulateDutyCycle:000000c8 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:916    .text.CalulateDutyCycle:000000ce $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1127   .text.CalulateDutyCycle:00000174 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1133   .text.FOC_SVPWM:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1139   .text.FOC_SVPWM:00000000 FOC_SVPWM
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1207   .text.FOC_SVPWM:00000048 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1216   .text.Open_PMSM_FOC:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1222   .text.Open_PMSM_FOC:00000000 Open_PMSM_FOC
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1267   .text.Open_PMSM_FOC:00000038 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1275   .text.FOC_Mode:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1281   .text.FOC_Mode:00000000 FOC_Mode
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1328   .text.FOC_Mode:00000028 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1336   .text.Set_ZeroAngle:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1342   .text.Set_ZeroAngle:00000000 Set_ZeroAngle
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1379   .text.Set_ZeroAngle:00000020 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1387   .text.Get_FOCAngle:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1393   .text.Get_FOCAngle:00000000 Get_FOCAngle
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1433   .text.Get_FOCAngle:00000028 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1441   .text.Lowpassfilter_sim:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1447   .text.Lowpassfilter_sim:00000000 Lowpassfilter_sim
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1506   .text.Lowpassfilter_sim:00000040 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1517   .text.Lowpassfilter:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1523   .text.Lowpassfilter:00000000 Lowpassfilter
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1694   .text.Lowpassfilter:000000c8 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1705   .text.LimitAmp:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1711   .text.LimitAmp:00000000 LimitAmp
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1761   .text.I_Feedback_Sample:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1767   .text.I_Feedback_Sample:00000000 I_Feedback_Sample
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1935   .text.I_Feedback_Sample:00000100 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1955   .text.Check_DriftOffsets:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:1961   .text.Check_DriftOffsets:00000000 Check_DriftOffsets
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2090   .text.Check_DriftOffsets:000000a0 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2100   .text.Current_PID_Ctrl:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2106   .text.Current_PID_Ctrl:00000000 Current_PID_Ctrl
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2252   .text.Current_PID_Ctrl:00000094 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2260   .text.Iq_FOCctrl:00000000 $t
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 59
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:22     .text.Park_transit:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:28     .text.Park_transit:00000000 Park_transit
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:159    .text.Rev_Park:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:165    .text.Rev_Park:00000000 Rev_Park
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:306    .text.clark_transit:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:312    .text.clark_transit:00000000 clark_transit
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:393    .text.clark_transit:0000005c $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:400    .text.Rev_clark:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:406    .text.Rev_clark:00000000 Rev_clark
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:475    .text.Rev_clark:00000048 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:481    .text.CalculateSector:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:487    .text.CalculateSector:00000000 CalculateSector
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:640    .text.CalculateSector:000000a6 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:647    .text.CalculateSector:000000ac $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:735    .text.CalculateSector:000000e0 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:742    .text.CalulateDutyCycle:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:748    .text.CalulateDutyCycle:00000000 CalulateDutyCycle
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:778    .text.CalulateDutyCycle:00000014 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:784    .text.CalulateDutyCycle:0000001a $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:909    .text.CalulateDutyCycle:000000c8 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:916    .text.CalulateDutyCycle:000000ce $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1127   .text.CalulateDutyCycle:00000174 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1133   .text.FOC_SVPWM:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1139   .text.FOC_SVPWM:00000000 FOC_SVPWM
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1207   .text.FOC_SVPWM:00000048 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1216   .text.Open_PMSM_FOC:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1222   .text.Open_PMSM_FOC:00000000 Open_PMSM_FOC
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1267   .text.Open_PMSM_FOC:00000038 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1275   .text.FOC_Mode:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1281   .text.FOC_Mode:00000000 FOC_Mode
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1328   .text.FOC_Mode:00000028 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1336   .text.Set_ZeroAngle:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1342   .text.Set_ZeroAngle:00000000 Set_ZeroAngle
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1379   .text.Set_ZeroAngle:00000020 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1387   .text.Get_FOCAngle:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1393   .text.Get_FOCAngle:00000000 Get_FOCAngle
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1433   .text.Get_FOCAngle:00000028 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1441   .text.Lowpassfilter_sim:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1447   .text.Lowpassfilter_sim:00000000 Lowpassfilter_sim
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1506   .text.Lowpassfilter_sim:00000040 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1517   .text.Lowpassfilter:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1523   .text.Lowpassfilter:00000000 Lowpassfilter
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1694   .text.Lowpassfilter:000000c8 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1705   .text.LimitAmp:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1711   .text.LimitAmp:00000000 LimitAmp
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1761   .text.I_Feedback_Sample:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1767   .text.I_Feedback_Sample:00000000 I_Feedback_Sample
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1935   .text.I_Feedback_Sample:00000100 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1955   .text.Check_DriftOffsets:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:1961   .text.Check_DriftOffsets:00000000 Check_DriftOffsets
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2090   .text.Check_DriftOffsets:000000a0 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2100   .text.Current_PID_Ctrl:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2106   .text.Current_PID_Ctrl:00000000 Current_PID_Ctrl
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2252   .text.Current_PID_Ctrl:00000094 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2260   .text.Iq_FOCctrl:00000000 $t
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 59
 
 
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2266   .text.Iq_FOCctrl:00000000 Iq_FOCctrl
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2303   .text.Iq_FOCctrl:00000028 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2309   .text.Speed_PID_Ctrl:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2315   .text.Speed_PID_Ctrl:00000000 Speed_PID_Ctrl
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2395   .text.Speed_PID_Ctrl:00000050 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2401   .text.Speed_FOC_Ctrl:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2407   .text.Speed_FOC_Ctrl:00000000 Speed_FOC_Ctrl
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2443   .text.Speed_FOC_Ctrl:00000020 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2449   .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2455   .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2499   .text.HAL_TIM_PeriodElapsedCallback:0000001c $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2585   .bss.Last_y:00000000 Last_y
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2578   .bss.Last_Timesamp:00000000 Last_Timesamp
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2660   .bss.y:00000000 y
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2633   .bss.test_Duty:00000000 test_Duty
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2640   .bss.test_ctrl:00000000 test_ctrl
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2537   .bss.Current_AB:00000000 Current_AB
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2619   .bss.test_AB:00000000 test_AB
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2544   .bss.Current_DQ:00000000 Current_DQ
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2626   .bss.test_DQ:00000000 test_DQ
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2551   .bss.Current_abc:00000000 Current_abc
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2598   .bss.Position_pid:00000000 Position_pid
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2605   .bss.Speed_pid:00000000 Speed_pid
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2647   .bss.test_speed:00000000 test_speed
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2653   .bss.test_theta:00000000 test_theta
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2612   .bss.ZeroAngle_ref:00000000 ZeroAngle_ref
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2557   .bss.Current_theta:00000000 Current_theta
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2564   .bss.Id_ref:00000000 Id_ref
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2571   .bss.Iq_ref:00000000 Iq_ref
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2530   .bss.Amp_Offset:00000000 Amp_Offset
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2592   .bss.MyADC_Value:00000000 MyADC_Value
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2526   .bss.Amp_Offset:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2533   .bss.Current_AB:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2540   .bss.Current_DQ:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2547   .bss.Current_abc:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2554   .bss.Current_theta:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2560   .bss.Id_ref:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2567   .bss.Iq_ref:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2574   .bss.Last_Timesamp:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2581   .bss.Last_y:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2588   .bss.MyADC_Value:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2595   .bss.Position_pid:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2601   .bss.Speed_pid:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2608   .bss.ZeroAngle_ref:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2615   .bss.test_AB:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2622   .bss.test_DQ:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2629   .bss.test_Duty:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2636   .bss.test_ctrl:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2643   .bss.test_speed:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2650   .bss.test_theta:00000000 $d
-C:\Users\86390\AppData\Local\Temp\cchH8alX.s:2656   .bss.y:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2266   .text.Iq_FOCctrl:00000000 Iq_FOCctrl
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2303   .text.Iq_FOCctrl:00000028 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2309   .text.Speed_PID_Ctrl:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2315   .text.Speed_PID_Ctrl:00000000 Speed_PID_Ctrl
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2395   .text.Speed_PID_Ctrl:00000050 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2401   .text.Speed_FOC_Ctrl:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2407   .text.Speed_FOC_Ctrl:00000000 Speed_FOC_Ctrl
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2443   .text.Speed_FOC_Ctrl:00000020 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2449   .text.HAL_TIM_PeriodElapsedCallback:00000000 $t
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2455   .text.HAL_TIM_PeriodElapsedCallback:00000000 HAL_TIM_PeriodElapsedCallback
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2499   .text.HAL_TIM_PeriodElapsedCallback:0000001c $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2585   .bss.Last_y:00000000 Last_y
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2578   .bss.Last_Timesamp:00000000 Last_Timesamp
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2660   .bss.y:00000000 y
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2633   .bss.test_Duty:00000000 test_Duty
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2640   .bss.test_ctrl:00000000 test_ctrl
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2537   .bss.Current_AB:00000000 Current_AB
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2619   .bss.test_AB:00000000 test_AB
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2544   .bss.Current_DQ:00000000 Current_DQ
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2626   .bss.test_DQ:00000000 test_DQ
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2551   .bss.Current_abc:00000000 Current_abc
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2598   .bss.Position_pid:00000000 Position_pid
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2605   .bss.Speed_pid:00000000 Speed_pid
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2647   .bss.test_speed:00000000 test_speed
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2653   .bss.test_theta:00000000 test_theta
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2612   .bss.ZeroAngle_ref:00000000 ZeroAngle_ref
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2557   .bss.Current_theta:00000000 Current_theta
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2564   .bss.Id_ref:00000000 Id_ref
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2571   .bss.Iq_ref:00000000 Iq_ref
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2530   .bss.Amp_Offset:00000000 Amp_Offset
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2592   .bss.MyADC_Value:00000000 MyADC_Value
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2526   .bss.Amp_Offset:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2533   .bss.Current_AB:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2540   .bss.Current_DQ:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2547   .bss.Current_abc:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2554   .bss.Current_theta:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2560   .bss.Id_ref:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2567   .bss.Iq_ref:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2574   .bss.Last_Timesamp:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2581   .bss.Last_y:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2588   .bss.MyADC_Value:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2595   .bss.Position_pid:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2601   .bss.Speed_pid:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2608   .bss.ZeroAngle_ref:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2615   .bss.test_AB:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2622   .bss.test_DQ:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2629   .bss.test_Duty:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2636   .bss.test_ctrl:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2643   .bss.test_speed:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2650   .bss.test_theta:00000000 $d
+C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s:2656   .bss.y:00000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_f2d
 __aeabi_dmul
 __aeabi_dadd
 __aeabi_d2f
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cchH8alX.s 			page 60
+ARM GAS  C:\Users\86390\AppData\Local\Temp\ccJE2xhh.s 			page 60
 
 
 sin

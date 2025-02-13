@@ -1,5 +1,6 @@
-build/Master_PC.o: E:/study/New_Study/My_FOC/VOFA/Master_PC.c \
- E:/study/New_Study/My_FOC/VOFA/Master_PC.h \
+build/Master_PC.o: \
+ E:/MCU_Project/stm32/FOC_project/My_FOC/VOFA/Master_PC.c \
+ E:/MCU_Project/stm32/FOC_project/My_FOC/VOFA/Master_PC.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  Core/Inc/stm32f1xx_hal_conf.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -26,7 +27,7 @@ build/Master_PC.o: E:/study/New_Study/My_FOC/VOFA/Master_PC.c \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
-E:/study/New_Study/My_FOC/VOFA/Master_PC.h:
+E:/MCU_Project/stm32/FOC_project/My_FOC/VOFA/Master_PC.h:
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 Core/Inc/stm32f1xx_hal_conf.h:
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:

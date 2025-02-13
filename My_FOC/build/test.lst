@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cckSkApY.s 			page 1
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc4Fiq4j.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -26,14 +26,14 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cckSkApY.s 			page 1
   24              	_write:
   25              	.LVL0:
   26              	.LFB68:
-  27              		.file 1 "E:/study/New_Study/My_FOC/FOC/test.c"
-   1:E:/study/New_Study/My_FOC/FOC\test.c **** #include "test.h"
-   2:E:/study/New_Study/My_FOC/FOC\test.c **** 
-   3:E:/study/New_Study/My_FOC/FOC\test.c **** /* 蓝牙调试部分 */
-   4:E:/study/New_Study/My_FOC/FOC\test.c **** 
-   5:E:/study/New_Study/My_FOC/FOC\test.c **** /*vscode使用printf重定向*/
-   6:E:/study/New_Study/My_FOC/FOC\test.c **** int _write(int fd, char *pBuffer, int size)
-   7:E:/study/New_Study/My_FOC/FOC\test.c **** {
+  27              		.file 1 "E:/MCU_Project/stm32/FOC_project/My_FOC/FOC/test.c"
+   1:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c **** #include "test.h"
+   2:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c **** 
+   3:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c **** /* 蓝牙调试部分 */
+   4:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c **** 
+   5:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c **** /*vscode使用printf重定向*/
+   6:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c **** int _write(int fd, char *pBuffer, int size)
+   7:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c **** {
   28              		.loc 1 7 1 view -0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
@@ -45,20 +45,20 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cckSkApY.s 			page 1
   36              		.cfi_offset 4, -8
   37              		.cfi_offset 14, -4
   38 0002 1446     		mov	r4, r2
-   8:E:/study/New_Study/My_FOC/FOC\test.c ****     // for (int i = 0; i < size; i++)
-   9:E:/study/New_Study/My_FOC/FOC\test.c ****     // {
-  10:E:/study/New_Study/My_FOC/FOC\test.c ****     //     while ((USART1->SR & 0X40) == 0)
-  11:E:/study/New_Study/My_FOC/FOC\test.c ****     //         ;                     //等待上一次串口数据发送完成
-  12:E:/study/New_Study/My_FOC/FOC\test.c ****     //     USART1->DR = (u8)pBuffer; //写DR,串口1将发送数据
-  13:E:/study/New_Study/My_FOC/FOC\test.c ****     // }
-  14:E:/study/New_Study/My_FOC/FOC\test.c ****     while (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_TC) == 0);
+   8:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c ****     // for (int i = 0; i < size; i++)
+   9:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c ****     // {
+  10:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c ****     //     while ((USART1->SR & 0X40) == 0)
+  11:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c ****     //         ;                     //等待上一次串口数据发送完成
+  12:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c ****     //     USART1->DR = (u8)pBuffer; //写DR,串口1将发送数据
+  13:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c ****     // }
+  14:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c ****     while (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_TC) == 0);
   39              		.loc 1 14 5 is_stmt 1 view .LVU2
   40              	.L2:
   41              		.loc 1 14 60 discriminator 1 view .LVU3
   42              		.loc 1 14 11 discriminator 1 view .LVU4
   43              		.loc 1 14 12 is_stmt 0 discriminator 1 view .LVU5
   44 0004 064B     		ldr	r3, .L4
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cckSkApY.s 			page 2
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc4Fiq4j.s 			page 2
 
 
   45 0006 1B68     		ldr	r3, [r3]
@@ -66,7 +66,7 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cckSkApY.s 			page 1
   47              		.loc 1 14 11 discriminator 1 view .LVU6
   48 000a 13F0400F 		tst	r3, #64
   49 000e F9D0     		beq	.L2
-  15:E:/study/New_Study/My_FOC/FOC\test.c ****     HAL_UART_Transmit(&huart1, (uint8_t *)pBuffer, size, 0xff);
+  15:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c ****     HAL_UART_Transmit(&huart1, (uint8_t *)pBuffer, size, 0xff);
   50              		.loc 1 15 5 is_stmt 1 view .LVU7
   51 0010 FF23     		movs	r3, #255
   52 0012 A2B2     		uxth	r2, r4
@@ -77,9 +77,9 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cckSkApY.s 			page 1
   57              		.loc 1 15 5 view .LVU9
   58 0016 FFF7FEFF 		bl	HAL_UART_Transmit
   59              	.LVL3:
-  16:E:/study/New_Study/My_FOC/FOC\test.c ****     return size;
+  16:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c ****     return size;
   60              		.loc 1 16 5 is_stmt 1 view .LVU10
-  17:E:/study/New_Study/My_FOC/FOC\test.c **** }
+  17:E:/MCU_Project/stm32/FOC_project/My_FOC/FOC\test.c **** }
   61              		.loc 1 17 1 is_stmt 0 view .LVU11
   62 001a 2046     		mov	r0, r4
   63 001c 10BD     		pop	{r4, pc}
@@ -100,14 +100,14 @@ ARM GAS  C:\Users\86390\AppData\Local\Temp\cckSkApY.s 			page 1
   79              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
   80              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
   81              		.file 8 "Core/Inc/main.h"
-ARM GAS  C:\Users\86390\AppData\Local\Temp\cckSkApY.s 			page 3
+ARM GAS  C:\Users\86390\AppData\Local\Temp\cc4Fiq4j.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 test.c
-C:\Users\86390\AppData\Local\Temp\cckSkApY.s:18     .text._write:00000000 $t
-C:\Users\86390\AppData\Local\Temp\cckSkApY.s:24     .text._write:00000000 _write
-C:\Users\86390\AppData\Local\Temp\cckSkApY.s:69     .text._write:00000020 $d
+C:\Users\86390\AppData\Local\Temp\cc4Fiq4j.s:18     .text._write:00000000 $t
+C:\Users\86390\AppData\Local\Temp\cc4Fiq4j.s:24     .text._write:00000000 _write
+C:\Users\86390\AppData\Local\Temp\cc4Fiq4j.s:69     .text._write:00000020 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Transmit

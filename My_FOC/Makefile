@@ -15,7 +15,7 @@
 ######################################
 TARGET = My_FOC
 
-WORK_DIR=E:/study/New_Study/$(TARGET)
+WORK_DIR=E:/MCU_Project/stm32/FOC_project/$(TARGET)
 
 ######################################
 # building variables
